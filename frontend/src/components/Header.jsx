@@ -38,7 +38,6 @@ const Header = () => {
                         <Nav.Link as={Link} to="/">Work</Nav.Link>
                         <Nav.Link as={Link} to="/play">Play</Nav.Link>
                         <Nav.Link as={Link} to="/about">About</Nav.Link>
-                        <Nav.Link as={Link} to="/resume">Resume</Nav.Link>
                     </Nav>
 
                     {/* Mobile Overlay Menu */}
@@ -61,7 +60,6 @@ const Header = () => {
                             <Nav.Link as={Link} to="/" onClick={handleClose}>Work</Nav.Link>
                             <Nav.Link as={Link} to="/play" onClick={handleClose}>Play</Nav.Link>
                             <Nav.Link as={Link} to="/about" onClick={handleClose}>About</Nav.Link>
-                            <Nav.Link as={Link} to="/resume" onClick={handleClose}>Resume</Nav.Link>
                         </Nav>
                     </div>
                 </Container>

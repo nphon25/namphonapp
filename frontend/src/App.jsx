@@ -8,6 +8,9 @@ import Work from "./pages/Work";
 import About from "./pages/About";
 // import Resume from "./pages/Resume";
 
+import ProjectPage from "./pages/ProjectPage"; // ← ADD THIS
+
+
 function App() {
   return (
     <Router>
@@ -18,6 +21,11 @@ function App() {
           {/* <Route path="/play" element={<Play />} /> */}
           <Route path="/about" element={<About />} />
           {/* <Route path="/resume" element={<Resume />} /> */}
+          
+           <Route path="/project/:projectId" element={<ProjectPage />} />
+
+       
+       
         </Routes>
       </main>
       <Footer />

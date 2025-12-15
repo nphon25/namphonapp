@@ -56,16 +56,6 @@ const Footer = () => {
                         </a>
 
                         <a
-                            href="https://www.instagram.com/yourprofile"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="social-icon"
-                            aria-label="Instagram"
-                        >
-                            <FontAwesomeIcon icon={faInstagram} />
-                        </a>
-
-                        <a
                             href="mailto:namphondesign@gmail.com"
                             className="social-icon"
                             aria-label="Email"

@@ -78,7 +78,7 @@
 .project-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 2rem;
+    gap: 3rem;
     margin-top: 2.5rem;
 }
 
@@ -145,7 +145,7 @@
 @media (max-width: 900px) {
     .project-grid {
         grid-template-columns: 1fr;
-        gap: 1.75rem;
+        gap: 3rem;
     }
 
     .project-title {
@@ -173,7 +173,7 @@
     }
 
     .project-grid {
-        gap: 1.5rem;
+        gap: 3rem;
     }
 
     .project-image-wrap::before {

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import "../styles/Work.css"
+import almaGif from "../assets/ALMA/ALMA.gif";
+
 
 const Work = () => {
     const navigate = useNavigate();
@@ -46,10 +48,11 @@ const Work = () => {
                     </p>
 
                     <div className="project-grid">
+
                         {/* Project 1 - Asset Mapping Tools */}
-                        <a href="#" className="project-item">
+                        <a href="/project/alma" className="project-item">
                             <div className="project-image-wrap">
-                                <img src="src/assets/ALMA/Assets/Mock Up Area.png" alt="Asset Mapping Tools" loading="lazy" />
+                                <img src="src\assets\ALMA\ALMA.gif" alt="Asset Mapping Tools" loading="lazy" />
                             </div>
                             <div className="project-info">
                                 <h3 className="project-title">Asset Mapping Tools</h3>
@@ -58,6 +61,16 @@ const Work = () => {
                         </a>
 
                         {/* Project 2 - PCOS Awareness Campaign */}
+                        <a href="/project/pcos" className="project-item">
+                            <div className="project-image-wrap">
+                                <img src="src/assets/PCOS Awareness/assets/M003T0985 Signage Mockup 30Oct23.jpg" alt="PCOS Awareness Campaign" loading="lazy" />
+                            </div>
+                            <div className="project-info">
+                                <h3 className="project-title">PCOS Awareness Campaign</h3>
+                                <p className="project-meta">Campaign Design · Charlotte, NC</p>
+                            </div>
+                        </a>
+                     {/* Project 3 - n */}
                         <a href="#" className="project-item">
                             <div className="project-image-wrap">
                                 <img src="src/assets/PCOS Awareness/assets/M003T0985 Signage Mockup 30Oct23.jpg" alt="PCOS Awareness Campaign" loading="lazy" />
@@ -67,6 +80,19 @@ const Work = () => {
                                 <p className="project-meta">Campaign Design · Charlotte, NC</p>
                             </div>
                         </a>
+                         {/* Project 4 - */}
+                        <a href="#" className="project-item">
+                            <div className="project-image-wrap">
+                                <img src="src/assets/PCOS Awareness/assets/M003T0985 Signage Mockup 30Oct23.jpg" alt="PCOS Awareness Campaign" loading="lazy" />
+                            </div>
+                            <div className="project-info">
+                                <h3 className="project-title">PCOS Awareness Campaign</h3>
+                                <p className="project-meta">Campaign Design · Charlotte, NC</p>
+                            </div>
+                        </a>
+
+
+                        
                     </div>
                 </div>
             </section>
