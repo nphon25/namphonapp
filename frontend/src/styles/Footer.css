@@ -1,0 +1,183 @@
+/* =========================
+   FOOTER - Bootstrap Compatible
+   ========================= */
+.page-footer {
+    background: var(--bg) !important;
+    padding: 3rem 0 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    margin-top: auto;
+    font-family: "Roboto", sans-serif;
+    color: var(--text-dark);
+    line-height: 1.4;
+}
+
+/* Override Bootstrap link styles in footer */
+.page-footer a {
+    color: var(--text-dark);
+    background-color: transparent !important;
+    text-decoration: none;
+}
+
+.page-footer a:hover {
+    color: var(--primary-hover);
+}
+
+.footer-inner {
+    max-width: var(--max-width);
+}
+
+/* =========================
+   TOP ROW
+   ========================= */
+.footer-top {
+    margin-bottom: 1.5rem;
+}
+
+.footer-heading {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    color: var(--text-dark);
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.smile {
+    color: var(--accent);
+    font-size: 1.2rem;
+}
+
+/* =========================
+   SOCIAL ICONS
+   ========================= */
+.footer-social {
+    display: flex;
+    align-items: center;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: transparent;
+    border: 2px solid var(--text-light);
+    color: var(--text-light);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.social-icon i {
+    font-size: 1rem;
+}
+
+/* =========================
+   DIVIDER
+   ========================= */
+.footer-divider {
+    border: 0;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.08);
+    margin: 1.5rem 0;
+    opacity: 1;
+}
+
+/* =========================
+   BOTTOM ROW
+   ========================= */
+.footer-bottom-container {
+    margin-top: 1.5rem;
+}
+
+.copyright {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+}
+
+/* =========================
+   BACK TO TOP BUTTON
+   ========================= */
+.page-footer .back-to-top {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--text-light) !important;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.page-footer .back-to-top.visible {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+.page-footer .back-to-top:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    color: #3b6e91 !important;
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 767px) {
+    .footer-social {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    .footer-heading {
+        text-align: center;
+    }
+
+    .footer-top {
+        text-align: center;
+    }
+
+    .footer-bottom-container {
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .page-footer {
+        padding: 2.5rem 0 5rem;
+    }
+
+    .footer-bottom-container .back-to-top {
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        width: 42px;
+        height: 42px;
+        font-size: 1rem;
+        z-index: 9999;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .footer-bottom-container .back-to-top svg {
+        color: #3b6e91 !important;
+    }
+}
