@@ -1,3 +1,7 @@
+To run 
+- cd into frontend
+- npm run dev
+
 Packages
 - within frontend folder: npm i
 - Bootstrap: npm install bootstrap
