@@ -1,0 +1,194 @@
+/* Hero */
+#hero {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    padding: 2rem 0;
+    background: var(--background);
+}
+
+.hero-title {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 3.2rem;
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+    max-width: 800px;
+}
+
+.hero-name {
+    color: var(--primary-hover);
+}
+
+.hero-subtitle {
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--dark-text);
+    margin-bottom: 1.5rem;
+    opacity: 0.85;
+}
+
+.hero-text {
+    font-weight: 300;
+    font-size: 1.15rem;
+    color: var(--light-text);
+    margin-bottom: 1.75rem;
+    max-width: 900px;
+    line-height: 1.55;
+}
+
+/* Work */
+#work {
+    padding: 4rem 0 3rem;
+    background: var(--background);
+}
+
+.work-title {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-align: left;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.6rem;
+}
+
+.work-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 70px;
+    height: 4px;
+    background-color: var(--primary-hover);
+    border-radius: 2px;
+}
+
+.work-subtitle {
+    font-size: 1.1rem;
+    color: var(--light-text);
+    text-align: left;
+    margin-bottom: 2rem;
+    font-weight: 300;
+    max-width: 500px;
+    line-height: 1.5;
+}
+
+/* PROJECT GRID – 2 UP WITH TEXT BELOW */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+    margin-top: 2.5rem;
+}
+
+.project-item {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Big image like cards */
+.project-image-wrap {
+    position: relative;
+    overflow: hidden;
+    background: #e9e9e9;
+    border-radius: 8px;
+}
+
+.project-image-wrap::before {
+    content: "";
+    display: block;
+    padding-top: 70%;
+}
+
+.project-image-wrap img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* Text block under image */
+.project-info {
+    margin-top: 0.9rem;
+}
+
+.project-title {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0 0 0.25rem;
+    color: var(--dark-text);
+}
+
+.project-meta {
+    font-size: 0.9rem;
+    color: var(--light-text);
+    margin: 0;
+}
+
+/* Hover state – desktop only */
+@media (hover: hover) and (pointer: fine) {
+    .project-item:hover .project-image-wrap img {
+        transform: scale(1.04);
+    }
+
+    .project-item:hover .project-title {
+        color: var(--primary-hover);
+    }
+}
+
+@media (max-width: 900px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+    }
+
+    .project-title {
+        font-size: 1.25rem;
+    }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    #hero {
+        min-height: 60vh;
+        padding: 1.5rem 0;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .hero-text {
+        font-size: 1.05rem;
+    }
+
+    .project-grid {
+        gap: 1.5rem;
+    }
+
+    .project-image-wrap::before {
+        padding-top: 75%;
+    }
+
+    #work {
+        padding: 3rem 0 2.5rem;
+    }
+
+    .work-title {
+        font-size: 2rem;
+    }
+
+    .work-subtitle {
+        font-size: 1rem;
+    }
+}
