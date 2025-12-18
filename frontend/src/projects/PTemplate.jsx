@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { Link } from "react-router-dom";
 import "../styles/project.css";
 import ScrollSpyNav from "../components/ScrollSpyNav";
 
@@ -22,36 +23,24 @@ const PTemplate = ({ project }) => {
     );
   }
 
-  /**
-   * ✅ Toggle scrollspy per project AND auto-hide if only 1 item
-   * If you'd rather require explicit true, use:
-   * const showScrollSpy = project.scrollSpy && navItems.length > 1;
-   True = scrollspy
-   False = No scrollspy
-
-  
-  */
-
-
-  const showScrollSpy = (project.scrollSpy ?? true ) && navItems.length > 1;
+  const showScrollSpy = (project.scrollSpy ?? true) && navItems.length > 1;
 
   return (
     <main>
       {/* HERO COVER */}
       <section className="hero-image" id="hero">
-        <img
-          src={project.hero}
-          alt={project.heroAlt || `${project.title} hero`}
-        />
+        {project.hero ? (
+          <img src={project.hero} alt={project.heroAlt || `${project.title} hero`} />
+        ) : (
+          <div style={{ padding: "3rem", textAlign: "center" }}>
+            <p>Hero image missing</p>
+          </div>
+        )}
       </section>
 
-      {/* ✅ OPTIONAL SCROLLSPY NAV */}
+      {/* OPTIONAL SCROLLSPY NAV */}
       {showScrollSpy && (
-        <ScrollSpyNav
-          items={navItems}
-          offset={96}
-          rootMarginBottom="-60%"
-        />
+        <ScrollSpyNav items={navItems} offset={96} rootMarginBottom="-60%" />
       )}
 
       {/* OVERVIEW */}
@@ -103,12 +92,7 @@ const PTemplate = ({ project }) => {
             <p>{step.text}</p>
 
             <div className="process-media">
-              {step.image && (
-                <img
-                  src={step.image}
-                  alt={step.alt || step.title}
-                />
-              )}
+              {step.image && <img src={step.image} alt={step.alt || step.title} loading="lazy" />}
 
               {step.video && (
                 <video controls poster={step.poster}>
@@ -131,6 +115,7 @@ const PTemplate = ({ project }) => {
             <img
               src={project.finalDesign.mainImage}
               alt={project.finalDesign.mainAlt || "Primary final design"}
+              loading="lazy"
             />
           </div>
         )}
@@ -145,11 +130,7 @@ const PTemplate = ({ project }) => {
         {project.finalDesign?.gridImages?.length ? (
           <div className="case-image ui-grid">
             {project.finalDesign.gridImages.map((img, i) => (
-              <img
-                key={i}
-                src={img.src}
-                alt={img.alt || `Detail ${i + 1}`}
-              />
+              <img key={i} src={img.src} alt={img.alt || `Detail ${i + 1}`} loading="lazy" />
             ))}
           </div>
         ) : null}
@@ -170,20 +151,22 @@ const PTemplate = ({ project }) => {
 
         <div className="project-grid related-grid">
           {(project.relatedProjects || []).map((rp, i) => (
-            <a key={i} href={rp.href} className="project-item">
+            <Link key={i} to={rp.href} className="project-item">
               <div className="project-image-wrap">
-                <img
-                  src={rp.image}
-                  alt={rp.alt || rp.title}
-                  loading="lazy"
-                />
+                {rp.image ? (
+                  <img src={rp.image} alt={rp.alt || rp.title} loading="lazy" />
+                ) : (
+                  <div style={{ padding: "2rem", textAlign: "center" }}>
+                    <p>Image missing</p>
+                  </div>
+                )}
               </div>
 
               <div className="project-info">
                 <h3 className="project-title">{rp.title}</h3>
                 <p className="project-meta">{rp.meta}</p>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </section>

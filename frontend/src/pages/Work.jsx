@@ -70,13 +70,13 @@ const Work = () => {
                                 <p className="project-meta">Campaign Design · Charlotte, NC</p>
                             </div>
                         </a>
-                     {/* Project 3 - n */}
+                     {/* Project 3 - TP */}
                         <a href="#" className="project-item">
                             <div className="project-image-wrap">
-                                <img src="src/assets/PCOS Awareness/assets/M003T0985 Signage Mockup 30Oct23.jpg" alt="PCOS Awareness Campaign" loading="lazy" />
+                                <img src="src/assets/TP/" alt="TP" loading="lazy" />
                             </div>
                             <div className="project-info">
-                                <h3 className="project-title">PCOS Awareness Campaign</h3>
+                                <h3 className="project-title">TP</h3>
                                 <p className="project-meta">Campaign Design · Charlotte, NC</p>
                             </div>
                         </a>
