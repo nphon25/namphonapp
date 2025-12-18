@@ -6,6 +6,9 @@
 import almaHero from "../assets/ALMA/ALMA.gif";
 import pcosHero from "../assets/PCOS/main mockup.jpg";
 
+import almaProcessImage from "../assets/ALMA/Group 15.png";
+import almaWireframes from "../assets/ALMA/PNGs/Group 81.png";
+
 // =========================
 // OPTIONAL SUPPORTING IMAGES
 // (only import if files exist)
@@ -66,13 +69,13 @@ const projects = {
       {
         title: "Research & Inspiration",
         text: "Describe research, references, and context.",
-        // image: almaResearch,
+        image: almaProcessImage,
         alt: "Research placeholder",
       },
       {
         title: "Exploration & Sketches",
         text: "Sketches, layout tests, early exploration.",
-        // image: almaWireframes,
+        image: almaWireframes,
         alt: "Sketches placeholder",
       },
       {
