@@ -49,13 +49,13 @@ const Work = () => {
 
                     <div className="project-grid">
 
-                        {/* Project 1 - Asset Mapping Tools */}
+                        {/* Project 1 - ALMA */}
                         <a href="/project/alma" className="project-item">
                             <div className="project-image-wrap">
-                                <img src="src\assets\ALMA\ALMA.gif" alt="Asset Mapping Tools" loading="lazy" />
+                                <img src="src\assets\ALMA\ALMA.gif" alt="ALMA" loading="lazy" />
                             </div>
                             <div className="project-info">
-                                <h3 className="project-title">Asset Mapping Tools</h3>
+                                <h3 className="project-title">ALMA</h3>
                                 <p className="project-meta">Community-based UX/UI</p>
                             </div>
                         </a>
@@ -63,7 +63,7 @@ const Work = () => {
                         {/* Project 2 - PCOS Awareness Campaign */}
                         <a href="/project/pcos" className="project-item">
                             <div className="project-image-wrap">
-                                <img src="src/assets/PCOS Awareness/assets/M003T0985 Signage Mockup 30Oct23.jpg" alt="PCOS Awareness Campaign" loading="lazy" />
+                                <img src="src/assets/PCOS/Main Mockup.jpg" alt="PCOS Awareness Campaign" loading="lazy" />
                             </div>
                             <div className="project-info">
                                 <h3 className="project-title">PCOS Awareness Campaign</h3>

@@ -1,7 +1,9 @@
+// src/data/projects.js
+
 const projects = {
   alma: {
     title: "ALMA",
-    hero: "/assets/ALMA/ALMA.gif",
+    hero: "/assets/ALMA/Mock Up/mockup-large.jpeg",
     heroAlt: "ALMA project hero",
     scrollSpy: true,
 
@@ -9,13 +11,10 @@ const projects = {
       "Short overview of ALMA — what it is, who it’s for, and the core idea behind the design.",
 
     overviewRows: [
-      { label: "Client / Context", value: "University project" },
-      { label: "Design Brief", value: "Summarize what needed to be made and why." },
-      { label: "Audience", value: "Who the work is designed for." },
-      { label: "My Role", value: "UX/UI, research, prototyping" },
-      { label: "Deliverables", value: "Wireframes, UI, prototype" },
-      { label: "Tools", value: "Figma, Illustrator" },
-      { label: "Timeline", value: "4 weeks" },
+      { label: "Client / Context", value: "Class project" },
+      { label: "My Role", value: "Design + layout" },
+      { label: "Deliverables", value: "Posters + social graphics" },
+      { label: "Tools", value: "Illustrator, Photoshop" },
     ],
 
     brief: {
@@ -54,14 +53,8 @@ const projects = {
       mainImage: "/assets/ALMA/Assets/png/final-ui-1.jpg",
       mainAlt: "ALMA final UI",
       keyPieces: [
-        {
-          title: "Key Piece 1 — Main Screen",
-          text: "Describe what makes this screen work.",
-        },
-        {
-          title: "Key Piece 2 — Flow / System",
-          text: "Explain how the system extends.",
-        },
+        { title: "Key Piece 1 — Main Screen", text: "Describe what makes this screen work." },
+        { title: "Key Piece 2 — Flow / System", text: "Explain how the system extends." },
       ],
       gridImages: [
         { src: "/assets/ALMA/Assets/png/final-ui-2.jpg", alt: "Detail 1" },
@@ -75,25 +68,18 @@ const projects = {
 
     relatedProjects: [
       {
-        href: "/project/tp",
+        href: "/project/pcos",
         image: "/assets/ALMA/ALMA.gif",
-        alt: "TP project",
-        title: "TP",
-        meta: "Logo & Branding",
-      },
-      {
-        href: "/project/mindful",
-        image: "/assets/ALMA/ALMA.gif",
-        alt: "mindful project",
-        title: "mindful",
-        meta: "Brand Identity",
+        alt: "PCOS project",
+        title: "PCOS",
+        meta: "Awareness Campaign",
       },
     ],
   },
 
   pcos: {
     title: "PCOS Awareness Project",
-    hero: "/img/MyNewProject/hero.jpg",
+    hero: "/assets/PCOS/hero.jpg",
     heroAlt: "PCOS project hero",
     scrollSpy: false,
 
@@ -108,29 +94,27 @@ const projects = {
 
     brief: {
       background: "Background text…",
-      objectives: ["Goal 1", "Goal 2"],
+      objectives: ["Goal 1", "Goal 2", "Goal 3"],
       concept: "Core concept…",
     },
 
     processSteps: [
       {
-        title: "Research",
-        text: "What you did…",
-        image: "/img/MyNewProject/research.jpg",
+        title: "Research & Inspiration",
+        text: "What you looked at / learned.",
+        image: "/assets/PCOS/research.jpg",
         alt: "Research image",
       },
     ],
 
     finalDesign: {
-      intro: "Final design overview…",
-      mainImage: "/img/MyNewProject/final-1.jpg",
+      intro: "What the final system does.",
+      mainImage: "/assets/PCOS/final-1.jpg",
       mainAlt: "Primary final design",
-      keyPieces: [
-        { title: "Key Piece 1", text: "Explanation…" },
-      ],
+      keyPieces: [{ title: "Key Piece 1", text: "What it shows." }],
       gridImages: [
-        { src: "/img/MyNewProject/final-2.jpg", alt: "Detail 2" },
-        { src: "/img/MyNewProject/final-3.jpg", alt: "Detail 3" },
+        { src: "/assets/PCOS/final-2.jpg", alt: "Detail 2" },
+        { src: "/assets/PCOS/final-3.jpg", alt: "Detail 3" },
       ],
     },
 
@@ -140,6 +124,7 @@ const projects = {
       {
         href: "/project/alma",
         image: "/assets/ALMA/ALMA.gif",
+        alt: "ALMA project",
         title: "ALMA",
         meta: "UX/UI",
       },
