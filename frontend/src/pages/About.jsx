@@ -11,24 +11,24 @@ const About = () => {
 
                         {/* TEXT SIDE */}
                         <div className="about-info">
-                            <p className="about-role">Graphic & UX/UI Designer</p>
+                            <p className="about-role">Graphic Designer | Experience-Focused  </p>
 
                             <h1 className="about-name">
                                 Nam Phon
                                 <span className="pronunciation">(naam fohn)</span>
                             </h1>
 
-                            <p className="about-bio">
-                                I'm a graphic designer shaping clear, human-centered work. I look at the human experience when creating thoughtful design solutions, and I'm drawn to where digital and spatial design intersect. My approach is intentional and guided by curiosity, research, and the desire to craft meaningful narratives.
-                            </p>
+                           <p className="about-bio">
+                            I’m an experience-focused graphic designer with a BFA in Graphic Design. 
+                            I create clear, human-centered work by thinking about how people move through, 
+                            interact with, and understand design. I’m drawn to creating memorable design systems 
+                            and visual identities that feel intentional, thoughtful, and engaging. My approach is
+                             grounded in curiosity, research, and strong visual storytelling.
+                             </p>
+                        <p className="about-bio">
+                            Outside of design, you'll usually find me walking, photographing my cats, or recharging through small creative hobbies.
+                        </p>
 
-                            <p className="about-bio">
-                                Outside of design, you'll usually find me walking, photographing the world around me, or recharging through small creative hobbies.
-                            </p>
-
-                            <p className="about-bio">
-                                About my logo: The folder represents the experiences, knowledge, and curiosity I carry, and the pen tool symbolizes the creative power I channel into the world. I believe design is a language of connection, and it's what keeps the world moving.
-                            </p>
 
                             {/* STATS */}
                             <div className="about-stats">

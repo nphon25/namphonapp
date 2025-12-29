@@ -16,35 +16,31 @@ const Work = () => {
 
     return (
         <>
-            {/* HERO SECTION */}
-            <section id="hero">
-                <div className="container">
-                    <h1 className="hero-title">
-                        Hi, I'm <span className="hero-name">Nam :D</span>
-                    </h1>
+                      <section id="hero">
+                    <div className="container">
+                        <h1 className="hero-title">
+                            Hi, I'm <span className="hero-name">Nam :D</span>
+                        </h1>
 
-                    <p className="hero-subtitle">Graphic & UX UI Designer</p>
+                       <p className="hero-subtitle">
+                         Graphic Designer | Experience-Focused
+                        </p>
 
-                    <p className="hero-text">
-                        Delivering creative solutions with style, I design strategic visual and digital experiences that elevate brands, improve clarity, and engage real audiences from concept to execution. Check out my{' '}
-                        <a href="#work" className="scroll-link" onClick={handleScrollToWork}>
-                            work
-                        </a>{' '}
-                        or learn more{' '}
-                        <Link to="/about" className="inline-link">
-                            about me here
-                        </Link>
-                        .
-                    </p>
-                </div>
-            </section>
+                        <p className="hero-text">
+                            I create thoughtful design that connects people, ideas, and experiences.{' '}
+                            <a href="#work" className="scroll-link hero-cta" onClick={handleScrollToWork}>
+                                Explore my work.
+                            </a>
+                        </p>
+                    </div>
+                </section>
+
 
             {/* WORK SECTION */}
             <section id="work">
                 <div className="container">
                     <h2 className="work-title">My Work</h2>
                     <p className="work-subtitle">
-                        Where pixels meet purpose: my design highlights.
                     </p>
 
                     <div className="project-grid">
