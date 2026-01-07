@@ -200,6 +200,7 @@
     height: 40px;
     border-radius: 50%;
     background: transparent;
+    border: 2px solid var(--light-text);
     color: var(--light-text) !important;
     text-decoration: none;
     transition: var(--transition);
@@ -213,10 +214,15 @@
 }
 
 .page-footer .back-to-top:hover {
-    background: var(--primary-hover);
+    background: transparent;
     border-color: var(--primary-hover);
-    transform: translateY(-3px);
-    color: white !important;
+    color: var(--primary-hover) !important;
+    transform: translateY(-2px);
+}
+
+.page-footer .back-to-top svg {
+    font-size: 1rem;
+    transition: color 0.3s ease;
 }
 
 /* =========================
@@ -262,26 +268,35 @@
         top: -42px;
     }
 
+    /* Mobile: Fixed position with consistent border style */
     .footer-bottom-container .back-to-top {
         position: fixed;
         bottom: 88px;
         right: 20px;
         width: 48px;
         height: 48px;
-        font-size: 1rem;
         z-index: 9999;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-        background: var(--primary-hover);
-        border: 2px solid var(--primary-hover);
+        background: var(--background);
+        border: 2px solid var(--light-text);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
     .footer-bottom-container .back-to-top svg {
-        color: white !important;
+        color: var(--light-text) !important;
+        font-size: 1.1rem;
     }
 
     .footer-bottom-container .back-to-top:hover {
-        background: var(--primary-dark);
-        border-color: var(--primary-dark);
+        background: var(--background);
+        border-color: var(--primary-hover);
+    }
+
+    .footer-bottom-container .back-to-top:hover svg {
+        color: var(--primary-hover) !important;
+    }
+
+    .footer-bottom-container .back-to-top.visible {
+        opacity: 1;
     }
 
     body.menu-open .back-to-top {
@@ -316,5 +331,11 @@
 
     .copyright {
         font-size: 0.85rem;
+    }
+
+    .footer-bottom-container .back-to-top {
+        width: 46px;
+        height: 46px;
+        bottom: 80px;
     }
 }
