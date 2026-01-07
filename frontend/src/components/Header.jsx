@@ -41,7 +41,7 @@ const Header = () => {
     <header className="site-header">
       <Navbar expand="md" expanded={expanded} className="py-0">
         <Container className="nav-inner">
-          {/* Logo */}
+          {/* Logo - Links to Home Page */}
           <Navbar.Brand as={Link} to="/" className="nav-logo" onClick={handleClose}>
             <img src={logo} alt="Nam Phon Logo" />
           </Navbar.Brand>
@@ -63,7 +63,7 @@ const Header = () => {
           {/* Desktop Links */}
           <Nav className="ms-auto nav-links d-none d-md-flex">
             <Nav.Link href="#work" onClick={handleWorkClick}>Work</Nav.Link>
-            <Nav.Link as={Link} to="/play" onClick={handleClose}>Play</Nav.Link>
+            <Nav.Link as={Link} to="/archive" onClick={handleClose}>Archive</Nav.Link>
             <Nav.Link as={Link} to="/about" onClick={handleClose}>About</Nav.Link>
           </Nav>
 
@@ -86,7 +86,7 @@ const Header = () => {
 
             <Nav className="nav-overlay-links flex-column">
               <Nav.Link href="#work" onClick={handleWorkClick}>Work</Nav.Link>
-              <Nav.Link as={Link} to="/play" onClick={handleClose}>Play</Nav.Link>
+              <Nav.Link as={Link} to="/archive" onClick={handleClose}>Archive</Nav.Link>
               <Nav.Link as={Link} to="/about" onClick={handleClose}>About</Nav.Link>
             </Nav>
           </div>

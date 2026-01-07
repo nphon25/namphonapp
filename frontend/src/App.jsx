@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 import Work from "./pages/Work";
-import Play from "./pages/Play";
+import Archive from "./pages/Archive";
 import About from "./pages/About";
 import ProjectPage from "./pages/ProjectPage";
 
@@ -16,7 +16,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Work />} />
-          <Route path="/play" element={<Play />} />
+          <Route path="/archive" element={<Archive />} />
           <Route path="/about" element={<About />} />
           <Route path="/project/:projectId" element={<ProjectPage />} />
         </Routes>

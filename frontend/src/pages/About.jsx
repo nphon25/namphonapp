@@ -21,7 +21,6 @@ const About = () => {
                             <p className="about-bio">
                             I’m a graphic designer with a BFA in Graphic Design, based in Charlotte, NC. I’m fascinated by how people engage with design and how visuals and interfaces
                             help people understand, interact with, and connect to ideas. 
-                            With a strong foundation in graphic design, I'm focusing on creating thoughtful and human centered experiences.
                             </p>
 
                             <p className="about-bio">
