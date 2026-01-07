@@ -5,8 +5,6 @@ import React, { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Navbar, Nav, Container } from "react-bootstrap";
 
-import logo from "../assets/SVG/Asset 1.svg";
-
 const Header = () => {
   const [expanded, setExpanded] = useState(false);
   const navigate = useNavigate();
@@ -43,7 +41,7 @@ const Header = () => {
         <Container className="nav-inner">
           {/* Logo - Links to Home Page */}
           <Navbar.Brand as={Link} to="/" className="nav-logo" onClick={handleClose}>
-            <img src={logo} alt="Nam Phon Logo" />
+            <img src="/assets/SVG/Asset 1.svg" alt="Nam Phon Logo" />
           </Navbar.Brand>
 
           {/* Custom Hamburger Toggle */}

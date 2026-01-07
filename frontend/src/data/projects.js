@@ -8,7 +8,7 @@ const projects = {
     scrollSpy: true,
 
     intro:
-      "Short overview of ALMA — what it is, who it’s for, and the core idea behind the design.",
+      "Short overview of ALMA — what it is, who it's for, and the core idea behind the design.",
 
     overviewRows: [
       { label: "Client / Context", value: "Class project" },
@@ -64,7 +64,7 @@ const projects = {
     },
 
     credits:
-      "Note collaborators and reflect on what you learned, what worked, and what you’d refine next time.",
+      "Note collaborators and reflect on what you learned, what worked, and what you'd refine next time.",
 
     relatedProjects: [
       {
@@ -80,32 +80,16 @@ const projects = {
   
   pcos: {
     title: "PCOS Awareness Project",
-    hero: "/assets/PCOS/hero.jpg",
+    hero: "/assets/PCOS/pcos-mockup01.png", 
     heroAlt: "PCOS project hero",
     scrollSpy: false,
 
-    intro: "Short 1–2 sentence overview.",
+    intro: "Polycystic Ovary Syndrome (PCOS) is a hormonal disorder affecting women, often undiagnosed and increasing health risks. This project raises awareness about PCOS symptoms and resources, featuring an easy-to-grab infographic flyer for patients.",
 
     overviewRows: [
       { label: "Client / Context", value: "Self-initiated" },
-      { label: "My Role", value: "Design + layout" },
-      { label: "Deliverables", value: "Posters + socials" },
-      { label: "Tools", value: "Illustrator, InDesign" },
-    ],
-
-    brief: {
-      background: "Background text…",
-      objectives: ["Goal 1", "Goal 2", "Goal 3"],
-      concept: "Core concept…",
-    },
-
-    processSteps: [
-      {
-        title: "Research & Inspiration",
-        text: "What you looked at / learned.",
-        image: "/assets/PCOS/research.jpg",
-        alt: "Research image",
-      },
+      { label: "Year", value: "2024" },
+      { label: "Tools", value: "Illustrator, Photoshop" },
     ],
 
     finalDesign: {
