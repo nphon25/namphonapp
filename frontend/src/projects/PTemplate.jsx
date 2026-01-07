@@ -1,29 +1,130 @@
-import { useMemo } from "react";
+import { useMemo, useState, useEffect } from "react";
 import "../styles/project.css";
 import ScrollSpyNav from "../components/ScrollSpyNav";
 
+// ===================================
+// CAROUSEL COMPONENT - 2.5 SLIDES VIEW
+// ===================================
+const Carousel = ({ images }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [slidesPerView, setSlidesPerView] = useState(2.5);
+
+  // ✅ Update slides per view on window resize
+  useEffect(() => {
+    const updateSlidesPerView = () => {
+      if (typeof window === 'undefined') return;
+      if (window.innerWidth >= 993) {
+        setSlidesPerView(2.5);
+      } else if (window.innerWidth >= 768 && window.innerWidth < 993) {
+        setSlidesPerView(1.75);
+      } else {
+        setSlidesPerView(1);
+      }
+    };
+
+    updateSlidesPerView();
+    window.addEventListener('resize', updateSlidesPerView);
+    return () => window.removeEventListener('resize', updateSlidesPerView);
+  }, []);
+
+  // ✅ Calculate max index (how many "pages" we can navigate to)
+  const maxIndex = Math.max(0, Math.ceil(images.length - slidesPerView));
+
+  const goToNext = () => {
+    setCurrentIndex((prev) => Math.min(prev + 1, maxIndex));
+  };
+
+  const goToPrev = () => {
+    setCurrentIndex((prev) => Math.max(prev - 1, 0));
+  };
+
+  const goToSlide = (index) => {
+    setCurrentIndex(Math.min(index, maxIndex));
+  };
+
+  // ✅ Calculate translation - move by one slide width at a time
+  const slideWidthPercent = 100 / slidesPerView;
+  const translateX = currentIndex * slideWidthPercent;
+
+  return (
+    <div className="carousel-container">
+      <div className="carousel-wrapper">
+        <div
+          className="carousel-track"
+          style={{ transform: `translateX(-${translateX}%)` }}
+        >
+          {images.map((img, index) => (
+            <div className="carousel-slide" key={index}>
+              <img src={img.src} alt={img.alt} />
+            </div>
+          ))}
+        </div>
+
+        {/* Navigation Arrows - Only show if there are more slides than visible */}
+        {images.length > slidesPerView && (
+          <>
+            <button
+              className="carousel-btn carousel-btn-prev"
+              onClick={goToPrev}
+              disabled={currentIndex === 0}
+              aria-label="Previous slide"
+            >
+              ‹
+            </button>
+            <button
+              className="carousel-btn carousel-btn-next"
+              onClick={goToNext}
+              disabled={currentIndex >= maxIndex}
+              aria-label="Next slide"
+            >
+              ›
+            </button>
+          </>
+        )}
+      </div>
+
+      {/* Dot Indicators - Only show if we have multiple pages */}
+      {images.length > slidesPerView && maxIndex > 0 && (
+        <div className="carousel-dots">
+          {Array.from({ length: maxIndex + 1 }).map((_, index) => (
+            <button
+              key={index}
+              className={`carousel-dot ${index === currentIndex ? "active" : ""}`}
+              onClick={() => goToSlide(index)}
+              aria-label={`Go to slide group ${index + 1}`}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+// ===================================
+// MAIN TEMPLATE COMPONENT
+// ===================================
 const PTemplate = ({ project }) => {
   // ✅ Dynamically build nav based on what data exists
   const navItems = useMemo(() => {
     const items = [];
     
-    if (project.intro || project.overviewRows?.length) {
+    if (project?.intro || project?.overviewRows?.length) {
       items.push({ id: "overview", label: "Overview" });
     }
     
-    if (project.brief) {
+    if (project?.brief) {
       items.push({ id: "brief", label: "Brief" });
     }
     
-    if (project.processSteps?.length) {
+    if (project?.processSteps?.length) {
       items.push({ id: "process", label: "Process" });
     }
     
-    if (project.finalDesign) {
+    if (project?.finalDesign) {
       items.push({ id: "visuals", label: "Final Design" });
     }
     
-    if (project.credits) {
+    if (project?.credits) {
       items.push({ id: "credits", label: "Credits" });
     }
     
@@ -32,8 +133,9 @@ const PTemplate = ({ project }) => {
 
   if (!project) {
     return (
-      <main style={{ padding: "2rem" }}>
+      <main style={{ padding: "2rem", textAlign: "center" }}>
         <h2>Project not found</h2>
+        <p>The project you're looking for doesn't exist.</p>
       </main>
     );
   }
@@ -82,7 +184,7 @@ const PTemplate = ({ project }) => {
       {/* BRIEF - Only if brief data exists */}
       {project.brief && (
         <section className="case-section narrow scrollspy" id="brief">
-          <h2>Brief &amp; Objectives</h2>
+          {project.brief.showTitle !== false && <h2>Brief &amp; Objectives</h2>}
           {project.brief.background && (
             <div className="section-block">
               <h3>Background</h3>
@@ -111,7 +213,7 @@ const PTemplate = ({ project }) => {
       {/* PROCESS - Only if processSteps exist */}
       {project.processSteps?.length > 0 && (
         <section className="case-section narrow scrollspy" id="process">
-          <h2>Process</h2>
+          {project.showProcessTitle !== false && <h2>Process</h2>}
           {project.processSteps.map((step, i) => (
             <div className="process-step" key={i}>
               {step.title && <h3>{step.title}</h3>}
@@ -137,7 +239,7 @@ const PTemplate = ({ project }) => {
       {/* FINAL DESIGN - Only if finalDesign data exists */}
       {project.finalDesign && (
         <section className="case-section scrollspy" id="visuals">
-          <h2>Final Design</h2>
+          {project.finalDesign.showTitle !== false && <h2>Final Design</h2>}
           {project.finalDesign.intro && <p>{project.finalDesign.intro}</p>}
           
           {project.finalDesign.mainImage && (
@@ -157,7 +259,13 @@ const PTemplate = ({ project }) => {
               </div>
             ))}
 
-          {project.finalDesign.gridImages?.length > 0 && (
+          {/* ✅ CAROUSEL - If carousel mode is enabled */}
+          {project.finalDesign.carousel && project.finalDesign.carouselImages?.length > 0 && (
+            <Carousel images={project.finalDesign.carouselImages} />
+          )}
+
+          {/* ✅ GRID - If no carousel, show grid as before */}
+          {!project.finalDesign.carousel && project.finalDesign.gridImages?.length > 0 && (
             <div className="case-image ui-grid">
               {project.finalDesign.gridImages.map((img, i) => (
                 <img
@@ -174,7 +282,7 @@ const PTemplate = ({ project }) => {
       {/* CREDITS - Only if credits exist */}
       {project.credits && (
         <section className="case-section narrow scrollspy" id="credits">
-          <h2>Credits &amp; Reflection</h2>
+          {project.showCreditsTitle !== false && <h2>Credits &amp; Reflection</h2>}
           <p>{project.credits}</p>
         </section>
       )}

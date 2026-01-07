@@ -77,33 +77,33 @@ const projects = {
     ],
   },
 
-  
   pcos: {
-    title: "PCOS Awareness Project",
-    hero: "/assets/PCOS/pcos-mockup01.png", 
-    heroAlt: "PCOS project hero",
-    scrollSpy: false,
+  title: "PCOS Awareness Project",
+  hero: "/assets/PCOS/pcos-mockup01.png",
+  heroAlt: "PCOS Awareness Campaign mockup showing infographic design",
+  scrollSpy: false,
 
-    intro: "Polycystic Ovary Syndrome (PCOS) is a hormonal disorder affecting women, often undiagnosed and increasing health risks. This project raises awareness about PCOS symptoms and resources, featuring an easy-to-grab infographic flyer for patients.",
+  intro:
+    "Polycystic Ovary Syndrome (PCOS) is a hormonal disorder affecting women, often undiagnosed and increasing health risks. This project raises awareness about PCOS symptoms and resources, featuring an easy-to-grab infographic flyer for patients.",
 
-    overviewRows: [
-      { label: "Client / Context", value: "Self-initiated" },
-      { label: "Year", value: "2024" },
-      { label: "Tools", value: "Illustrator, Photoshop" },
+  overviewRows: [
+    { label: "Client / Context", value: "Self-initiated" },
+    { label: "Year", value: "2024" },
+    { label: "Tools", value: "Illustrator, Photoshop" },
+  ],
+
+  finalDesign: {
+    showTitle: false,
+    mainImage: "/assets/PCOS/pcos-mockup01.png",
+    mainAlt: "PCOS awareness campaign main mockup",
+    carousel: true, // ✅ Enables carousel mode
+    carouselImages: [
+      { src: "/assets/PCOS/Social Media Mockup.png", alt: "PCOS social media post - Row 1" },
+      { src: "/assets/PCOS/Social Media Mockup-1.png", alt: "PCOS social media post - Row 2" },
+      { src: "/assets/PCOS/assets/PCOS/Social Media Mockup-2.png", alt: "PCOS social media post - Row 3" },
+      { src: "/assets/PCOS/Social Media Mockup-3.png", alt: "PCOS social media post - Row 4" },
     ],
-
-    finalDesign: {
-      intro: "What the final system does.",
-      mainImage: "/assets/PCOS/final-1.jpg",
-      mainAlt: "Primary final design",
-      keyPieces: [{ title: "Key Piece 1", text: "What it shows." }],
-      gridImages: [
-        { src: "/assets/PCOS/final-2.jpg", alt: "Detail 2" },
-        { src: "/assets/PCOS/final-3.jpg", alt: "Detail 3" },
-      ],
-    },
-
-    credits: "Short reflection / credits…",
+  },
 
     relatedProjects: [
       {
