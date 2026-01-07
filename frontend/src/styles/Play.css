@@ -1,0 +1,211 @@
+/* ============================================
+   HERO SECTION
+   ============================================ */
+#play-hero {
+    padding: 8rem 0 4rem;
+    background: #ffffff;
+    color: #1a1a1a;
+    text-align: center;
+}
+
+.play-hero-title {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.play-hero-text {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+    color: #111111;
+}
+
+/* ============================================
+   GALLERY SECTION
+   ============================================ */
+#play-gallery {
+    padding: 4rem 0;
+    background: #fafafa;
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 240px;
+    gap: 1rem;
+}
+
+/* Grid Items */
+.bento-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background: #e5e5e5;
+    border-radius: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bento-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* Size Variants */
+.bento-item.large { grid-column: span 2; grid-row: span 2; }
+.bento-item.wide { grid-column: span 2; }
+.bento-item.tall { grid-row: span 2; }
+
+/* Media Styling */
+.bento-item img, .bento-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.bento-item:hover img, .bento-item:hover video { transform: scale(1.05); }
+
+/* Overlay Text (always visible for accessibility) */
+.bento-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem;
+    opacity: 1; /* always visible */
+}
+
+.bento-overlay .project-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.25rem;
+}
+
+.bento-overlay .project-date {
+    font-size: 0.9rem;
+    color: #eeeeee;
+    margin-bottom: 0.25rem;
+}
+
+.bento-overlay .project-medium,
+.bento-overlay .project-software {
+    font-size: 0.85rem;
+    color: #cccccc;
+}
+
+/* ============================================
+   LIGHTBOX
+   ============================================ */
+.lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.lightbox-content {
+    max-width: 90vw;
+    max-height: 90vh;
+    animation: zoomIn 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.lightbox-content img,
+.lightbox-video {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: 6px;
+}
+
+/* Lightbox Text Info */
+.lightbox-info {
+    margin-top: 0.75rem;
+    color: #ffffff;
+    text-align: left;
+    width: 100%;
+    max-width: 90vw;
+}
+
+.lightbox-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.lightbox-date,
+.lightbox-medium,
+.lightbox-software {
+    font-size: 1rem;
+    color: #dddddd;
+    margin-bottom: 0.25rem;
+}
+
+.lightbox-description {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #eeeeee;
+    margin-top: 0.25rem;
+}
+
+/* Close Button */
+.lightbox-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.4);
+    color: #fff;
+    font-size: 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    transition: all 0.25s ease;
+}
+
+.lightbox-close:hover {
+    background: #fff;
+    color: #111;
+    transform: rotate(90deg);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+    .bento-grid { grid-template-columns: repeat(3,1fr); grid-auto-rows:200px; }
+}
+
+@media (max-width: 768px) {
+    #play-hero { padding:6rem 0 3rem; }
+    .bento-grid { grid-template-columns: repeat(2,1fr); grid-auto-rows:180px; gap:0.75rem; }
+    .bento-item.large { grid-column:span 2; grid-row:span 2; }
+    .bento-item.wide { grid-column:span 2; }
+}
+
+@media (max-width: 480px) {
+    .bento-grid { grid-template-columns:1fr; grid-auto-rows:240px; }
+    .bento-item.large,.bento-item.wide,.bento-item.tall { grid-column:span 1; grid-row:span 1; }
+}

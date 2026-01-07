@@ -11,23 +11,35 @@ const About = () => {
 
                         {/* TEXT SIDE */}
                         <div className="about-info">
-                            <p className="about-role">Graphic Designer | Experience-Focused  </p>
+                            <p className="about-role">Graphic Designer | UX/UI & Experiential Design </p>
 
                             <h1 className="about-name">
                                 Nam Phon
                                 <span className="pronunciation">(naam fohn)</span>
                             </h1>
 
-                           <p className="about-bio">
-                            I’m an experience-focused graphic designer with a BFA in Graphic Design. 
-                            I create clear, human-centered work by thinking about how people move through, 
-                            interact with, and understand design. I’m drawn to creating memorable design systems 
-                            and visual identities that feel intentional, thoughtful, and engaging. My approach is
-                             grounded in curiosity, research, and strong visual storytelling.
-                             </p>
-                        <p className="about-bio">
-                            Outside of design, you'll usually find me walking, photographing my cats, or recharging through small creative hobbies.
-                        </p>
+                            <p className="about-bio">
+                            I’m a graphic designer with a BFA in Graphic Design, based in Charlotte, NC. I’m fascinated by how people engage with design and how visuals and interfaces
+                            help people understand, interact with, and connect to ideas. 
+                            With a strong foundation in graphic design, I'm focusing on creating thoughtful and human centered experiences.
+                            </p>
+
+                            <p className="about-bio">
+                           I have experience across print and digital design through freelancing and internships, 
+                           and I’m learning front end development to better understand how designs move from concept to implementation, 
+                           including designing and coding this portfolio with the help of a developer friend. 
+                           I’m currently seeking opportunities in UX/UI or experiential design and hoping to join a team that values curiosity, 
+                           collaboration, and human centered thinking.
+                            </p>
+
+                            <p className="about-bio">
+                            In my spare time, I enjoy photographing my cats, exploring new music, watching films, 
+                            cathing up on the One Piece manga or recharging through small creative hobbies. </p>
+
+
+
+
+
 
 
                             {/* STATS */}

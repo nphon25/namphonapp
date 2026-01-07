@@ -23,7 +23,7 @@ const Work = () => {
                         </h1>
 
                        <p className="hero-subtitle">
-                         Graphic Designer | Experience-Focused
+                        Graphic Designer | UX/UI & Experiential Design
                         </p>
 
                         <p className="hero-text">
