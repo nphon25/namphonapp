@@ -97,11 +97,13 @@ const projects = {
     mainImage: "/assets/PCOS/pcos-mockup01.png",
     mainAlt: "PCOS awareness campaign main mockup",
     carousel: true, // ✅ Enables carousel mode
+    carouselSubtitle: "Social media Carousel — Instagram posts", // ✅ Optional subtitle
+
     carouselImages: [
-      { src: "/assets/PCOS/Social Media Mockup.png", alt: "PCOS social media post - Row 1" },
-      { src: "/assets/PCOS/Social Media Mockup-1.png", alt: "PCOS social media post - Row 2" },
-      { src: "/assets/PCOS/assets/PCOS/Social Media Mockup-2.png", alt: "PCOS social media post - Row 3" },
-      { src: "/assets/PCOS/Social Media Mockup-3.png", alt: "PCOS social media post - Row 4" },
+      { src: "/assets/PCOS/Social Media Mockup.png", alt: "PCOS social media post Row 1" },
+      { src: "/assets/PCOS/Social Media Mockup2.png", alt: "PCOS social media post Row 2" },
+      { src: "/assets/PCOS/Social Media Mockup3.png", alt: "PCOS social media post 3" },
+      { src: "/assets/PCOS/Social Media Mockup4.png", alt: "PCOS social media post  4" },
     ],
   },
 

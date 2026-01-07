@@ -5,7 +5,7 @@ import ScrollSpyNav from "../components/ScrollSpyNav";
 // ===================================
 // CAROUSEL COMPONENT - 2.5 SLIDES VIEW
 // ===================================
-const Carousel = ({ images }) => {
+const Carousel = ({ images, subtitle }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slidesPerView, setSlidesPerView] = useState(2.5);
 
@@ -48,6 +48,11 @@ const Carousel = ({ images }) => {
 
   return (
     <div className="carousel-container">
+      {/* ✅ Optional Subtitle */}
+      {subtitle && (
+        <p className="carousel-subtitle">{subtitle}</p>
+      )}
+
       <div className="carousel-wrapper">
         <div
           className="carousel-track"
@@ -261,7 +266,10 @@ const PTemplate = ({ project }) => {
 
           {/* ✅ CAROUSEL - If carousel mode is enabled */}
           {project.finalDesign.carousel && project.finalDesign.carouselImages?.length > 0 && (
-            <Carousel images={project.finalDesign.carouselImages} />
+            <Carousel 
+              images={project.finalDesign.carouselImages}
+              subtitle={project.finalDesign.carouselSubtitle}
+            />
           )}
 
           {/* ✅ GRID - If no carousel, show grid as before */}
