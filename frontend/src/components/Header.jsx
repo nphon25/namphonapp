@@ -2,24 +2,46 @@ import "../styles/Header.css";
 import "../styles/global.css";
 
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Navbar, Nav, Container } from "react-bootstrap";
-
-import logo from "../assets/SVG/Asset 1.svg";
 
 const Header = () => {
   const [expanded, setExpanded] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleToggle = () => setExpanded((v) => !v);
   const handleClose = () => setExpanded(false);
+
+  const handleWorkClick = (e) => {
+    e.preventDefault();
+    handleClose();
+
+    // If already on home page, just scroll
+    if (location.pathname === '/') {
+      const workSection = document.getElementById('work');
+      if (workSection) {
+        workSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // Navigate to home page, then scroll
+      navigate('/');
+      setTimeout(() => {
+        const workSection = document.getElementById('work');
+        if (workSection) {
+          workSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  };
 
   return (
     <header className="site-header">
       <Navbar expand="md" expanded={expanded} className="py-0">
         <Container className="nav-inner">
-          {/* Logo */}
+          {/* Logo - Links to Home Page */}
           <Navbar.Brand as={Link} to="/" className="nav-logo" onClick={handleClose}>
-            <img src={logo} alt="Nam Phon Logo" />
+            <img src="/assets/SVG/Asset 1.svg" alt="Nam Phon Logo" />
           </Navbar.Brand>
 
           {/* Custom Hamburger Toggle */}
@@ -38,8 +60,8 @@ const Header = () => {
 
           {/* Desktop Links */}
           <Nav className="ms-auto nav-links d-none d-md-flex">
-            <Nav.Link as={Link} to="/" onClick={handleClose}>Work</Nav.Link>
-            <Nav.Link as={Link} to="/play" onClick={handleClose}>Play</Nav.Link>
+            <Nav.Link href="#work" onClick={handleWorkClick}>Work</Nav.Link>
+            <Nav.Link as={Link} to="/archive" onClick={handleClose}>Archive</Nav.Link>
             <Nav.Link as={Link} to="/about" onClick={handleClose}>About</Nav.Link>
           </Nav>
 
@@ -61,8 +83,8 @@ const Header = () => {
             </button>
 
             <Nav className="nav-overlay-links flex-column">
-              <Nav.Link as={Link} to="/" onClick={handleClose}>Work</Nav.Link>
-              <Nav.Link as={Link} to="/play" onClick={handleClose}>Play</Nav.Link>
+              <Nav.Link href="#work" onClick={handleWorkClick}>Work</Nav.Link>
+              <Nav.Link as={Link} to="/archive" onClick={handleClose}>Archive</Nav.Link>
               <Nav.Link as={Link} to="/about" onClick={handleClose}>About</Nav.Link>
             </Nav>
           </div>

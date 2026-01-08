@@ -11,7 +11,7 @@ const About = () => {
 
                         {/* TEXT SIDE */}
                         <div className="about-info">
-                            <p className="about-role">Graphic & UX/UI Designer</p>
+                            <p className="about-role">Graphic Designer | UX/UI & Experiential Design </p>
 
                             <h1 className="about-name">
                                 Nam Phon
@@ -19,16 +19,27 @@ const About = () => {
                             </h1>
 
                             <p className="about-bio">
-                                I'm a graphic designer shaping clear, human-centered work. I look at the human experience when creating thoughtful design solutions, and I'm drawn to where digital and spatial design intersect. My approach is intentional and guided by curiosity, research, and the desire to craft meaningful narratives.
+                            I’m a graphic designer with a BFA in Graphic Design, based in Charlotte, NC. I’m fascinated by how people engage with design and how visuals and interfaces
+                            help people understand, interact with, and connect to ideas. 
                             </p>
 
                             <p className="about-bio">
-                                Outside of design, you'll usually find me walking, photographing the world around me, or recharging through small creative hobbies.
+                           I have experience across print and digital design through freelancing and internships, 
+                           and I’m learning front end development to better understand how designs move from concept to implementation, 
+                           including designing and coding this portfolio with the help of a developer friend. 
+                           I’m currently seeking opportunities in UX/UI or experiential design and hoping to join a team that values curiosity, 
+                           collaboration, and human centered thinking.
                             </p>
 
                             <p className="about-bio">
-                                About my logo: The folder represents the experiences, knowledge, and curiosity I carry, and the pen tool symbolizes the creative power I channel into the world. I believe design is a language of connection, and it's what keeps the world moving.
-                            </p>
+                            In my spare time, I enjoy photographing my cats, exploring new music, watching films, 
+                            cathing up on the One Piece manga or recharging through small creative hobbies. </p>
+
+
+
+
+
+
 
                             {/* STATS */}
                             <div className="about-stats">
@@ -70,7 +81,7 @@ const About = () => {
                                 playsInline
                                 aria-label="Introduction video of Nam Phon"
                             >
-                                <source src="src/assets/vid/logo (2).mp4" type="video/mp4" />
+                                <source src="assets\vid\logo (2).mp4" type="video/mp4" />
                                 Your browser does not support the video tag.
                             </video>
                         </div>
