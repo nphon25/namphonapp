@@ -3,81 +3,156 @@
 const projects = {
   alma: {
     title: "ALMA",
-    hero: "/assets/ALMA/Mock Up/mockup-large.jpeg",
+    hero: "/assets/ALMA/Mock Up/mockup (1).jpeg",
     heroAlt: "ALMA project hero",
     scrollSpy: true,
 
     intro:
-      "ALMA is a comprehensive health tracking application designed to empower women with PCOS to monitor their symptoms, track patterns, and take control of their health journey through intuitive data visualization and personalized insights.",
+      "Alma makes healthy eating easy and affordable with recipes, budget-friendly dining and groceries, plus savings through deals—all in one app!",
 
     overviewRows: [
       { label: "Client / Context", value: "Academic Capstone Project" },
-      { label: "My Role", value: "UX/UI Designer, Researcher" },
-      { label: "Timeline", value: "12 weeks (Fall 2024)" },
+      { label: "My Role", value: "Branding Identity, Logo Design, Wireframing, Researcher" },
+      { label: "Timeline", value: "4 weeks (Fall 2024)" },
       { label: "Deliverables", value: "Mobile app prototype, design system" },
-      { label: "Tools", value: "Figma, Illustrator, Adobe XD" },
+      { label: "Tools", value: "Figma, Illustrator" },
     ],
 
     brief: {
+      showTitle: true,
+      showSubtitles: true,
+      subtitles: {
+        background: false, // ✅ Hides only "Background" subtitle
+        objectives: true,
+        concept: true,
+      },
       background:
-        "Women with PCOS struggle to track complex symptoms across multiple categories—hormonal, metabolic, and emotional. Existing health apps lack PCOS-specific features, making it difficult to identify patterns and communicate effectively with healthcare providers. ALMA bridges this gap by providing a comprehensive, empathetic tracking solution.",
+        "In North Carolina, over 1.6 million residents live in food deserts, lacking access to affordable, nutritious food, leading to higher obesity and health issues. Our app connects them to healthier food options, improving their well-being.",
       objectives: [
-        "Create an intuitive symptom tracking system tailored to PCOS",
-        "Visualize health data to reveal patterns and correlations",
-        "Design an accessible, empowering experience that reduces health anxiety",
-        "Build a scalable design system for future features",
+        "Structuring complex food data into intuitive user flows",
+        "Translate a real-world social issue into an intuitive digital product",
+        "Creating a cohesive visual system that supports clarity, trust, and ease of decision-making",
       ],
-      concept: "A companion app that transforms overwhelming health data into actionable insights, helping women feel in control of their PCOS journey.",
     },
+
+    processLayout: "standard", // Regular layout for ALMA
 
     processSteps: [
       {
-        title: "Research & User Interviews",
-        text: "I conducted interviews with 8 women diagnosed with PCOS to understand their tracking habits, pain points, and needs. Key insights revealed that users wanted more than just a symptom log—they needed context, patterns, and the ability to share data with doctors. Competitive analysis of existing health apps showed gaps in PCOS-specific features and emotional support.",
-        image: "/assets/ALMA/Assets/png/research-placeholder.jpg",
+        title: "Research",
+        text:
+          "Unlike many apps that focus solely on health, recipes, or local dining, Alma integrates all three—serving as a comprehensive resource for nutritious, budget-friendly food options. Research focused on understanding barriers to healthy eating, accessibility challenges, and cost sensitivity.",
+        image: "/assets/ALMA/PNGs/research.png",
         alt: "User research findings and affinity mapping",
+        excludeFromBento: true, // ✅ Shows as regular section
       },
       {
         title: "Information Architecture & Wireframes",
-        text: "Based on research findings, I mapped out the information architecture prioritizing three core features: daily logging, pattern analysis, and health reports. Early wireframes tested different navigation patterns and data input methods, iterating based on usability feedback. The goal was to make tracking feel effortless, not like homework.",
-        image: "/assets/ALMA/Assets/png/wireframes-placeholder.jpg",
-        alt: "Wireframes and user flow diagrams",
+        text:
+          "Based on research insights, I mapped out the information architecture prioritizing core user needs. Early wireframes explored navigation patterns and content hierarchy, iterating through usability testing to reduce friction and cognitive load.",
+        
+        // ✅ New structure with separate groups
+       imageGroups: [
+  {
+    subtitle: "Information Architecture",
+    images: [
+      { 
+        src: "/assets/ALMA/PNGs/ia (1).png", 
+        alt: "Information architecture diagram",
+        size: "large" // ✅ Individual size control
       },
+      { 
+        src: "/assets/ALMA/PNGs/ia (2).png", 
+        alt: "User flow mapping",
+        size: "small" // ✅ Smaller image
+      },
+    ],
+  },
+  {
+    subtitle: "Wireframes",
+    images: [
+      { 
+        src: "/assets/ALMA/PNGs/wireframe (1).png", 
+        alt: "Low-fidelity wireframes",
+        size: "large"
+      },
+      { 
+        src: "/assets/ALMA/PNGs/wireframe (2).png", 
+        alt: "Screen layouts",
+        size: "medium"
+      },
+      { 
+        src: "/assets/ALMA/PNGs/wireframe (3).png", 
+        alt: "Interaction patterns",
+        size: "medium"
+      },
+      { 
+        src: "/assets/ALMA/PNGs/wireframe (4).png", 
+        alt: "Interaction patterns",
+        size: "medium"
+      },
+    ],
+  },
+],
+        excludeFromBento: true,
+      },
+
+
+
       {
         title: "Visual Design & Prototyping",
-        text: "The visual language needed to feel calming yet empowering—soft gradients and rounded corners create approachability while clear data visualizations maintain credibility. I developed a comprehensive design system with reusable components, ensuring consistency across all screens. High-fidelity prototypes were tested with users to validate interaction patterns and refine the experience.",
+        text:
+          "The visual language balances warmth and clarity. Soft colors and rounded components create approachability, while a structured design system ensures consistency. High-fidelity prototypes were tested to validate interactions and refine the experience.",
         image: "/assets/ALMA/Assets/png/final-ui-1.jpg",
-        alt: "High-fidelity mockups and design system",
+        alt: "High-fidelity UI mockups and design system",
+        excludeFromBento: true, // ✅ Shows as regular section
       },
     ],
 
-    finalDesign: {
-      intro:
-        "The final ALMA app features a modular tracking system, intelligent data visualization, and personalized insights. Users can log symptoms in under 30 seconds, view correlations through interactive charts, and generate comprehensive health reports to share with their care team.",
-      mainImage: "/assets/ALMA/Assets/png/final-ui-1.jpg",
-      mainAlt: "ALMA app main dashboard showing symptom tracking",
 
-      keyPieces: [
+finalDesign: {
+  showTitle: true,
+  intro: "",
+  
+  sections: [
+    // Video section
+    {
+  title: "Prototype", // 
+  video: "/assets/ALMA/VID/mobile.mp4",
+  alt: "ALMA mobile app prototype demonstration", 
+},
+    
+    // Single image section
+    {
+      title: "Design System",
+      text: "Comprehensive component library.",
+      image: "/assets/ALMA/Assets/png/design-system.jpg",
+      alt: "Design system overview",
+    },
+    
+    // Multiple images with groups
+    {
+      title: "Key Screens",
+      text: "The most important user touchpoints.",
+      imageGroups: [
         {
-          title: "Daily Check-In Flow",
-          text: "The quick-log interface lets users track symptoms with minimal friction—customizable categories, smart defaults, and optional note-taking make daily logging feel natural rather than burdensome.",
+          subtitle: "Onboarding",
+          images: [
+            { src: "/assets/img1.jpg", alt: "Step 1", size: "large" },
+            { src: "/assets/img2.jpg", alt: "Step 2", size: "small" },
+          ],
         },
         {
-          title: "Pattern Recognition Dashboard",
-          text: "Interactive charts reveal correlations between symptoms, cycle phases, and lifestyle factors. Users can tap any data point to explore details, helping them understand their body's unique patterns over time.",
+          subtitle: "Dashboard",
+          images: [
+            { src: "/assets/img3.jpg", alt: "Dashboard", size: "full" },
+          ],
         },
-        {
-          title: "Health Report Generator",
-          text: "One-tap report generation creates a professional PDF summary of symptoms, trends, and notes—designed specifically for doctor appointments to facilitate better conversations about care.",
-        },
-      ],
-
-      gridImages: [
-        { src: "/assets/ALMA/Assets/png/final-ui-2.jpg", alt: "Onboarding screens" },
-        { src: "/assets/ALMA/Assets/png/final-ui-3.jpg", alt: "Data visualization screens" },
-        { src: "/assets/ALMA/Assets/png/final-ui-4.jpg", alt: "Settings and profile" },
       ],
     },
+  ],
+},
+
 
     credits:
       "Special thanks to my advisor Dr. Sarah Chen for guidance throughout the process, and to the 8 incredible women who shared their PCOS experiences during research interviews. This project taught me the importance of designing with empathy—not just for users' functional needs, but for their emotional journey with chronic health conditions. If I were to continue this project, I'd love to explore community features and integrate with wearable devices for automatic data collection.",
@@ -110,47 +185,47 @@ const projects = {
       { label: "Tools", value: "Illustrator, Photoshop" },
     ],
 
-    processLayout: "bento", // ← Enable bento grid layout
+    processLayout: "bento", // ✅ Bento grid layout for PCOS
 
     processSteps: [
-      {
-        image: "/assets/PCOS/pcos-mockup02.png",
-        alt: "Primary campaign poster design",
-        size: "large", // 8 columns - hero image
+      { 
+        image: "/assets/PCOS/pcos-mockup02.png", 
+        alt: "Primary campaign poster design", 
+        size: "large" 
       },
-       {
-        image: "/assets/PCOS/pcos-mockup02.png",
-        alt: "Primary campaign poster design",
-        size: "small", // 8 columns - hero imag
+      { 
+        image: "/assets/PCOS/color.png", 
+        alt: "Color palette design", 
+        size: "small" 
+      },
+      { 
+        image: "/assets/PCOS/ribbon.png", 
+        alt: "Campaign ribbon design", 
+        size: "small" 
+      },
+      { 
+        image: "/assets/PCOS/tshirt.png", 
+        alt: "T-shirt design", 
+        size: "large" 
+      },
+      { 
+        image: "/assets/PCOS/button.png", 
+        alt: "Campaign button", 
+        size: "wide" 
       },
     ],
-    
 
     finalDesign: {
       showTitle: false,
       carousel: true,
       carouselSubtitle: "Instagram carousel series",
-
       mainImage: "/assets/PCOS/pcos-mockup01.png",
-      mainAlt: "PCOS awareness infographic poster in clinical setting",
-
+      mainAlt: "PCOS awareness campaign materials",
       carouselImages: [
-        {
-          src: "/assets/PCOS/Social Media Mockup.png",
-          alt: "PCOS symptoms infographic",
-        },
-        {
-          src: "/assets/PCOS/Social Media Mockup2.png",
-          alt: "PCOS statistics and facts",
-        },
-        {
-          src: "/assets/PCOS/Social Media Mockup3.png",
-          alt: "PCOS treatment options",
-        },
-        {
-          src: "/assets/PCOS/Social Media Mockup4.png",
-          alt: "PCOS support resources",
-        },
+        { src: "/assets/PCOS/Post Row 1.png", alt: "PCOS symptoms infographic" },
+        { src: "/assets/PCOS/Post Row 2.png", alt: "PCOS statistics and facts" },
+        { src: "/assets/PCOS/Post Row 3.png", alt: "PCOS treatment options" },
+        { src: "/assets/PCOS/Post Row 4.png", alt: "PCOS support resources" },
       ],
     },
 

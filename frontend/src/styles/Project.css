@@ -12,17 +12,17 @@
   --bg: var(--background);
   --line-color: var(--border-color);
   
-  --radius: 12px;
+  --radius: 0px;
   --transition: all 0.4s ease;
   
-  /* Professional spacing system - RSM inspired but reduced */
-  --spacing-xs: 0.5rem;      /* 8px */
-  --spacing-sm: 1rem;        /* 16px */
-  --spacing-md: 1.5rem;      /* 24px */
-  --spacing-lg: 2rem;        /* 32px */
-  --spacing-xl: 2.5rem;      /* 40px */
-  --spacing-2xl: 3rem;       /* 48px */
-  --spacing-section: 3.5rem; /* 56px */
+  /* Professional spacing system */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 2.5rem;
+  --spacing-2xl: 3.2rem;
+  --spacing-section: 3.5rem;
 }
 
 /* ===================================
@@ -136,7 +136,7 @@ blockquote {
 .hero-image {
   position: relative;
   width: 100%;
-  height: 75vh;
+  height: 100vh;
   min-height: 320px;
   overflow: hidden;
   margin: 0 !important;
@@ -169,7 +169,7 @@ blockquote {
 .project-overview {
   width: 100%;
   max-width: 100%;
-  margin: var(--spacing-2xl) 0 0;
+  margin: var(--spacing-xl) 0 0;
   border-top: 1px solid var(--line-color);
 }
 
@@ -177,7 +177,7 @@ blockquote {
   display: grid;
   grid-template-columns: 220px 1fr;
   gap: var(--spacing-xl);
-  padding: var(--spacing-lg) 0;
+  padding: var(--spacing-md) 0;
   border-bottom: 1px solid var(--line-color);
   align-items: flex-start;
 }
@@ -288,16 +288,18 @@ blockquote {
   margin-bottom: var(--spacing-lg);
 }
 
+/* ===================================
+   PROCESS MEDIA - IMAGES
+=================================== */
 .process-media {
   width: 100%;
   max-width: 100%;
   margin: var(--spacing-md) auto 0;
 }
 
-.process-media img,
-.process-media video {
+.process-media img {
   width: 100%;
-  border-radius: var(--radius);
+  border-radius: 0;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   display: block;
   transition: transform 0.4s ease;
@@ -305,9 +307,103 @@ blockquote {
   object-fit: contain;
 }
 
-.process-media img:hover,
-.process-media video:hover {
+.process-media img:hover {
   transform: scale(1.02);
+}
+
+/* ===================================
+   PROCESS MEDIA - VIDEOS (NO HOVER)
+=================================== */
+.process-media video {
+  width: 100%;
+  border-radius: 0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  display: block;
+  background: #000;
+  object-fit: contain;
+}
+
+/* ===================================
+   PROCESS IMAGE SECTIONS
+=================================== */
+.process-image-section {
+  margin-top: var(--spacing-xl);
+}
+
+.process-image-section:first-of-type {
+  margin-top: var(--spacing-lg);
+}
+
+.process-image-subtitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-xs);
+  border-bottom: 2px solid var(--line-color);
+}
+
+/* ===================================
+   PROCESS IMAGE GRID
+=================================== */
+.process-image-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--spacing-md);
+  width: 100%;
+}
+
+.process-grid-item {
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+  overflow: hidden;
+  background: #fafafa;
+  border: 1px solid var(--line-color);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-sm);
+  grid-column: span 4;
+}
+
+.process-grid-item.small {
+  grid-column: span 3;
+  min-height: 250px;
+}
+
+.process-grid-item.medium {
+  grid-column: span 4;
+  min-height: 300px;
+}
+
+.process-grid-item.large {
+  grid-column: span 6;
+  min-height: 400px;
+}
+
+.process-grid-item.xlarge {
+  grid-column: span 8;
+  min-height: 450px;
+}
+
+.process-grid-item.full {
+  grid-column: span 12;
+  min-height: 500px;
+}
+
+.process-grid-item img {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.process-grid-item img:hover {
+  transform: scale(1.03);
 }
 
 /* ===================================
@@ -321,28 +417,18 @@ blockquote {
   max-width: var(--max-width);
   margin-left: auto;
   margin-right: auto;
-  padding: 0 var(--spacing-md);
+  padding: 0;
 }
 
 .bento-item {
   position: relative;
-  border-radius: var(--radius);
+  border-radius: 0;
   overflow: hidden;
   background: var(--bg);
   border: 1px solid var(--line-color);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-  transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
-}
-
-.bento-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
-  border-color: rgba(0, 0, 0, 0.1);
-}
-
-.bento-item {
   grid-column: span 6;
   min-height: 260px;
 }
@@ -367,19 +453,51 @@ blockquote {
   min-height: 360px;
 }
 
+/* Image-only bento items (no content) */
+.bento-item:not(:has(.bento-content)) { min-height: 260px; }
+.bento-item.small:not(:has(.bento-content)) { min-height: 240px; }
+.bento-item.large:not(:has(.bento-content)) { min-height: 300px; }
+.bento-item.tall:not(:has(.bento-content)) { min-height: 360px; }
+.bento-item.wide:not(:has(.bento-content)) { min-height: 280px; }
+
+/* ===================================
+   BENTO ITEM HOVER - IMAGES ONLY
+=================================== */
+.bento-item:has(img):not(:has(video)) {
+  transition: all 0.3s ease;
+}
+
+.bento-item:has(img):not(:has(video)):hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* ===================================
+   BENTO MEDIA CONTAINER
+=================================== */
 .bento-media {
   position: relative;
   width: 100%;
   flex: 1;
   overflow: hidden;
-  background: #fafafa;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.bento-media img,
-.bento-media video {
+.bento-item:has(img):not(:has(video)) .bento-media {
+  background: #fafafa;
+}
+
+.bento-item:has(video) .bento-media {
+  background: #000;
+}
+
+/* ===================================
+   BENTO IMAGES (WITH HOVER)
+=================================== */
+.bento-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -387,11 +505,48 @@ blockquote {
   transition: transform 0.5s ease;
 }
 
-.bento-item:hover .bento-media img,
-.bento-item:hover .bento-media video {
+.bento-item:has(img):not(:has(video)):hover .bento-media img {
   transform: scale(1.03);
 }
 
+/* ===================================
+   BENTO VIDEOS (NO HOVER)
+=================================== */
+.bento-media video {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  display: block;
+  background: #000;
+}
+
+/* ===================================
+   BENTO MULTI-IMAGE SUPPORT
+=================================== */
+.bento-image-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-xs);
+  width: 100%;
+  height: 100%;
+}
+
+.bento-image-group img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #f3f3f3;
+  transition: transform 0.4s ease;
+}
+
+.bento-item:hover .bento-image-group img {
+  transform: scale(1.02);
+}
+
+/* ===================================
+   BENTO CONTENT
+=================================== */
 .bento-content {
   padding: var(--spacing-md);
   background: var(--bg);
@@ -413,12 +568,29 @@ blockquote {
   margin: 0;
 }
 
-/* Image-only bento items */
-.bento-item:not(:has(.bento-content)) { min-height: 260px; }
-.bento-item.small:not(:has(.bento-content)) { min-height: 240px; }
-.bento-item.large:not(:has(.bento-content)) { min-height: 300px; }
-.bento-item.tall:not(:has(.bento-content)) { min-height: 360px; }
-.bento-item.wide:not(:has(.bento-content)) { min-height: 280px; }
+/* ===================================
+   VIDEO SIZING IN SECTIONS
+=================================== */
+.video-container {
+  width: 100%;
+  margin: var(--spacing-md) auto 0;
+  display: flex;
+  justify-content: center;
+}
+
+.video-container.small { max-width: 400px; }
+.video-container.medium { max-width: 600px; }
+.video-container.large { max-width: 800px; }
+.video-container.full { max-width: 100%; }
+
+.video-container video {
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  display: block;
+  background: #000;
+}
 
 /* ===================================
    IMAGES
@@ -431,7 +603,7 @@ blockquote {
 
 .case-image img {
   width: 100%;
-  border-radius: var(--radius);
+  border-radius: 0;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   transition: var(--transition);
   display: block;
@@ -449,17 +621,17 @@ blockquote {
 
 .ui-grid img {
   width: 100%;
-  border-radius: var(--radius);
+  border-radius: 0;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 /* ===================================
-   CAROUSEL - PROFESSIONAL SPACING
+   CAROUSEL
 =================================== */
 .carousel-container {
   width: 100%;
   max-width: 100%;
-  margin: var(--spacing-xl) 0;
+  margin: var(--spacing-2xl) 0 0 0;
   position: relative;
 }
 
@@ -503,7 +675,7 @@ blockquote {
   width: 100%;
   height: auto;
   max-height: 520px;
-  border-radius: 10px;
+  border-radius: 0;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   object-fit: contain;
   display: block;
@@ -516,7 +688,9 @@ blockquote {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
-/* Navigation Arrows */
+/* ===================================
+   CAROUSEL BUTTONS
+=================================== */
 .carousel-btn {
   position: absolute;
   top: 50%;
@@ -562,7 +736,9 @@ blockquote {
 .carousel-btn-prev { left: 0.5rem; }
 .carousel-btn-next { right: 0.5rem; }
 
-/* Dot Indicators */
+/* ===================================
+   CAROUSEL DOTS
+=================================== */
 .carousel-dots {
   display: flex;
   justify-content: center;
@@ -704,10 +880,8 @@ blockquote {
 }
 
 /* ===================================
-   RESPONSIVE DESIGN
+   RESPONSIVE: TABLET
 =================================== */
-
-/* Tablet: 992px */
 @media (max-width: 992px) {
   :root {
     --spacing-section: 3rem;
@@ -729,23 +903,47 @@ blockquote {
     gap: var(--spacing-lg);
   }
 
-  /* Bento Grid */
+  .process-image-grid {
+    grid-template-columns: repeat(8, 1fr);
+    gap: var(--spacing-sm);
+  }
+
+  .process-grid-item {
+    grid-column: span 4;
+    min-height: 280px;
+  }
+
+  .process-grid-item.small,
+  .process-grid-item.medium {
+    grid-column: span 4;
+  }
+
+  .process-grid-item.large,
+  .process-grid-item.xlarge,
+  .process-grid-item.full {
+    grid-column: span 8;
+  }
+
+  .process-image-subtitle {
+    font-size: 1rem;
+  }
+
   .process-bento-grid {
     grid-template-columns: repeat(8, 1fr);
     gap: var(--spacing-sm);
   }
-  
+
   .bento-item,
   .bento-item.tall {
     grid-column: span 4;
     min-height: 240px;
   }
-  
+
   .bento-item.small {
     grid-column: span 4;
     min-height: 220px;
   }
-  
+
   .bento-item.large,
   .bento-item.wide {
     grid-column: span 8;
@@ -757,7 +955,11 @@ blockquote {
   .bento-item.large:not(:has(.bento-content)),
   .bento-item.wide:not(:has(.bento-content)) { min-height: 260px; }
 
-  /* Carousel */
+  .bento-image-group {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xs);
+  }
+
   .carousel-track {
     gap: var(--spacing-md);
   }
@@ -765,29 +967,31 @@ blockquote {
   .carousel-slide img {
     max-height: 480px;
   }
-  
+
   .carousel-subtitle {
     text-align: center;
   }
-  
+
   .carousel-btn {
     width: 40px;
     height: 40px;
     font-size: 1.5rem;
   }
-  
+
   .carousel-dot {
     width: 5px;
     height: 5px;
   }
-  
+
   .carousel-dot.active {
     width: 18px;
     height: 5px;
   }
 }
 
-/* Mobile: 768px */
+/* ===================================
+   RESPONSIVE: MOBILE
+=================================== */
 @media (max-width: 768px) {
   :root {
     --spacing-section: 2.5rem;
@@ -799,8 +1003,6 @@ blockquote {
   .hero-image {
     height: 55vh;
     min-height: 260px;
-    margin: 0 !important;
-    padding: 0 !important;
   }
 
   .scrollspy-nav {
@@ -815,13 +1017,31 @@ blockquote {
     grid-template-columns: 1fr;
   }
 
-  /* Bento Grid */
+  .process-image-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+  }
+
+  .process-grid-item,
+  .process-grid-item.small,
+  .process-grid-item.medium,
+  .process-grid-item.large,
+  .process-grid-item.xlarge,
+  .process-grid-item.full {
+    grid-column: span 1;
+    min-height: 250px;
+  }
+
+  .process-image-section {
+    margin-top: var(--spacing-lg);
+  }
+
   .process-bento-grid {
     grid-template-columns: repeat(4, 1fr);
     gap: var(--spacing-sm);
     padding: 0 var(--spacing-md);
   }
-  
+
   .bento-item,
   .bento-item.small,
   .bento-item.large,
@@ -838,12 +1058,15 @@ blockquote {
   .bento-item.tall:not(:has(.bento-content)) {
     min-height: 220px;
   }
-  
+
   .bento-content {
     padding: var(--spacing-sm);
   }
 
-  /* Carousel */
+  .bento-image-group {
+    grid-template-columns: 1fr;
+  }
+
   .carousel-container {
     margin: var(--spacing-lg) 0;
   }
@@ -859,34 +1082,33 @@ blockquote {
 
   .carousel-slide img {
     max-height: 420px;
-    border-radius: 8px;
   }
-  
+
   .carousel-subtitle {
     padding: 0 var(--spacing-md);
     font-size: 0.65rem;
     text-align: center;
   }
-  
+
   .carousel-btn {
     width: 38px;
     height: 38px;
     font-size: 1.4rem;
   }
-  
+
   .carousel-btn-prev { left: 0.25rem; }
   .carousel-btn-next { right: 0.25rem; }
-  
+
   .carousel-dots {
     gap: 0.4rem;
     margin-top: var(--spacing-sm);
   }
-  
+
   .carousel-dot {
     width: 5px;
     height: 5px;
   }
-  
+
   .carousel-dot.active {
     width: 16px;
     height: 5px;
@@ -902,9 +1124,17 @@ blockquote {
     flex-direction: column;
     gap: var(--spacing-sm);
   }
+
+  .video-container.small,
+  .video-container.medium,
+  .video-container.large {
+    max-width: 100%;
+  }
 }
 
-/* Small Mobile: 600px */
+/* ===================================
+   RESPONSIVE: SMALL MOBILE
+=================================== */
 @media (max-width: 600px) {
   :root {
     --spacing-section: 2rem;
@@ -927,10 +1157,15 @@ blockquote {
     font-size: 1.05rem;
   }
 
+  .process-grid-item {
+    min-height: 220px;
+    padding: var(--spacing-xs);
+  }
+
   .process-bento-grid {
     gap: var(--spacing-sm);
   }
-  
+
   .bento-item,
   .bento-item.small,
   .bento-item.large,
@@ -966,7 +1201,9 @@ blockquote {
   }
 }
 
-/* Extra Small: 400px */
+/* ===================================
+   RESPONSIVE: EXTRA SMALL MOBILE
+=================================== */
 @media (max-width: 400px) {
   .bento-item,
   .bento-item.small,
@@ -986,7 +1223,6 @@ blockquote {
 
   .carousel-slide img {
     max-height: 340px;
-    border-radius: 6px;
   }
 
   .carousel-track {
