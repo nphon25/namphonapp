@@ -1,0 +1,284 @@
+/* =========================
+   ABOUT SECTION – LAYOUT
+   ========================= */
+#about-me {
+    background: var(--background);
+    padding: 5rem 1rem 4rem;
+}
+
+.about-layout {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 3.5rem;
+}
+
+/* Text side */
+.about-info {
+    flex: 1.1;
+    min-width: 260px;
+}
+
+/* Video side (on the right) */
+.about-photo {
+    flex: 1;
+    min-width: 40%;
+    max-width: 40%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* VIDEO: full frame, no cropping */
+.about-photo video {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: contain;
+    display: block;
+    border-radius: 8px;
+}
+
+/* =========================
+   ABOUT TYPOGRAPHY
+   ========================= */
+.about-role {
+    font-family: "Roboto", sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--light-text);
+    margin-bottom: 0.6rem;
+}
+
+.about-name {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.1rem, 3vw, 2.6rem);
+    line-height: 1.2;
+    margin: 0 0 1rem;
+    color: var(--dark-text);
+}
+
+.pronunciation {
+    font-family: "Roboto", sans-serif;
+    font-size: 0.95rem;
+    color: var(--light-text);
+    margin-left: 0.4rem;
+}
+
+.about-bio {
+    font-family: "Roboto", sans-serif;
+    font-size: 0.98rem;
+    line-height: 1.8;
+    color: var(--light-text);
+    margin: 0 0 0.85rem;
+}
+
+/* =========================
+   STATS ROWS
+   ========================= */
+.about-stats {
+    margin-top: 1.9rem;
+    display: grid;
+    grid-template-columns: 120px minmax(0, 1fr);
+    column-gap: 1.5rem;
+    row-gap: 0.7rem;
+    max-width: 560px;
+}
+
+.about-stat-row {
+    display: contents;
+    /* label + value share the same grid row */
+}
+
+.about-stat-label {
+    font-family: "Roboto", sans-serif;
+    font-size: 0.9rem;
+    color: var(--light-text);
+    font-weight: 500;
+}
+
+.about-stat-value {
+    font-family: "Roboto", sans-serif;
+    font-size: 0.98rem;
+    color: var(--dark-text);
+    font-weight: 500;
+}
+
+/* =========================
+   HOBBIES SECTION
+   ========================= */
+#hobbies {
+    padding: 3.5rem 0 4rem;
+    background-color: var(--background);
+}
+
+#hobbies .section-title {
+    font-size: 1.6rem;
+    margin-bottom: 0.4rem;
+}
+
+#hobbies .section-subtitle {
+    font-size: 0.98rem;
+    color: var(--light-text);
+    margin-bottom: 1.6rem;
+}
+
+/* Hobby item wrapper */
+.hobby-item {
+    width: 100%;
+}
+
+/* Gallery layout */
+.hobby-gallery {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.6rem;
+}
+
+/* Main Image */
+.main-hobby-image {
+    width: 100%;
+}
+
+.main-hobby-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: min(420px, 60vh);
+    object-fit: contain;
+    border-radius: 12px;
+    border: none;
+}
+
+/* Thumbnail Row */
+.hobby-thumbnails {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.3rem;
+    margin-top: 0.35rem;
+    align-items: center;
+    overflow-x: auto;
+    padding: 0.1rem 0 0.2rem;
+    scrollbar-width: thin;
+}
+
+/* Subtle scrollbar (WebKit) */
+.hobby-thumbnails::-webkit-scrollbar {
+    height: 6px;
+}
+
+.hobby-thumbnails::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.hobby-thumbnails::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.12);
+    border-radius: 999px;
+}
+
+.hobby-thumbnails img {
+    flex: 0 0 66px;
+    height: 66px;
+    border-radius: 8px;
+    object-fit: cover;
+    cursor: pointer;
+    opacity: 0.65;
+    transition:
+        transform 0.18s ease,
+        opacity 0.18s ease,
+        box-shadow 0.18s ease;
+    border: none;
+}
+
+/* Active + hover states */
+.hobby-thumbnails img:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.hobby-thumbnails img.active {
+    opacity: 1;
+    box-shadow: 0 0 0 2px rgba(59, 110, 145, 0.22);
+    transform: translateY(-1px);
+}
+
+/* =========================
+   RESPONSIVE – ABOUT
+   ========================= */
+@media (max-width: 900px) {
+    #about-me {
+        padding: 4.5rem 1rem 3.5rem;
+    }
+
+    .about-layout {
+        flex-direction: column-reverse;
+        /* video above text on mobile */
+        align-items: flex-start;
+    }
+
+    .about-photo {
+        width: 100%;
+        max-width: 100%;
+        justify-content: center;
+    }
+
+    .about-photo video {
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    .about-stats {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        row-gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #hobbies {
+        padding: 2.75rem 0 3.25rem;
+    }
+
+    .main-hobby-image img {
+        max-height: min(360px, 55vh);
+    }
+
+    .hobby-thumbnails img {
+        flex-basis: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-layout {
+        gap: 2.2rem;
+    }
+
+    .about-name {
+        font-size: 1.9rem;
+    }
+
+    .about-bio {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #hobbies .section-title {
+        font-size: 1.4rem;
+    }
+
+    #hobbies .section-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .hobby-thumbnails img {
+        flex-basis: 56px;
+        height: 56px;
+    }
+}
