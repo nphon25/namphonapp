@@ -111,7 +111,7 @@ const projects = {
     },
 
     reflection:
-      "This project strengthened my understanding of design systems, UX/UI principles, and collaborative workflows. I gained insight into how graphic design translates into development and how design decisions must adapt to coding constraints. I also developed a deeper appreciation for micro-interactions and their role in creating intuitive, human-centered digital experiences, while balancing accessibility, affordability, and trust.",
+      "This project strengthened my understanding of design systems, UX/UI principles, and collaborative workflows. I gained insight into how graphic design translates into development and how design decisions must adapt to coding constraints. I also developed a deeper appreciation for micro-interactions and their role in creating intuitive, human-centered digital experiences, while balancing accessibility.",
 
     relatedProjects: [
       {
@@ -263,7 +263,7 @@ const projects = {
 
        { image: "/assets/sardine-splash/sardine-15.png", alt: "sardine", size: "wide" },
 
-      { text: "Early Design Iterations", image: "/assets/sardine-splash/style-guide.png", alt: "design process", size: "wide" },
+      { text: "Style Guide", image: "/assets/sardine-splash/style-guide.png", alt: "design process", size: "wide" },
       { text: "Moodboard", image: "/assets/sardine-splash/moodboard.png", alt: "design moodboard", size: "small" },
       { text: "Early Design Iterations", image: "/assets/sardine-splash/box-draft-01.png", alt: "design process", size: "small" },
       { text: "Early Design Iterations", image: "/assets/sardine-splash/box-draft-02.png", alt: "design process", size: "small" },
