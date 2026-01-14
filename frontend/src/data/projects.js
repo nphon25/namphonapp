@@ -1,37 +1,11 @@
-// src/data/projects.js
-
 // =========================
 // HERO IMAGES (REQUIRED)
 // =========================
-import almaHero from "../assets/ALMA/ALMA.gif";
-import pcosHero from "../assets/PCOS/main mockup.jpg";
+const almaHero = "/assets/ALMA/ALMA.gif";
+const pcosHero = "/assets/PCOS/main mockup.jpg";
 
-import almaProcessImage from "../assets/ALMA/Group 15.png";
-import almaWireframes from "../assets/ALMA/PNGs/Group 81.png";
-
-// =========================
-// OPTIONAL SUPPORTING IMAGES
-// (only import if files exist)
-// =========================
-
-// --- ALMA supporting images ---
-// import almaResearch from "../assets/ALMA/Assets/png/research-placeholder.jpg";
-// import almaWireframes from "../assets/ALMA/Assets/png/wireframes-placeholder.jpg";
-// import almaFinal1 from "../assets/ALMA/Assets/png/final-ui-1.jpg";
-// import almaFinal2 from "../assets/ALMA/Assets/png/final-ui-2.jpg";
-// import almaFinal3 from "../assets/ALMA/Assets/png/final-ui-3.jpg";
-// import almaFinal4 from "../assets/ALMA/Assets/png/final-ui-4.jpg";
-
-// --- PCOS supporting images ---
-// import pcosResearch from "../assets/PCOS/research.jpg";
-// import pcosFinal1 from "../assets/PCOS/final-1.jpg";
-// import pcosFinal2 from "../assets/PCOS/final-2.jpg";
-// import pcosFinal3 from "../assets/PCOS/final-3.jpg";
-
-// =========================
-// PROJECTS (IDs must match routes)
-// /project/:projectId  ->  key below
-// =========================
+const almaProcessImage = "/assets/ALMA/Group 15.png";
+const almaWireframes = "/assets/ALMA/PNGs/Group 81.png";
 
 const projects = {
   // -------------------------
@@ -106,7 +80,7 @@ const projects = {
       ],
     },
 
-    credits:
+    reflection:
       "Note collaborators and reflect on what you learned, what worked, and what you'd refine next time.",
 
     relatedProjects: [
@@ -172,7 +146,7 @@ const projects = {
       ],
     },
 
-    credits: "Short reflection / credits...",
+    reflection: "Short reflection / credits...",
 
     relatedProjects: [
       {
@@ -193,8 +167,7 @@ const projects = {
   },
 
   // -------------------------
-  // TP (IMPORTANT: lowercase key)
-  // Route: /project/tp
+  // TP
   // -------------------------
   tp: {
     id: "tp",
@@ -233,7 +206,7 @@ const projects = {
       gridImages: [],
     },
 
-    credits: "Short reflection / credits...",
+    reflection: "Short reflection / credits...",
 
     relatedProjects: [
       {
