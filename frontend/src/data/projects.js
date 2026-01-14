@@ -228,7 +228,14 @@ const projects = {
         alt: "PCOS Awareness Campaign",
         title: "PCOS Awareness",
         meta: " Campaign Design"
-      }
+      },
+       {
+        href: "/project/alma",
+        image: "/assets/ALMA/VID/ALMA.gif", 
+        alt: "ALMA health tracking app",
+        title: "ALMA",
+        meta: "UX/UI Design "
+      },
     ]
   },
   
