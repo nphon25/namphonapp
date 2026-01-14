@@ -81,7 +81,7 @@ const Work = () => {
                                 <img src="/assets/sardine-splash/sardine-splash.png" alt="Packaging " loading="lazy" />
                             </div>
                             <div className="project-info">
-                                <h3 className="project-title">SardineSpalsh </h3>
+                                <h3 className="project-title">Sardine Spalsh </h3>
                                 <p className="project-meta"> Packaging  Design</p>
                             </div>
                         </a>

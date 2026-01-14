@@ -61,11 +61,6 @@ const Archive = () => {
             { type: "image", url: "/assets/archive/ceramic (8).jpg"},
             { type: "image", url: "/assets/archive/ceramic (9).jpg"},
             { type: "image", url: "/assets/archive/ceramic (3).JPG"},
-            { type: "image", url: "/assets/archive/ceramic (7).jpg"},
-
-
-
-
 
             ]
         },
@@ -137,7 +132,7 @@ const Archive = () => {
             <section className="archive-header">
                 <h1 className="archive-title">Archive</h1>
                 <p className="archive-subtitle">
-                    Experiments, side projects, and creative explorations
+                    Experiments, side projects, and creative explorations.
                 </p>
             </section>
 

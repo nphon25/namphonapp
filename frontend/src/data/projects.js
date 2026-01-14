@@ -111,7 +111,7 @@ const projects = {
     },
 
     reflection:
-      "This project strengthened my ability to translate a complex social issue into a clear, human-centered digital experience while balancing accessibility, affordability, and trust.",
+      "This project strengthened my understanding of design systems, UX/UI principles, and collaborative workflows. I gained insight into how graphic design translates into development and how design decisions must adapt to coding constraints. I also developed a deeper appreciation for micro-interactions and their role in creating intuitive, human-centered digital experiences, while balancing accessibility, affordability, and trust.",
 
     relatedProjects: [
       {
@@ -119,8 +119,15 @@ const projects = {
         image: "/assets/PCOS/pcos-mockup01.png",
         alt: "PCOS Awareness Campaign",
         title: "PCOS Awareness",
-        meta: "Graphic Design • Social Campaign"
-      }
+        meta: "Design Campaign"
+      },
+      {
+        href: "/project/tp",
+        image: "/assets/TP/Mockups/Logo Mockup02.jpg",
+        alt: "PCOS Awareness Campaign",
+        title: "TP",
+        meta: "Brand Identity"
+      },
     ]
   },
 
@@ -172,7 +179,14 @@ const projects = {
         alt: "ALMA health tracking app",
         title: "ALMA",
         meta: "UX/UI Design "
-      }
+      },
+       {
+        href: "/project/sardine",
+        image: "/assets/sardine-splash/sardine-splash.png", 
+        alt: "Sardine splash",
+        title: "Sardine Splash",
+        meta: "Packaging  Design"
+      }, 
     ]
   },
 
@@ -208,13 +222,6 @@ const projects = {
     ],
 
     relatedProjects: [
-      {
-        href: "/project/alma",
-        image: "/assets/ALMA/VID/ALMA.gif", 
-        alt: "ALMA health tracking app",
-        title: "ALMA",
-        meta: "UX/UI Design"
-      }, 
       {
         href: "/project/pcos",
         image: "/assets/PCOS/pcos-mockup01.png",
