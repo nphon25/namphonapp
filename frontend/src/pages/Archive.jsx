@@ -42,26 +42,20 @@ const Archive = () => {
             description: "A cute sticker illustration I designed alongside the students during my time as an instructor at a summer camp for digital art. This piece was created for fun, giving students a sense of accomplishment at the end of the camp and celebrating the hard work they put in throughout the session.",
             year: "2024",
             category: "Illustration",
-            size: "large",
+            size: "medium",
             media: [
                 { type: "video", url: "/assets/archive/cherry.mp4" },
             ]
         },
          {
             id: 4,
-            title: "Pottery",
-            description: " sense of accomplishment at the end of the camp and celebrating the hard work they put in throughout the session.",
-            year: "2025",
-            category: "Ceramics",
-            size: "small",
+            title: "I voted Sticker",
+            description: "I voted sticker design reimagined",
+            year: "2024",
+            category: "Illustration",
+            size: "medium",
             media: [
-            { type: "image", url: "/assets/archive/ceramic (4).JPG" },
-            { type: "image", url: "/assets/archive/ceramic (5).JPG" },
-            { type: "image", url: "/assets/archive/ceramic (6).JPG" },
-            { type: "image", url: "/assets/archive/ceramic (8).jpg"},
-            { type: "image", url: "/assets/archive/ceramic (9).jpg"},
-            { type: "image", url: "/assets/archive/ceramic (3).JPG"},
-
+                { type: "image", url: "/assets/archive/I voted.png" },
             ]
         },
         

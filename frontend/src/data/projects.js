@@ -262,6 +262,8 @@ const projects = {
       { image: "/assets/sardine-splash/sardine-18.png", alt: "sardine", size: "mediuml" },
 
        { image: "/assets/sardine-splash/sardine-15.png", alt: "sardine", size: "wide" },
+              { image: "/assets/sardine-splash/keychain.png", alt: "sardine", size: "wide" },
+
 
       { text: "Style Guide", image: "/assets/sardine-splash/style-guide.png", alt: "design process", size: "wide" },
       { text: "Moodboard", image: "/assets/sardine-splash/moodboard.png", alt: "design moodboard", size: "small" },
@@ -292,7 +294,63 @@ const projects = {
       }
     ]
   },
+ 
+ /* haboring: {
+    title: "Harboring Hope",
+    hero: "/assets/",
+    heroAlt: "sardine hero",
+    scrollSpy: false,
+  
+    intro: " ",
+    
+    overviewRows: [
+      { label: "Context", value: "Packaging Design, Branding" },
+      { label: "Timeline", value: "2025" },
+      { label: "Tools", value: "Illustrator, Photoshop " }
+    ],
+    
+    processLayout: "bento",
+    showProcessTitle: false,
 
+    processSteps: [
+      { image: "/assets/sardine-splash/sardine-01.png", alt: "sardine", size: "wide" },
+       { image: "/assets/sardine-splash/sardine-17.png", alt: "sardine", size: "medium" },
+      { image: "/assets/sardine-splash/sardine-18.png", alt: "sardine", size: "mediuml" },
+
+       { image: "/assets/sardine-splash/sardine-15.png", alt: "sardine", size: "wide" },
+              { image: "/assets/sardine-splash/keychain.png", alt: "sardine", size: "wide" },
+
+
+      { text: "Style Guide", image: "/assets/sardine-splash/style-guide.png", alt: "design process", size: "wide" },
+      { text: "Moodboard", image: "/assets/sardine-splash/moodboard.png", alt: "design moodboard", size: "small" },
+      { text: "Early Design Iterations", image: "/assets/sardine-splash/box-draft-01.png", alt: "design process", size: "small" },
+      { text: "Early Design Iterations", image: "/assets/sardine-splash/box-draft-02.png", alt: "design process", size: "small" },
+
+
+      { text: "Tuck Box Dieline", image: "/assets/sardine-splash/tuck-box-final-print.png", alt: "Hand-drawn sketch", size: "wide" },
+      { text: "POP box - back", image: "/assets/sardine-splash/pop-box-01.png", alt: "Digital design process", size: "small" },
+      { text: "POP box - front & side ", image: "/assets/sardine-splash/pop-box-03.png", alt: "Digital design process", size: "large" },
+
+    ],
+
+    relatedProjects: [
+      {
+        href: "/project/alma",
+        image: "/assets/ALMA/VID/ALMA.gif", 
+        alt: "ALMA health tracking app",
+        title: "ALMA",
+        meta: "UX/UI Design • Health Tech"
+      }, 
+      {
+        href: "/project/pcos",
+        image: "/assets/PCOS/pcos-mockup01.png",
+        alt: "PCOS Awareness Campaign",
+        title: "PCOS Awareness",
+        meta: "Graphic Campaign"
+      }
+    ]
+  },
+*/
 };
 
 export default projects;
