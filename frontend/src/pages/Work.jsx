@@ -84,7 +84,17 @@ const Work = () => {
                                 <h3 className="project-title">Sardine Spalsh </h3>
                                 <p className="project-meta"> Packaging  Design</p>
                             </div>
+
                         </a>
+                        {/*<a href="/project/haboring" className="project-item">
+                            <div className="project-image-wrap">
+                                <img src="/assets/" alt="Packaging " loading="lazy" />
+                            </div>
+                            <div className="project-info">
+                                <h3 className="project-title">Sardine Spalsh </h3>
+                                <p className="project-meta"> Design Campagin/p>
+                            </div>
+                        </a> */}
 
                     </div>
                 </div>

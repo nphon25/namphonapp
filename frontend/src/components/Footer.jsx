@@ -66,9 +66,12 @@ const Footer = () => {
                             <FontAwesomeIcon icon={faEnvelope} />
                             {emailCopied && <span className="copied-tooltip">Copied!</span>}
                         </button>
+                         {/* Project 4 - Placeholder 
                         <a href="/path/to/your_resume.pdf" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Resume">
                             <FontAwesomeIcon icon={faFileAlt} />
                         </a>
+                        */}
+                        
                     </Col>
                 </Row>
                 <hr className="footer-divider" />
