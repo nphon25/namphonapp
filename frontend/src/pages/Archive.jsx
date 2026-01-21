@@ -55,7 +55,7 @@ const Archive = () => {
             category: "Illustration",
             size: "medium",
             media: [
-                { type: "image", url: "/assets/archive/I voted.png" },
+                { type: "image", url: "/assets/archive/I_voted.png" },
             ]
         },
         
