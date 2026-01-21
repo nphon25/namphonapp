@@ -50,7 +50,7 @@ const Archive = () => {
          {
             id: 4,
             title: "I voted Sticker",
-            description: "I voted sticker design reimagined",
+            description: "I voted sticker design for North Carolina reimagined",
             year: "2024",
             category: "Illustration",
             size: "medium",
