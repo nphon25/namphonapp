@@ -210,9 +210,9 @@ const projects = {
     showProcessTitle: false,
 
     processSteps: [
-      { image: "/assets/TP/Mockups/card 2.png", alt: "TP business card mockup", size: "wide" },
+      { image: "/assets/TP/Mockups/card 3.png", alt: "TP business card mockup", size: "wide" },
       { image: "/assets/TP/Mockups/card 1.png", alt: "TP business card design", size: "medium" },
-      { image: "/assets/TP/Mockups/card.png", alt: "TP card variation", size: "medium" },
+      { image: "/assets/TP/Mockups/card 2.png", alt: "TP card variation", size: "medium" },
       { image: "/assets/TP/Mockups/mac.png", alt: "TP logo on laptop", size: "wide" },
       { image: "/assets/TP/Mockups/sticker.png", alt: "TP sticker design", size: "wide" },
       { image: "/assets/TP/Mockups/window.jpg", alt: "TP window signage", size: "wide" },
@@ -295,41 +295,33 @@ const projects = {
     ]
   },
  
- /* haboring: {
+/* harboring: {
     title: "Harboring Hope",
     hero: "/assets/",
-    heroAlt: "sardine hero",
+    heroAlt: "harboring hero",
     scrollSpy: false,
   
     intro: " ",
     
     overviewRows: [
-      { label: "Context", value: "Packaging Design, Branding" },
+      { label: "Context", value: "Design Campagin, Branding" },
       { label: "Timeline", value: "2025" },
-      { label: "Tools", value: "Illustrator, Photoshop " }
+      { label: "Tools", value: "Illustrator, Photoshop, AfterEffect, Figma " }
     ],
     
     processLayout: "bento",
     showProcessTitle: false,
 
     processSteps: [
-      { image: "/assets/sardine-splash/sardine-01.png", alt: "sardine", size: "wide" },
-       { image: "/assets/sardine-splash/sardine-17.png", alt: "sardine", size: "medium" },
-      { image: "/assets/sardine-splash/sardine-18.png", alt: "sardine", size: "mediuml" },
 
-       { image: "/assets/sardine-splash/sardine-15.png", alt: "sardine", size: "wide" },
-              { image: "/assets/sardine-splash/keychain.png", alt: "sardine", size: "wide" },
+      { image: "/assets/haboring-hope/poster.png", alt: "harboring hope ", size: "wide" },
+      { image: "/assets/haboring-hope/book1.png", alt: "harboring hope ", size: "wide" },
+      
+      { image: "/assets/haboring-hope/book5.png", alt: "harboring hope ", size: "medium" },
+       { image: "/assets/haboring-hope/book2.png", alt: "harboring hope ", size: "medium" },
+ { image: "/assets/haboring-hope/book6.png", alt: "harboring hope ", size: "medium" },
+        { image: "/assets/haboring-hope/book3.png", alt: "harboring hope ", size: "medium" },
 
-
-      { text: "Style Guide", image: "/assets/sardine-splash/style-guide.png", alt: "design process", size: "wide" },
-      { text: "Moodboard", image: "/assets/sardine-splash/moodboard.png", alt: "design moodboard", size: "small" },
-      { text: "Early Design Iterations", image: "/assets/sardine-splash/box-draft-01.png", alt: "design process", size: "small" },
-      { text: "Early Design Iterations", image: "/assets/sardine-splash/box-draft-02.png", alt: "design process", size: "small" },
-
-
-      { text: "Tuck Box Dieline", image: "/assets/sardine-splash/tuck-box-final-print.png", alt: "Hand-drawn sketch", size: "wide" },
-      { text: "POP box - back", image: "/assets/sardine-splash/pop-box-01.png", alt: "Digital design process", size: "small" },
-      { text: "POP box - front & side ", image: "/assets/sardine-splash/pop-box-03.png", alt: "Digital design process", size: "large" },
 
     ],
 
@@ -352,5 +344,6 @@ const projects = {
   },
 */
 };
+
 
 export default projects;

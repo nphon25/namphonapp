@@ -75,26 +75,32 @@ const Work = () => {
                             </div>
                         </a>
 
-                        {/* Project 4 - Placeholder */}
+                     {/* Project 4 - Sardine Splash */}
                         <a href="/project/sardine" className="project-item">
                             <div className="project-image-wrap">
-                                <img src="/assets/sardine-splash/sardine-splash.png" alt="Packaging " loading="lazy" />
+                                <img
+                                    src="/assets/sardine-splash/sardine-splash.png"
+                                    alt="Packaging"
+                                    loading="lazy"
+                                />
                             </div>
                             <div className="project-info">
-                                <h3 className="project-title">Sardine Spalsh </h3>
-                                <p className="project-meta"> Packaging  Design</p>
+                                <h3 className="project-title">Sardine Splash</h3>
+                                <p className="project-meta">Packaging Design</p>
                             </div>
-
                         </a>
-                        {/*<a href="/project/haboring" className="project-item">
+
+                        {/*
+                        <a href="/project/harboring" className="project-item">
                             <div className="project-image-wrap">
-                                <img src="/assets/" alt="Packaging " loading="lazy" />
+                                <img src="/assets/" alt="Harboring Hope" loading="lazy" />
                             </div>
                             <div className="project-info">
-                                <h3 className="project-title">Sardine Spalsh </h3>
-                                <p className="project-meta"> Design Campagin/p>
+                                <h3 className="project-title">Harboring Hope</h3>
+                                <p className="project-meta">Design Campaign</p>
                             </div>
-                        </a> */}
+                        </a>
+                    */}
 
                     </div>
                 </div>
