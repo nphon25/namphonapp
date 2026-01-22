@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import "../styles/Work.css"
+import { useNavigate } from 'react-router-dom';
+import "../styles/Work.css";
 
 const Work = () => {
     const navigate = useNavigate();
+
     const handleScrollToWork = (e) => {
         e.preventDefault();
         const workSection = document.getElementById('work');
@@ -14,22 +15,32 @@ const Work = () => {
 
     return (
         <>
+            {/* HERO */}
             <section id="hero">
                 <div className="container">
-                    <h1 className="hero-title">
-                        Hi, I'm <span className="hero-name">Nam :D</span>
-                    </h1>
+                    <div className="hero-content">
+                        <h1 className="hero-title">
+                            a brand + UI designer driven by storytelling visuals that speak to the heart
+                            and activate the <span className="hero-outline">mind.</span>
+                        </h1>
 
-                    <p className="hero-subtitle">
-                        Graphic Designer | UX/UI & Experiential Design
-                    </p>
+                        <div className="hero-text-row">
+                            <p className="hero-text">
+                                I create thoughtful design that connects people, ideas, and experiences.
+                            </p>
 
-                    <p className="hero-text">
-                        I create thoughtful design that connects people, ideas, and experiences.{' '}
-                        <a href="#work" className="scroll-link hero-cta" onClick={handleScrollToWork}>
-                            Explore my work.
-                        </a>
-                    </p>
+                            <a
+                                href="#work"
+                                className="hero-circle-cta"
+                                onClick={handleScrollToWork}
+                                aria-label="Explore my work"
+                            >
+                                <span>
+                                    Explore<br />my work
+                                </span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -38,11 +49,10 @@ const Work = () => {
                 <div className="container">
                     <h2 className="work-title">My Work</h2>
                     <p className="work-subtitle">
+                        Selected projects showcasing my approach to design
                     </p>
 
                     <div className="project-grid">
-
-                        {/* Project 1 - ALMA */}
                         <a href="/project/alma" className="project-item">
                             <div className="project-image-wrap">
                                 <img src="/assets/ALMA/VID/ALMA.gif" alt="ALMA" loading="lazy" />
@@ -53,27 +63,25 @@ const Work = () => {
                             </div>
                         </a>
 
-                        {/* Project 2 - PCOS Awareness Campaign */}
                         <a href="/project/pcos" className="project-item">
                             <div className="project-image-wrap">
                                 <img src="/assets/PCOS/pcos-mockup01.png" alt="PCOS Awareness Campaign" loading="lazy" />
                             </div>
                             <div className="project-info">
                                 <h3 className="project-title">PCOS Awareness Campaign</h3>
-                                <p className="project-meta">Campaign Design </p>
+                                <p className="project-meta">Campaign Design</p>
                             </div>
                         </a>
 
-                        {/* Project 3 - TP */}
                         <a href="/project/tp" className="project-item">
                             <div className="project-image-wrap">
-                                <video 
-                                    src="/assets/TP/TP ani.mp4" 
-                                    autoPlay 
-                                    loop 
-                                    muted 
+                                <video
+                                    src="/assets/TP/TP ani.mp4"
+                                    autoPlay
+                                    loop
+                                    muted
                                     playsInline
-                                    loading="lazy"/>
+                                />
                             </div>
                             <div className="project-info">
                                 <h3 className="project-title">TP</h3>
@@ -81,12 +89,11 @@ const Work = () => {
                             </div>
                         </a>
 
-                     {/* Project 4 - Sardine Splash */}
                         <a href="/project/sardine" className="project-item">
                             <div className="project-image-wrap">
                                 <img
                                     src="/assets/sardine-splash/sardine-splash.png"
-                                    alt="Packaging"
+                                    alt="Sardine Splash"
                                     loading="lazy"
                                 />
                             </div>
@@ -95,19 +102,6 @@ const Work = () => {
                                 <p className="project-meta">Packaging Design</p>
                             </div>
                         </a>
-
-                        {/*
-                        <a href="/project/harboring" className="project-item">
-                            <div className="project-image-wrap">
-                                <img src="/assets/" alt="Harboring Hope" loading="lazy" />
-                            </div>
-                            <div className="project-info">
-                                <h3 className="project-title">Harboring Hope</h3>
-                                <p className="project-meta">Design Campaign</p>
-                            </div>
-                        </a>
-                    */}
-
                     </div>
                 </div>
             </section>

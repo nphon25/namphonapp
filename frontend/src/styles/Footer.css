@@ -45,9 +45,24 @@
     gap: 0.3rem;
 }
 
+/* Animated Smiley Face - Wave on Hover */
 .smile {
     color: var(--primary-hover);
     font-size: 1.2rem;
+    display: inline-block;
+    transform-origin: 70% 70%;
+    transition: transform 0.3s ease;
+}
+
+.footer-heading:hover .smile {
+    animation: wave 2.5s ease-in-out infinite;
+}
+
+@keyframes wave {
+    0%, 100% { transform: rotate(0deg); }
+    10%, 30% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    40%, 100% { transform: rotate(0deg); }
 }
 
 /* =========================
