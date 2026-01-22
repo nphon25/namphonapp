@@ -64,13 +64,19 @@ const Work = () => {
                             </div>
                         </a>
 
-                        {/* Project 3 - */}
+                        {/* Project 3 - TP */}
                         <a href="/project/tp" className="project-item">
                             <div className="project-image-wrap">
-                                <img src="/assets/TP/Mockups/Logo_mockup.jpg" alt="TP" loading="lazy" />
+                                <video 
+                                    src="/assets/TP/TP ani.mp4" 
+                                    autoPlay 
+                                    loop 
+                                    muted 
+                                    playsInline
+                                    loading="lazy"/>
                             </div>
                             <div className="project-info">
-                                <h3 className="project-title">TP </h3>
+                                <h3 className="project-title">TP</h3>
                                 <p className="project-meta">Brand Identity</p>
                             </div>
                         </a>
