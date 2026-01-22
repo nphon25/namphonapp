@@ -210,9 +210,9 @@ const projects = {
     showProcessTitle: false,
 
     processSteps: [
-      { image: "/assets/TP/Mockups/card 3.png", alt: "TP business card mockup", size: "wide" },
-      { image: "/assets/TP/Mockups/card 1.png", alt: "TP business card design", size: "medium" },
-      { image: "/assets/TP/Mockups/card 2.png", alt: "TP card variation", size: "medium" },
+      { image: "/assets/TP/Mockups/card_3.png", alt: "TP business card mockup", size: "wide" },
+      { image: "/assets/TP/Mockups/card_1.png", alt: "TP business card design", size: "medium" },
+      { image: "/assets/TP/Mockups/card_2.png", alt: "TP card variation", size: "medium" },
       { image: "/assets/TP/Mockups/mac.png", alt: "TP logo on laptop", size: "wide" },
       { image: "/assets/TP/Mockups/sticker.png", alt: "TP sticker design", size: "wide" },
       { image: "/assets/TP/Mockups/window.jpg", alt: "TP window signage", size: "wide" },

@@ -67,7 +67,7 @@ const Work = () => {
                         {/* Project 3 - */}
                         <a href="/project/tp" className="project-item">
                             <div className="project-image-wrap">
-                                <img src="/assets/TP/Mockups/Logo Mockup02.jpg" alt="TP" loading="lazy" />
+                                <img src="/assets/TP/Mockups/Logo_mockup.jpg" alt="TP" loading="lazy" />
                             </div>
                             <div className="project-info">
                                 <h3 className="project-title">TP </h3>
