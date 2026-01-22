@@ -76,7 +76,7 @@ const Work = () => {
                         <a href="/project/tp" className="project-item">
                             <div className="project-image-wrap">
                                 <video 
-                                    src="/assets/TP/TP_ani.mp4" 
+                                    src="/assets/TP/TPani.mp4" 
                                     autoPlay 
                                     loop 
                                     muted 
