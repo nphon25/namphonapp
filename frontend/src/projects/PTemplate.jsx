@@ -186,10 +186,13 @@ const PTemplate = ({ project }) => {
               muted
               loop
               playsInline
+              preload="auto"
               poster={project.heroPoster}
+              style={{ width: '100%', height: 'auto', display: 'block' }}
             >
+              <source src={project.heroVideo} type="video/mp4; codecs=avc1.42E01E,mp4a.40.2" />
               <source src={project.heroVideo} type="video/mp4" />
-              Your browser does not support the video tag.
+              {project.heroPoster && <img src={project.heroPoster} alt={project.heroAlt || `${project.title} hero`} />}
             </video>
           ) : (
             <img
@@ -557,13 +560,16 @@ const PTemplate = ({ project }) => {
                   {rp.video ? (
                     <video
                       src={rp.video}
-                      alt={rp.alt || rp.title}
                       autoPlay
                       loop
                       muted
                       playsInline
                       preload="auto"
-                    />
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    >
+                      <source src={rp.video} type="video/mp4; codecs=avc1.42E01E,mp4a.40.2" />
+                      <source src={rp.video} type="video/mp4" />
+                    </video>
                   ) : (
                     <img
                       src={rp.image}
