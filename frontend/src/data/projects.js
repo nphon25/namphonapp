@@ -123,11 +123,11 @@ const projects = {
       },
       {
         href: "/project/tp",
-        image: "/assets/TP/Mockups/Logo Mockup02.jpg",
-        alt: "PCOS Awareness Campaign",
+        video: "/assets/TP/TP_ani.mp4",
+        alt: "TP Brand Identity",
         title: "TP",
         meta: "Brand Identity"
-      },
+      }
     ]
   },
 
@@ -139,7 +139,7 @@ const projects = {
     showProcessTitle: false,
 
     intro:
-      " A visual awareness campaign educating women about Polycystic Ovary Syndrome, a commonly undiagnosed hormonal disorder. Through accessible infographics and social media content, the project breaks down complex medical information into shareable, actionable resources.",
+      "A visual awareness campaign educating women about Polycystic Ovary Syndrome, a commonly undiagnosed hormonal disorder. Through accessible infographics and social media content, the project breaks down complex medical information into shareable, actionable resources.",
 
     overviewRows: [
       { label: "Year", value: "2024" },
@@ -175,37 +175,37 @@ const projects = {
     relatedProjects: [
       {
         href: "/project/alma",
-        image: "/assets/ALMA/VID/ALMA.gif", 
+        image: "/assets/ALMA/VID/ALMA.gif",
         alt: "ALMA health tracking app",
         title: "ALMA",
-        meta: "UX/UI Design "
+        meta: "UX/UI Design"
       },
-       {
+      {
         href: "/project/sardine",
-        image: "/assets/sardine-splash/sardine-splash.png", 
-        alt: "Sardine splash",
+        image: "/assets/sardine-splash/sardine-splash.png",
+        alt: "Sardine Splash packaging design",
         title: "Sardine Splash",
-        meta: "Packaging  Design"
-      }, 
+        meta: "Packaging Design"
+      }
     ]
   },
 
   tp: {
     title: "Crafting a Bold, Tech-Driven Identity",
-    hero: "/assets/TP/tp-hero.mp4",
-    heroVideo: "/assets/TP/TP ani.mp4",
+    hero: "/assets/TP/TP_ani.mp4",
+    heroVideo: "/assets/TP/TP_ani.mp4",
     heroPoster: "/assets/TP/tp-poster.jpg",
     heroAlt: "TP project animation",
     scrollSpy: false,
-  
+
     intro: "Logo and branding identity using initials to reflect the software developer's role, with a modern, clean, and tech-inspired design that highlights their expertise and creates a memorable, impactful brand.",
-    
+
     overviewRows: [
       { label: "Context", value: "Branding Identity, Logo Design" },
       { label: "Timeline", value: "2024" },
       { label: "Tools", value: "Illustrator, Photoshop, After Effects" }
     ],
-    
+
     processLayout: "bento",
     showProcessTitle: false,
 
@@ -227,123 +227,111 @@ const projects = {
         image: "/assets/PCOS/pcos-mockup01.png",
         alt: "PCOS Awareness Campaign",
         title: "PCOS Awareness",
-        meta: " Campaign Design"
+        meta: "Campaign Design"
       },
-       {
+      {
         href: "/project/alma",
-        image: "/assets/ALMA/VID/ALMA.gif", 
+        image: "/assets/ALMA/VID/ALMA.gif",
         alt: "ALMA health tracking app",
         title: "ALMA",
-        meta: "UX/UI Design "
-      },
+        meta: "UX/UI Design"
+      }
     ]
   },
-  
-   sardine: {
+
+  sardine: {
     title: "Sardine Splash Blind Box",
     hero: "/assets/sardine-splash/sardine-03.png",
-    heroAlt: "sardine hero",
+    heroAlt: "Sardine Splash packaging hero",
     scrollSpy: false,
-  
-    intro: " A playful, trend-driven sardine packaging concept with a nostalgic twist. Bold graphics, vibrant color, and character-driven branding come together in a custom tuck box designed specifically for the sardine product. The pop box format enhances the unboxing experience, turning everyday packaging into something fun, memorable, and shareable.",
-    
+
+    intro: "A playful, trend-driven sardine packaging concept with a nostalgic twist. Bold graphics, vibrant color, and character-driven branding come together in a custom tuck box designed specifically for the sardine product. The pop box format enhances the unboxing experience, turning everyday packaging into something fun, memorable, and shareable.",
+
     overviewRows: [
       { label: "Context", value: "Packaging Design, Branding" },
       { label: "Timeline", value: "2025" },
-      { label: "Tools", value: "Illustrator, Photoshop " }
+      { label: "Tools", value: "Illustrator, Photoshop" }
     ],
-    
+
     processLayout: "bento",
     showProcessTitle: false,
 
     processSteps: [
-      { image: "/assets/sardine-splash/sardine-01.png", alt: "sardine", size: "wide" },
-       { image: "/assets/sardine-splash/sardine-17.png", alt: "sardine", size: "medium" },
-      { image: "/assets/sardine-splash/sardine-18.png", alt: "sardine", size: "mediuml" },
-
-       { image: "/assets/sardine-splash/sardine-15.png", alt: "sardine", size: "wide" },
-              { image: "/assets/sardine-splash/keychain.png", alt: "sardine", size: "wide" },
-
-
-      { text: "Style Guide", image: "/assets/sardine-splash/style-guide.png", alt: "design process", size: "wide" },
-      { text: "Moodboard", image: "/assets/sardine-splash/moodboard.png", alt: "design moodboard", size: "small" },
-      { text: "Early Design Iterations", image: "/assets/sardine-splash/box-draft-01.png", alt: "design process", size: "small" },
-      { text: "Early Design Iterations", image: "/assets/sardine-splash/box-draft-02.png", alt: "design process", size: "small" },
-
-
-      { text: "Tuck Box Dieline", image: "/assets/sardine-splash/tuck-box-final-print.png", alt: "Hand-drawn sketch", size: "wide" },
-      { text: "POP box - back", image: "/assets/sardine-splash/pop-box-01.png", alt: "Digital design process", size: "small" },
-      { text: "POP box - front & side ", image: "/assets/sardine-splash/pop-box-03.png", alt: "Digital design process", size: "large" },
-
+      { image: "/assets/sardine-splash/sardine-01.png", alt: "Sardine packaging mockup", size: "wide" },
+      { image: "/assets/sardine-splash/sardine-17.png", alt: "Sardine character design", size: "medium" },
+      { image: "/assets/sardine-splash/sardine-18.png", alt: "Sardine box variation", size: "medium" },
+      { image: "/assets/sardine-splash/sardine-15.png", alt: "Sardine product lineup", size: "wide" },
+      { image: "/assets/sardine-splash/keychain.png", alt: "Sardine keychain merchandise", size: "wide" },
+      { text: "Style Guide", image: "/assets/sardine-splash/style-guide.png", alt: "Brand style guide", size: "wide" },
+      { text: "Moodboard", image: "/assets/sardine-splash/moodboard.png", alt: "Design moodboard", size: "small" },
+      { text: "Early Design Iterations", image: "/assets/sardine-splash/box-draft-01.png", alt: "Box design iteration 1", size: "small" },
+      { text: "Early Design Iterations", image: "/assets/sardine-splash/box-draft-02.png", alt: "Box design iteration 2", size: "small" },
+      { text: "Tuck Box Dieline", image: "/assets/sardine-splash/tuck-box-final-print.png", alt: "Tuck box dieline", size: "wide" },
+      { text: "POP box - back", image: "/assets/sardine-splash/pop-box-01.png", alt: "POP box back design", size: "small" },
+      { text: "POP box - front & side", image: "/assets/sardine-splash/pop-box-03.png", alt: "POP box front and side", size: "large" }
     ],
 
     relatedProjects: [
       {
         href: "/project/alma",
-        image: "/assets/ALMA/VID/ALMA.gif", 
+        image: "/assets/ALMA/VID/ALMA.gif",
         alt: "ALMA health tracking app",
         title: "ALMA",
-        meta: "UX/UI Design • Health Tech"
-      }, 
+        meta: "UX/UI Design"
+      },
       {
         href: "/project/pcos",
         image: "/assets/PCOS/pcos-mockup01.png",
         alt: "PCOS Awareness Campaign",
         title: "PCOS Awareness",
-        meta: "Graphic Campaign"
+        meta: "Campaign Design"
       }
     ]
-  },
- 
-/* harboring: {
+  }
+
+  /* harboring: {
     title: "Harboring Hope",
     hero: "/assets/",
-    heroAlt: "harboring hero",
+    heroAlt: "Harboring Hope hero",
     scrollSpy: false,
   
-    intro: " ",
+    intro: "",
     
     overviewRows: [
-      { label: "Context", value: "Design Campagin, Branding" },
+      { label: "Context", value: "Design Campaign, Branding" },
       { label: "Timeline", value: "2025" },
-      { label: "Tools", value: "Illustrator, Photoshop, AfterEffect, Figma " }
+      { label: "Tools", value: "Illustrator, Photoshop, After Effects, Figma" }
     ],
     
     processLayout: "bento",
     showProcessTitle: false,
 
     processSteps: [
-
-      { image: "/assets/haboring-hope/poster.png", alt: "harboring hope ", size: "wide" },
-      { image: "/assets/haboring-hope/book1.png", alt: "harboring hope ", size: "wide" },
-      
-      { image: "/assets/haboring-hope/book5.png", alt: "harboring hope ", size: "medium" },
-       { image: "/assets/haboring-hope/book2.png", alt: "harboring hope ", size: "medium" },
- { image: "/assets/haboring-hope/book6.png", alt: "harboring hope ", size: "medium" },
-        { image: "/assets/haboring-hope/book3.png", alt: "harboring hope ", size: "medium" },
-
-
+      { image: "/assets/haboring-hope/poster.png", alt: "Harboring Hope poster", size: "wide" },
+      { image: "/assets/haboring-hope/book1.png", alt: "Harboring Hope book cover", size: "wide" },
+      { image: "/assets/haboring-hope/book5.png", alt: "Harboring Hope book spread", size: "medium" },
+      { image: "/assets/haboring-hope/book2.png", alt: "Harboring Hope book layout", size: "medium" },
+      { image: "/assets/haboring-hope/book6.png", alt: "Harboring Hope book design", size: "medium" },
+      { image: "/assets/haboring-hope/book3.png", alt: "Harboring Hope book page", size: "medium" }
     ],
 
     relatedProjects: [
       {
         href: "/project/alma",
-        image: "/assets/ALMA/VID/ALMA.gif", 
+        image: "/assets/ALMA/VID/ALMA.gif",
         alt: "ALMA health tracking app",
         title: "ALMA",
-        meta: "UX/UI Design • Health Tech"
-      }, 
+        meta: "UX/UI Design"
+      },
       {
         href: "/project/pcos",
         image: "/assets/PCOS/pcos-mockup01.png",
         alt: "PCOS Awareness Campaign",
         title: "PCOS Awareness",
-        meta: "Graphic Campaign"
+        meta: "Campaign Design"
       }
     ]
-  },
-*/
+  } */
 };
-
 
 export default projects;

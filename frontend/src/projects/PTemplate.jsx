@@ -542,7 +542,7 @@ const PTemplate = ({ project }) => {
         </section>
       )}
 
-      {/* RELATED PROJECTS */}
+      {/* RELATED PROJECTS - UPDATED WITH VIDEO SUPPORT */}
       {project.relatedProjects?.length > 0 && (
         <section className="case-section related-projects" id="related-projects">
           <div className="related-header">
@@ -554,11 +554,23 @@ const PTemplate = ({ project }) => {
             {project.relatedProjects.map((rp, i) => (
               <a key={i} href={rp.href} className="project-item">
                 <div className="project-image-wrap">
-                  <img
-                    src={rp.image}
-                    alt={rp.alt || rp.title}
-                    loading="lazy"
-                  />
+                  {rp.video ? (
+                    <video
+                      src={rp.video}
+                      alt={rp.alt || rp.title}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      preload="auto"
+                    />
+                  ) : (
+                    <img
+                      src={rp.image}
+                      alt={rp.alt || rp.title}
+                      loading="lazy"
+                    />
+                  )}
                 </div>
                 <div className="project-info">
                   <h3 className="project-title">{rp.title}</h3>

@@ -1,6 +1,6 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import "../styles/Work.css";
+import { Link, useNavigate } from 'react-router-dom';
+import "../styles/Work.css"
 
 const Work = () => {
     const navigate = useNavigate();
@@ -15,31 +15,28 @@ const Work = () => {
 
     return (
         <>
-            {/* HERO */}
             <section id="hero">
+                <div className="hero-background">
+                    <div className="hero-shape hero-shape-1"></div>
+                    <div className="hero-shape hero-shape-2"></div>
+                    <div className="hero-shape hero-shape-3"></div>
+                    <div className="hero-shape hero-shape-4"></div>
+                </div>
                 <div className="container">
                     <div className="hero-content">
                         <h1 className="hero-title">
-                            a brand + UI designer driven by storytelling visuals that speak to the heart
-                            and activate the <span className="hero-outline">mind.</span>
+                            Hi, I'm <span className="hero-name">Nam</span>
                         </h1>
-
-                        <div className="hero-text-row">
-                            <p className="hero-text">
-                                I create thoughtful design that connects people, ideas, and experiences.
-                            </p>
-
-                            <a
-                                href="#work"
-                                className="hero-circle-cta"
-                                onClick={handleScrollToWork}
-                                aria-label="Explore my work"
-                            >
-                                <span>
-                                    Explore<br />my work
-                                </span>
+                        <p className="hero-subtitle">
+                            Graphic Designer | UX/UI & Experiential Design
+                        </p>
+                        <p className="hero-text">
+                            I create thoughtful design that connects people, ideas, and experiences.{' '}
+                            <a href="#work" className="scroll-link hero-cta" onClick={handleScrollToWork}>
+                                Explore my work.
                             </a>
-                        </div>
+                            
+                        </p>
                     </div>
                 </div>
             </section>
@@ -53,6 +50,7 @@ const Work = () => {
                     </p>
 
                     <div className="project-grid">
+                        {/* Project 1 - ALMA */}
                         <a href="/project/alma" className="project-item">
                             <div className="project-image-wrap">
                                 <img src="/assets/ALMA/VID/ALMA.gif" alt="ALMA" loading="lazy" />
@@ -63,6 +61,7 @@ const Work = () => {
                             </div>
                         </a>
 
+                        {/* Project 2 - PCOS Awareness Campaign */}
                         <a href="/project/pcos" className="project-item">
                             <div className="project-image-wrap">
                                 <img src="/assets/PCOS/pcos-mockup01.png" alt="PCOS Awareness Campaign" loading="lazy" />
@@ -73,15 +72,16 @@ const Work = () => {
                             </div>
                         </a>
 
+                        {/* Project 3 - TP */}
                         <a href="/project/tp" className="project-item">
                             <div className="project-image-wrap">
-                                <video
-                                    src="/assets/TP/TP ani.mp4"
-                                    autoPlay
-                                    loop
-                                    muted
+                                <video 
+                                    src="/assets/TP/TP_ani.mp4" 
+                                    autoPlay 
+                                    loop 
+                                    muted 
                                     playsInline
-                                />
+                                    loading="lazy"/>
                             </div>
                             <div className="project-info">
                                 <h3 className="project-title">TP</h3>
@@ -89,11 +89,12 @@ const Work = () => {
                             </div>
                         </a>
 
+                        {/* Project 4 - Sardine Splash */}
                         <a href="/project/sardine" className="project-item">
                             <div className="project-image-wrap">
                                 <img
                                     src="/assets/sardine-splash/sardine-splash.png"
-                                    alt="Sardine Splash"
+                                    alt="Packaging"
                                     loading="lazy"
                                 />
                             </div>
