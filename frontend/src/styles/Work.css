@@ -78,7 +78,7 @@
 .project-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 3rem;
+    gap: 4rem;
     margin-top: 2.5rem;
 }
 
@@ -99,7 +99,7 @@
 .project-image-wrap::before {
     content: "";
     display: block;
-    padding-top: 70%;
+    padding-top: 170%;
 }
 
 /* Images - same styling */
@@ -120,38 +120,35 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.5s ease;
 }
 
 /* Text block under image/video */
 .project-info {
-    margin-top: 0.9rem;
+    margin-top: 1.2rem;
 }
 
 .project-title {
     font-family: "Roboto", sans-serif;
-    font-size: 1.35rem;
+    font-size: 1.5rem;
     font-weight: 700;
     line-height: 1.3;
-    margin: 0 0 0.25rem;
+    margin: 0 0 0.3rem;
     color: var(--dark-text);
 }
 
 .project-meta {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--light-text);
     margin: 0;
 }
 
-/* Hover state – desktop only */
+/* Hover state – desktop only - SAME FOR BOTH IMAGES AND VIDEOS */
 @media (hover: hover) and (pointer: fine) {
-    /* Images scale on hover */
-    .project-item:hover .project-image-wrap img {
-        transform: scale(1.04);
-    }
-
-    /* Videos don't scale (prevents playback issues) */
+    /* Images and Videos scale on hover */
+    .project-item:hover .project-image-wrap img,
     .project-item:hover .project-image-wrap video {
-        transform: none;
+        transform: scale(1.04);
     }
 
     /* Title color change for both */
@@ -163,11 +160,15 @@
 @media (max-width: 900px) {
     .project-grid {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 3.5rem;
     }
 
     .project-title {
-        font-size: 1.25rem;
+        font-size: 1.4rem;
+    }
+    
+    .project-image-wrap::before {
+        padding-top: 140%;
     }
 }
 
@@ -195,7 +196,7 @@
     }
 
     .project-image-wrap::before {
-        padding-top: 75%;
+        padding-top: 120%;
     }
 
     #work {
@@ -209,4 +210,16 @@
     .work-subtitle {
         font-size: 1rem;
     }
+
+    .project-title {
+        font-size: 1.3rem;
+    }
+
+    .project-meta {
+        font-size: 0.95rem;
+    }
+}
+.project-item:hover .project-image-wrap img,
+.project-item:hover .project-image-wrap video {
+    transform: scale(1.04);
 }
