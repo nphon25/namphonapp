@@ -35,7 +35,6 @@ const Work = () => {
                             <a href="#work" className="scroll-link hero-cta" onClick={handleScrollToWork}>
                                 Explore my work.
                             </a>
-                            
                         </p>
                     </div>
                 </div>
@@ -76,12 +75,16 @@ const Work = () => {
                         <a href="/project/tp" className="project-item">
                             <div className="project-image-wrap">
                                 <video 
-                                    src="/assets/TP/TP_ani.mp4" 
                                     autoPlay 
                                     loop 
                                     muted 
                                     playsInline
-                                    loading="lazy"/>
+                                    preload="auto"
+                                    onError={(e) => console.error('TP video failed to load:', '/assets/TP/TP_ani.mp4', e)}
+                                >
+                                    <source src="/assets/TP/TP_ani.mp4" type="video/mp4" />
+                                    Your browser does not support the video tag.
+                                </video>
                             </div>
                             <div className="project-info">
                                 <h3 className="project-title">TP</h3>

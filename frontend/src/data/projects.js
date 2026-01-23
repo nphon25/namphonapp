@@ -1,22 +1,18 @@
 // src/data/projects.js
-
 const projects = {
   alma: {
     title: "ALMA",
     hero: "/assets/ALMA/Mock Up/mockup (1).jpeg",
     heroAlt: "ALMA project hero",
     scrollSpy: true,
-
     intro:
       "Alma makes healthy eating easy and affordable with recipes, budget-friendly dining and groceries, plus savings through deals—all in one app!",
-
     overviewRows: [
       { label: "My Role", value: "Brand Identity, UX/UI Design, Wireframing, Research" },
       { label: "Timeline", value: "4 weeks (2024)" },
       { label: "Deliverables", value: "Mobile App Prototype, Design System" },
       { label: "Tools", value: "Figma, Illustrator, After Effect" }
     ],
-
     brief: {
       showTitle: true,
       showSubtitles: true,
@@ -33,9 +29,7 @@ const projects = {
         "Build trust through a cohesive, accessible visual system"
       ]
     },
-
     processLayout: "bento",
-
     processSteps: [
       {
         title: "Research",
@@ -45,12 +39,10 @@ const projects = {
         alt: "User research findings and affinity mapping",
         excludeFromBento: true
       },
-
       {
         title: "Information Architecture & Wireframes",
         text:
           "Insights from research informed the information architecture and early wireframes. Iterations focused on reducing cognitive load and improving navigation clarity through usability testing.",
-
         imageGroups: [
           {
             subtitle: "Information Architecture",
@@ -90,7 +82,6 @@ const projects = {
         excludeFromBento: true
       }
     ],
-
     finalDesign: {
       showTitle: true,
       bentoLayout: true,
@@ -109,10 +100,8 @@ const projects = {
         { type: "image", image: "/assets/ALMA/Mock Up/billboard.jpg", alt: "ALMA billboard concept", size: "wide" }
       ]
     },
-
     reflection:
       "This project strengthened my understanding of design systems, UX/UI principles, and collaborative workflows. I gained insight into how graphic design translates into development and how design decisions must adapt to coding constraints. I also developed a deeper appreciation for micro-interactions and their role in creating intuitive, human-centered digital experiences, while balancing accessibility.",
-
     relatedProjects: [
       {
         href: "/project/pcos",
@@ -137,18 +126,14 @@ const projects = {
     heroAlt: "PCOS Awareness Campaign infographic poster mockup",
     scrollSpy: false,
     showProcessTitle: false,
-
     intro:
       "A visual awareness campaign educating women about Polycystic Ovary Syndrome, a commonly undiagnosed hormonal disorder. Through accessible infographics and social media content, the project breaks down complex medical information into shareable, actionable resources.",
-
     overviewRows: [
       { label: "Year", value: "2024" },
       { label: "Medium", value: "Print & Digital" },
       { label: "Tools", value: "Illustrator, Photoshop" }
     ],
-
     processLayout: "bento",
-
     processSteps: [
       { image: "/assets/PCOS/pcos-mockup02.png", alt: "Primary campaign poster design", size: "large" },
       { image: "/assets/PCOS/color.png", alt: "Color palette design", size: "small" },
@@ -157,7 +142,6 @@ const projects = {
       { image: "/assets/PCOS/button.png", alt: "Campaign button", size: "wide" },
       { image: "/assets/PCOS/leaflet.png", alt: "Campaign leaflet", size: "wide" }
     ],
-
     finalDesign: {
       showTitle: false,
       carousel: true,
@@ -171,7 +155,6 @@ const projects = {
         { src: "/assets/PCOS/Post Row 4.png", alt: "PCOS support resources" }
       ]
     },
-
     relatedProjects: [
       {
         href: "/project/alma",
@@ -197,18 +180,14 @@ const projects = {
     heroPoster: "/assets/TP/tp-poster.jpg",
     heroAlt: "TP project animation",
     scrollSpy: false,
-
     intro: "Logo and branding identity using initials to reflect the software developer's role, with a modern, clean, and tech-inspired design that highlights their expertise and creates a memorable, impactful brand.",
-
     overviewRows: [
       { label: "Context", value: "Branding Identity, Logo Design" },
       { label: "Timeline", value: "2024" },
       { label: "Tools", value: "Illustrator, Photoshop, After Effects" }
     ],
-
     processLayout: "bento",
     showProcessTitle: false,
-
     processSteps: [
       { image: "/assets/TP/Mockups/card_3.png", alt: "TP business card mockup", size: "wide" },
       { image: "/assets/TP/Mockups/card_1.png", alt: "TP business card design", size: "medium" },
@@ -220,7 +199,6 @@ const projects = {
       { text: "Digital iterations", image: "/assets/TP/Process/TP digital.jpg", alt: "Digital design process", size: "small" },
       { text: "Style guide", image: "/assets/TP/Mockups/style.jpg", alt: "TP brand style guide", size: "small" }
     ],
-
     relatedProjects: [
       {
         href: "/project/pcos",
@@ -244,18 +222,14 @@ const projects = {
     hero: "/assets/sardine-splash/sardine-03.png",
     heroAlt: "Sardine Splash packaging hero",
     scrollSpy: false,
-
     intro: "A playful, trend-driven sardine packaging concept with a nostalgic twist. Bold graphics, vibrant color, and character-driven branding come together in a custom tuck box designed specifically for the sardine product. The pop box format enhances the unboxing experience, turning everyday packaging into something fun, memorable, and shareable.",
-
     overviewRows: [
       { label: "Context", value: "Packaging Design, Branding" },
       { label: "Timeline", value: "2025" },
       { label: "Tools", value: "Illustrator, Photoshop" }
     ],
-
     processLayout: "bento",
     showProcessTitle: false,
-
     processSteps: [
       { image: "/assets/sardine-splash/sardine-01.png", alt: "Sardine packaging mockup", size: "wide" },
       { image: "/assets/sardine-splash/sardine-17.png", alt: "Sardine character design", size: "medium" },
@@ -270,7 +244,6 @@ const projects = {
       { text: "POP box - back", image: "/assets/sardine-splash/pop-box-01.png", alt: "POP box back design", size: "small" },
       { text: "POP box - front & side", image: "/assets/sardine-splash/pop-box-03.png", alt: "POP box front and side", size: "large" }
     ],
-
     relatedProjects: [
       {
         href: "/project/alma",
@@ -305,7 +278,6 @@ const projects = {
     
     processLayout: "bento",
     showProcessTitle: false,
-
     processSteps: [
       { image: "/assets/haboring-hope/poster.png", alt: "Harboring Hope poster", size: "wide" },
       { image: "/assets/haboring-hope/book1.png", alt: "Harboring Hope book cover", size: "wide" },
@@ -314,7 +286,6 @@ const projects = {
       { image: "/assets/haboring-hope/book6.png", alt: "Harboring Hope book design", size: "medium" },
       { image: "/assets/haboring-hope/book3.png", alt: "Harboring Hope book page", size: "medium" }
     ],
-
     relatedProjects: [
       {
         href: "/project/alma",

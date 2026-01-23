@@ -187,12 +187,12 @@ const PTemplate = ({ project }) => {
               loop
               playsInline
               preload="auto"
-              poster={project.heroPoster}
-              style={{ width: '100%', height: 'auto', display: 'block' }}
+              onError={(e) => console.error('Hero video failed to load:', project.heroVideo, e)}
             >
-              <source src={project.heroVideo} type="video/mp4; codecs=avc1.42E01E,mp4a.40.2" />
               <source src={project.heroVideo} type="video/mp4" />
-              {project.heroPoster && <img src={project.heroPoster} alt={project.heroAlt || `${project.title} hero`} />}
+              {project.heroPoster && (
+                <img src={project.heroPoster} alt={project.heroAlt || `${project.title} hero`} />
+              )}
             </video>
           ) : (
             <img
@@ -203,7 +203,7 @@ const PTemplate = ({ project }) => {
         </section>
       )}
 
-      {/* SCROLLSPY NAVIGATION - ADJUSTED FOR ACCURATE DETECTION */}
+      {/* SCROLLSPY NAVIGATION */}
       {showScrollSpy && (
         <ScrollSpyNav
           items={navItems}
@@ -331,7 +331,13 @@ const PTemplate = ({ project }) => {
                 {/* Video */}
                 {step.video && (
                   <div className="process-media">
-                    <video controls poster={step.poster}>
+                    <video 
+                      controls 
+                      poster={step.poster}
+                      preload="metadata"
+                      playsInline
+                      onError={(e) => console.error('Process video failed to load:', step.video, e)}
+                    >
                       <source src={step.video} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
@@ -359,10 +365,12 @@ const PTemplate = ({ project }) => {
                         
                         {step.video && (
                           <video 
-                            controls 
-                            poster={step.poster}
-                            preload="metadata"
+                            autoPlay
+                            muted
+                            loop
                             playsInline
+                            preload="auto"
+                            onError={(e) => console.error('Bento video failed to load:', step.video, e)}
                           >
                             <source src={step.video} type="video/mp4" />
                             Your browser does not support the video tag.
@@ -421,6 +429,7 @@ const PTemplate = ({ project }) => {
                       poster={section.poster}
                       preload="metadata"
                       playsInline
+                      onError={(e) => console.error('Final design video failed to load:', section.video, e)}
                     >
                       <source src={section.video} type="video/mp4" />
                       Your browser does not support the video tag.
@@ -468,10 +477,12 @@ const PTemplate = ({ project }) => {
                     
                     {item.type === 'video' && item.video && (
                       <video 
-                        controls 
-                        poster={item.poster}
-                        preload="metadata"
+                        autoPlay
+                        muted
+                        loop
                         playsInline
+                        preload="auto"
+                        onError={(e) => console.error('Bento final video failed to load:', item.video, e)}
                       >
                         <source src={item.video} type="video/mp4" />
                         Your browser does not support the video tag.
@@ -545,7 +556,7 @@ const PTemplate = ({ project }) => {
         </section>
       )}
 
-      {/* RELATED PROJECTS - UPDATED WITH VIDEO SUPPORT */}
+      {/* RELATED PROJECTS */}
       {project.relatedProjects?.length > 0 && (
         <section className="case-section related-projects" id="related-projects">
           <div className="related-header">
@@ -559,16 +570,15 @@ const PTemplate = ({ project }) => {
                 <div className="project-image-wrap">
                   {rp.video ? (
                     <video
-                      src={rp.video}
                       autoPlay
                       loop
                       muted
                       playsInline
                       preload="auto"
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      onError={(e) => console.error('Related project video failed to load:', rp.video, e)}
                     >
-                      <source src={rp.video} type="video/mp4; codecs=avc1.42E01E,mp4a.40.2" />
                       <source src={rp.video} type="video/mp4" />
+                      Your browser does not support the video tag.
                     </video>
                   ) : (
                     <img
