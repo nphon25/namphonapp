@@ -3,14 +3,13 @@ import "../styles/project.css";
 import ScrollSpyNav from "../components/ScrollSpyNav";
 
 // ===================================
-// CAROUSEL COMPONENT - FULL IMAGE VIEW
+// CAROUSEL COMPONENT
 // ===================================
 const Carousel = ({ images, subtitle }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slidesPerView, setSlidesPerView] = useState(2.5);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  // Responsive slides configuration
   useEffect(() => {
     const updateSlidesPerView = () => {
       if (typeof window === 'undefined') return;
@@ -135,7 +134,7 @@ const Carousel = ({ images, subtitle }) => {
 };
 
 // ===================================
-// MAIN TEMPLATE COMPONENT
+// MAIN TEMPLATE
 // ===================================
 const PTemplate = ({ project }) => {
   const navItems = useMemo(() => {
@@ -187,23 +186,17 @@ const PTemplate = ({ project }) => {
               loop
               playsInline
               preload="auto"
-              onError={(e) => console.error('Hero video failed to load:', project.heroVideo, e)}
+              onError={(e) => console.error('Hero video failed:', project.heroVideo, e)}
             >
               <source src={project.heroVideo} type="video/mp4" />
-              {project.heroPoster && (
-                <img src={project.heroPoster} alt={project.heroAlt || `${project.title} hero`} />
-              )}
+              Your browser does not support video.
             </video>
           ) : (
-            <img
-              src={project.hero}
-              alt={project.heroAlt || `${project.title} hero`}
-            />
+            <img src={project.hero} alt={project.heroAlt || `${project.title} hero`} />
           )}
         </section>
       )}
 
-      {/* SCROLLSPY NAVIGATION */}
       {showScrollSpy && (
         <ScrollSpyNav
           items={navItems}
@@ -213,7 +206,7 @@ const PTemplate = ({ project }) => {
         />
       )}
 
-      {/* OVERVIEW SECTION */}
+      {/* OVERVIEW */}
       {(project.intro || project.overviewRows?.length > 0) && (
         <section className="case-section narrow scrollspy-section" id="overview">
           {project.showTitle !== false && project.title && <h1>{project.title}</h1>}
@@ -232,31 +225,25 @@ const PTemplate = ({ project }) => {
         </section>
       )}
 
-      {/* BRIEF SECTION */}
+      {/* BRIEF */}
       {project.brief && (
         <section className="case-section narrow scrollspy-section" id="brief">
           {project.brief.showTitle !== false && (
             <h2>{project.brief.title || "Background"}</h2>
           )}
 
-          {/* Background */}
           {project.brief.background && (
             <div className="section-block">
               {project.brief.showSubtitles !== false &&
-                project.brief.subtitles?.background !== false && (
-                  <h3>Background</h3>
-                )}
+                project.brief.subtitles?.background !== false && <h3>Background</h3>}
               <p>{project.brief.background}</p>
             </div>
           )}
 
-          {/* Design Objectives */}
           {project.brief.objectives?.length > 0 && (
             <div className="section-block">
               {project.brief.showSubtitles !== false &&
-                project.brief.subtitles?.objectives !== false && (
-                  <h3>Design Objectives</h3>
-                )}
+                project.brief.subtitles?.objectives !== false && <h3>Design Objectives</h3>}
               <ul className="goal-list">
                 {project.brief.objectives.map((goal, i) => (
                   <li key={i}>{goal}</li>
@@ -265,32 +252,26 @@ const PTemplate = ({ project }) => {
             </div>
           )}
 
-          {/* Concept */}
           {project.brief.concept && (
             <div className="section-block">
               {project.brief.showSubtitles !== false &&
-                project.brief.subtitles?.concept !== false && (
-                  <h3>Concept</h3>
-                )}
+                project.brief.subtitles?.concept !== false && <h3>Concept</h3>}
               <p>{project.brief.concept}</p>
             </div>
           )}
         </section>
       )}
 
-      {/* PROCESS SECTION */}
+      {/* PROCESS */}
       {project.processSteps?.length > 0 && (
         <section
-          className={`case-section ${
-            project.processLayout === "bento" ? "" : "narrow"
-          } scrollspy-section`}
+          className={`case-section ${project.processLayout === "bento" ? "" : "narrow"} scrollspy-section`}
           id="process"
         >
           {project.showProcessTitle !== false && (
             <h2>{project.processTitle || "Process"}</h2>
           )}
 
-          {/* Standard process steps */}
           {project.processSteps
             .filter((step) => step.excludeFromBento)
             .map((step, i) => (
@@ -298,14 +279,12 @@ const PTemplate = ({ project }) => {
                 {step.title && <h3>{step.title}</h3>}
                 {step.text && <p>{step.text}</p>}
                 
-                {/* Single image */}
                 {step.image && (
                   <div className="process-media">
                     <img src={step.image} alt={step.alt || step.title} />
                   </div>
                 )}
 
-                {/* Multiple image groups with subtitles */}
                 {step.imageGroups?.length > 0 && step.imageGroups.map((group, groupIdx) => (
                   <div key={`group-${groupIdx}`} className="process-image-section">
                     {group.subtitle && (
@@ -328,7 +307,6 @@ const PTemplate = ({ project }) => {
                   </div>
                 ))}
 
-                {/* Video */}
                 {step.video && (
                   <div className="process-media">
                     <video 
@@ -336,27 +314,22 @@ const PTemplate = ({ project }) => {
                       poster={step.poster}
                       preload="metadata"
                       playsInline
-                      onError={(e) => console.error('Process video failed to load:', step.video, e)}
+                      onError={(e) => console.error('Process video failed:', step.video, e)}
                     >
                       <source src={step.video} type="video/mp4" />
-                      Your browser does not support the video tag.
+                      Your browser does not support video.
                     </video>
                   </div>
                 )}
               </div>
             ))}
 
-          {/* Bento grid layout */}
           {project.processLayout === "bento" && (
             <div className="process-bento-grid">
               {project.processSteps
                 .filter((step) => !step.excludeFromBento)
                 .map((step, i) => (
-                  <div
-                    className={`bento-item ${step.size || ""}`}
-                    key={i}
-                  >
-                    {/* Media container */}
+                  <div className={`bento-item ${step.size || ""}`} key={i}>
                     {(step.image || step.video) && (
                       <div className="bento-media">
                         {step.image && (
@@ -370,16 +343,15 @@ const PTemplate = ({ project }) => {
                             loop
                             playsInline
                             preload="auto"
-                            onError={(e) => console.error('Bento video failed to load:', step.video, e)}
+                            onError={(e) => console.error('Bento video failed:', step.video, e)}
                           >
                             <source src={step.video} type="video/mp4" />
-                            Your browser does not support the video tag.
+                            Your browser does not support video.
                           </video>
                         )}
                       </div>
                     )}
                     
-                    {/* Optional content */}
                     {(step.title || step.text) && (
                       <div className="bento-content">
                         {step.title && <h4>{step.title}</h4>}
@@ -393,12 +365,10 @@ const PTemplate = ({ project }) => {
         </section>
       )}
 
-      {/* FINAL DESIGN SECTION */}
+      {/* FINAL DESIGN */}
       {project.finalDesign && (
         <section 
-          className={`case-section ${
-            project.finalDesign.bentoLayout ? "" : "narrow"
-          } scrollspy-section`} 
+          className={`case-section ${project.finalDesign.bentoLayout ? "" : "narrow"} scrollspy-section`} 
           id="visuals"
         >
           {project.finalDesign.showTitle !== false && (
@@ -407,21 +377,18 @@ const PTemplate = ({ project }) => {
           
           {project.finalDesign.intro && <p className="intro">{project.finalDesign.intro}</p>}
           
-          {/* Standard sections */}
           {project.finalDesign.sections?.length > 0 && 
             project.finalDesign.sections.map((section, i) => (
               <div className="process-step" key={`final-section-${i}`}>
                 {section.title && <h3>{section.title}</h3>}
                 {section.text && <p>{section.text}</p>}
                 
-                {/* Single image */}
                 {section.image && (
                   <div className="process-media">
                     <img src={section.image} alt={section.alt || section.title} />
                   </div>
                 )}
 
-                {/* Video with size control */}
                 {section.video && (
                   <div className={`process-media video-container ${section.videoSize || 'medium'}`}>
                     <video 
@@ -429,15 +396,14 @@ const PTemplate = ({ project }) => {
                       poster={section.poster}
                       preload="metadata"
                       playsInline
-                      onError={(e) => console.error('Final design video failed to load:', section.video, e)}
+                      onError={(e) => console.error('Final video failed:', section.video, e)}
                     >
                       <source src={section.video} type="video/mp4" />
-                      Your browser does not support the video tag.
+                      Your browser does not support video.
                     </video>
                   </div>
                 )}
 
-                {/* Image groups with subtitles */}
                 {section.imageGroups?.length > 0 && section.imageGroups.map((group, groupIdx) => (
                   <div key={`group-${groupIdx}`} className="process-image-section">
                     {group.subtitle && (
@@ -462,14 +428,10 @@ const PTemplate = ({ project }) => {
               </div>
             ))}
 
-          {/* Bento grid with mixed media */}
           {project.finalDesign.bentoLayout && project.finalDesign.bentoItems?.length > 0 && (
             <div className="process-bento-grid" style={{ marginTop: 'var(--spacing-xl)' }}>
               {project.finalDesign.bentoItems.map((item, i) => (
-                <div
-                  className={`bento-item ${item.size || ''}`}
-                  key={i}
-                >
+                <div className={`bento-item ${item.size || ''}`} key={i}>
                   <div className="bento-media">
                     {item.type === 'image' && item.image && (
                       <img src={item.image} alt={item.alt || `Bento item ${i + 1}`} />
@@ -482,10 +444,10 @@ const PTemplate = ({ project }) => {
                         loop
                         playsInline
                         preload="auto"
-                        onError={(e) => console.error('Bento final video failed to load:', item.video, e)}
+                        onError={(e) => console.error('Bento final video failed:', item.video, e)}
                       >
                         <source src={item.video} type="video/mp4" />
-                        Your browser does not support the video tag.
+                        Your browser does not support video.
                       </video>
                     )}
                   </div>
@@ -501,7 +463,6 @@ const PTemplate = ({ project }) => {
             </div>
           )}
 
-          {/* Legacy support */}
           {!project.finalDesign.sections && !project.finalDesign.bentoLayout && (
             <>
               {project.finalDesign.mainImage && (
@@ -521,7 +482,6 @@ const PTemplate = ({ project }) => {
                   </div>
                 ))}
               
-              {/* Carousel */}
               {project.finalDesign.carousel && project.finalDesign.carouselImages?.length > 0 && (
                 <Carousel 
                   images={project.finalDesign.carouselImages}
@@ -529,15 +489,10 @@ const PTemplate = ({ project }) => {
                 />
               )}
               
-              {/* Grid */}
               {!project.finalDesign.carousel && project.finalDesign.gridImages?.length > 0 && (
                 <div className="case-image ui-grid">
                   {project.finalDesign.gridImages.map((img, i) => (
-                    <img
-                      key={i}
-                      src={img.src}
-                      alt={img.alt || `Detail ${i + 1}`}
-                    />
+                    <img key={i} src={img.src} alt={img.alt || `Detail ${i + 1}`} />
                   ))}
                 </div>
               )}
@@ -546,7 +501,7 @@ const PTemplate = ({ project }) => {
         </section>
       )}
 
-      {/* REFLECTION SECTION */}
+      {/* REFLECTION */}
       {project.reflection && (
         <section className="case-section narrow scrollspy-section" id="reflection">
           {project.showReflectionTitle !== false && (
@@ -575,17 +530,13 @@ const PTemplate = ({ project }) => {
                       muted
                       playsInline
                       preload="auto"
-                      onError={(e) => console.error('Related project video failed to load:', rp.video, e)}
+                      onError={(e) => console.error('Related video failed:', rp.video, e)}
                     >
                       <source src={rp.video} type="video/mp4" />
-                      Your browser does not support the video tag.
+                      Your browser does not support video.
                     </video>
                   ) : (
-                    <img
-                      src={rp.image}
-                      alt={rp.alt || rp.title}
-                      loading="lazy"
-                    />
+                    <img src={rp.image} alt={rp.alt || rp.title} loading="lazy" />
                   )}
                 </div>
                 <div className="project-info">
