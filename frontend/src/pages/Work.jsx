@@ -85,6 +85,9 @@ const Work = () => {
                                     <source src="/assets/TP/TP_ani.mp4" type="video/mp4" />
                                     Your browser does not support the video tag.
                                 </video>
+
+                                {/* <img src="/assets/TP/TP_ani.gif" alt="TP Brand Identity" loading="lazy" /> */}
+
                             </div>
                             <div className="project-info">
                                 <h3 className="project-title">TP</h3>

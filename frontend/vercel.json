@@ -7,7 +7,7 @@
   ],
   "headers": [
     {
-      "source": "/assets/**/*.mp4",
+      "source": "/assets/(.*)\\.mp4",
       "headers": [
         {
           "key": "Content-Type",
@@ -28,7 +28,7 @@
       ]
     },
     {
-      "source": "/assets/**",
+      "source": "/assets/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
