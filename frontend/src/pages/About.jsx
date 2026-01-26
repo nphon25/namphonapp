@@ -80,7 +80,7 @@ const About = () => {
                 </div> {/* /.container */}
             </section>
         </main>
-    );
+    );git 
 };
 
 export default About;
