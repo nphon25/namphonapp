@@ -92,10 +92,10 @@ const projects = {
         { type: "image", image: "/assets/ALMA/Mock Up/Style Guide for Presentation-2.png", alt: "Grocery discovery screen", size: "wide" },
         { type: "image", image: "/assets/ALMA/Mock Up/Style Guide for Presentation-3.png", alt: "Recipe browsing screen", size: "wide" },
         { type: "image", image: "/assets/ALMA/Mock Up/phone.png", alt: "Mobile app mockup", size: "medium" },
-        { type: "video", video: "/assets/ALMA/VID/mobile.mp4", alt: "Mobile prototype walkthrough", size: "medium" },
+        { type: "video", video: "https://res.cloudinary.com/dvo3q9yny/video/upload/v1769455984/mobile_izywzu.mp4", alt: "Mobile prototype walkthrough", size: "medium" },
         { type: "image", image: "/assets/ALMA/Mock Up/applewatch style.png", alt: "Apple Watch design system", size: "wide" },
         { type: "image", image: "/assets/ALMA/Mock Up/applewatch (1).png", alt: "Apple Watch mockup", size: "small" },
-        { type: "video", video: "/assets/ALMA/VID/applewatch.mp4", alt: "Apple Watch prototype demo", size: "small" },
+        { type: "video", video: "https://res.cloudinary.com/dvo3q9yny/video/upload/v1769455984/applewatch_u1g4vf.mp4", alt: "Apple Watch prototype demo", size: "small" },
         { type: "image", image: "/assets/ALMA/Mock Up/applewatch (2).png", alt: "Apple Watch screen", size: "small" },
         { type: "image", image: "/assets/ALMA/Mock Up/billboard.jpg", alt: "ALMA billboard concept", size: "wide" }
       ]
@@ -112,7 +112,7 @@ const projects = {
       },
       {
         href: "/project/tp",
-        video: "/assets/TP/TP_ani.mp4",
+        video: "https://res.cloudinary.com/dvo3q9yny/video/upload/v1769455666/TP_ani_mycvjy.mp4",
         alt: "TP Brand Identity",
         title: "TP",
         meta: "Brand Identity"
