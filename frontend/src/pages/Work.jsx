@@ -82,7 +82,7 @@ const Work = () => {
                                     preload="auto"
                                     onError={(e) => console.error('TP video failed to load:', '/assets/TP/TP_ani.mp4', e)}
                                 >
-                                <source src="https://res.cloudinary.com/dvo3q9yny/video/upload/Logo_2_f1ireq.mp4" type="video/mp4" />                                </video>
+                                <source src="https://res.cloudinary.com/dvo3q9yny/video/upload/v1769455666/TP_ani_mycvjy.mp4" type="video/mp4" />                                </video>
 gi
                                 {/* <img src="/assets/TP/TP_ani.gif" alt="TP Brand Identity" loading="lazy" /> */}
 
