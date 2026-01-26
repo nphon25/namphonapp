@@ -75,7 +75,7 @@ const About = () => {
                                 playsInline
                                 aria-label="Introduction video of Nam Phon"
                             >
-                                <source src="assets\vid\logo (2).mp4" type="video/mp4" />
+                                <source src="assets\vid\Logo_update.mp4" type="video/mp4" />
                                 Your browser does not support the video tag.
                             </video>
                         </div>
