@@ -1010,11 +1010,16 @@ blockquote {
 }
 
 /* ===================================
+   RESPONSIVE SECTIONS - UPDATED WITH REDUCED HERO SPACING
+   Replace your existing responsive sections with these
+=================================== */
+
+/* ===================================
    RESPONSIVE: TABLET
 =================================== */
 @media (max-width: 992px) {
   :root {
-    --spacing-section: 3rem;
+    --spacing-section: 2.5rem;
     --spacing-2xl: 2.5rem;
     --spacing-xl: 2rem;
   }
@@ -1036,8 +1041,15 @@ blockquote {
     scroll-margin-top: 80px;
   }
 
+  /* UPDATED: Reduced hero height and added margin-bottom */
   .hero-image {
-    min-height: 350px;
+    min-height: 280px;
+    margin-bottom: 0;
+  }
+  
+  /* UPDATED: Reduced padding after hero */
+  .case-section:first-of-type {
+    padding-top: var(--spacing-md);
   }
 
   .overview-row {
@@ -1142,7 +1154,7 @@ blockquote {
 =================================== */
 @media (max-width: 768px) {
   :root {
-    --spacing-section: 2.5rem;
+    --spacing-section: 2rem; /* UPDATED: 2.5rem → 2rem */
     --spacing-2xl: 2rem;
     --spacing-xl: 1.75rem;
     --spacing-lg: 1.5rem;
@@ -1164,9 +1176,11 @@ blockquote {
     scroll-margin-top: 60px;
   }
 
+  /* UPDATED: Reduced hero height and added margin-bottom */
   .hero-image {
-    min-height: 300px;
+    min-height: 240px; /* UPDATED: 300px → 240px */
     max-height: 70vh;
+    margin-bottom: 0; /* ADDED */
   }
 
   .hero-image img,
@@ -1178,8 +1192,9 @@ blockquote {
     display: none;
   }
 
+  /* UPDATED: Reduced padding after hero */
   .case-section:first-of-type {
-    padding-top: var(--spacing-lg);
+    padding-top: var(--spacing-sm); /* UPDATED: var(--spacing-lg) → var(--spacing-sm) */
   }
 
   .ui-grid {
@@ -1315,7 +1330,7 @@ blockquote {
 =================================== */
 @media (max-width: 600px) {
   :root {
-    --spacing-section: 2rem;
+    --spacing-section: 1.5rem; /* UPDATED: 2rem → 1.5rem */
     --spacing-xl: 1.5rem;
   }
 
@@ -1335,8 +1350,10 @@ blockquote {
     font-size: 1.05rem;
   }
 
+  /* UPDATED: Reduced hero height */
   .hero-image {
-    min-height: 250px;
+    min-height: 200px; /* UPDATED: 250px → 200px */
+    margin-bottom: 0; /* ADDED */
   }
 
   .process-grid-item {
@@ -1399,8 +1416,10 @@ blockquote {
    RESPONSIVE: EXTRA SMALL MOBILE
 =================================== */
 @media (max-width: 400px) {
+  /* UPDATED: Reduced hero height */
   .hero-image {
-    min-height: 220px;
+    min-height: 180px; /* UPDATED: 220px → 180px */
+    margin-bottom: 0; /* ADDED */
   }
 
   .bento-item,
@@ -1428,18 +1447,4 @@ blockquote {
     height: 32px;
     font-size: 1.2rem;
   }
-}
-
-/* ===================================
-   MATERIALIZE OVERRIDES
-=================================== */
-nav,
-.nav-wrapper {
-  background-color: var(--bg) !important;
-  box-shadow: none !important;
-}
-
-nav a,
-.nav-wrapper a {
-  color: var(--text-dark) !important;
 }
