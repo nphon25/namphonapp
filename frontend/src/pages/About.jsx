@@ -19,17 +19,15 @@ const About = () => {
                             </h1>
 
                             <p className="about-bio">
-                            I’m a graphic designer with a BFA in Graphic Design, based in Charlotte, NC. I’m drawn to how design forms connections and brings us together, linking people to ideas, communities, and culture.
-                            </p>
+                            Hi, I’m a graphic designer based in Charlotte, NC. Dawn to how design forms connections and brings us together, linking people to ideas, communities, and culture. I enjoy creating designs that leave a lasting impression.                            </p>
+
+
+                           <p className="about-bio">
+                           My process is flexible and human centered, adapting to the scale of each project, whether digital, physical, or somewhere in between. In essence, storytelling is at the core of my design philosophy, which can be translated no matter the medium. I believe the storytelling aspect is what makes a design more tangible.
+                        </p>
 
                             <p className="about-bio">
-                            I design with curiosity and intention, focusing on how people experience, understand, and move through visual and interactive systems. 
-                            My process is flexible and human centered, adapting to the scale of each project whether digital, physical, or somewhere in between. 
-                            I’ve gained experience through internships and collaborative projects. Currently, I'm seeking opportunities in UX/UI or experiential design with teams that value curiosity, collaboration, and human centered thinking.
-                            </p>
-
-                            <p className="about-bio">
-                            In my spare time, I enjoy photographing my cats, catching up One Piece or recharging through small creative hobbies. </p>
+                            Currently, I'm seeking opportunities in UX/UI or experiential design with teams that value curiosity, collaboration, and innovation. In my spare time, I enjoy photographing my cats, catching up on One Piece or recharging through small creative hobbies.</p>
 
 
                             {/* STATS */}
