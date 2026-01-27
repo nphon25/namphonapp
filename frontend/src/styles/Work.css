@@ -12,9 +12,9 @@
 /* Hero Content Container */
 #hero .container {
     width: 100%;
-    max-width: var(--content-max-width);
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 var(--padding-x);
+    padding: 0 2rem;
 }
 
 /* Hero Content */
@@ -92,6 +92,21 @@
     max-width: 900px;
     line-height: 1.7;
     animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+/* Scroll Link - Inline Link Style */
+.scroll-link {
+    color: var(--primary-hover);
+    text-decoration: underline;
+    text-decoration-color: var(--primary-hover);
+    text-underline-offset: 3px;
+    transition: color 0.3s ease, text-decoration-color 0.3s ease;
+    cursor: pointer;
+}
+
+.scroll-link:hover {
+    color: var(--primary-dark);
+    text-decoration-color: var(--primary-dark);
 }
 
 /* Scroll Down Button */
@@ -195,9 +210,9 @@
 
 #work .container {
     width: 100%;
-    max-width: var(--content-max-width);
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 var(--padding-x);
+    padding: 0 2rem;
 }
 
 .work-title {
@@ -300,11 +315,30 @@
     }
 }
 
-/* Responsive - Tablet (900px and below) */
+/* =========================
+   RESPONSIVE – LARGE TABLETS (900px - 1100px)
+   ========================= */
+@media (max-width: 1100px) {
+    #hero .container {
+        padding: 0 1.75rem;
+    }
+
+    #work .container {
+        padding: 0 1.75rem;
+    }
+}
+
+/* =========================
+   RESPONSIVE – TABLET (768px - 900px)
+   ========================= */
 @media (max-width: 900px) {
     #hero {
         min-height: 75vh;
         padding: 3rem 0 5rem;
+    }
+
+    #hero .container {
+        padding: 0 1.5rem;
     }
 
     .hero-title {
@@ -323,6 +357,10 @@
         margin-top: 0.5rem;
     }
 
+    #work .container {
+        padding: 0 1.5rem;
+    }
+
     .project-grid {
         grid-template-columns: 1fr;
         gap: 3.5rem;
@@ -337,11 +375,17 @@
     }
 }
 
-/* Responsive - Mobile (600px and below) */
+/* =========================
+   RESPONSIVE – MOBILE (600px and below)
+   ========================= */
 @media (max-width: 600px) {
     #hero {
         min-height: 70vh;
         padding: 2rem 0 4rem;
+    }
+
+    #hero .container {
+        padding: 0 1.25rem;
     }
 
     .hero-title {
@@ -380,6 +424,10 @@
         padding: 3rem 0 2.5rem;
     }
 
+    #work .container {
+        padding: 0 1.25rem;
+    }
+
     .work-title {
         font-size: 2rem;
     }
@@ -402,5 +450,80 @@
 
     .project-meta {
         font-size: 1.05rem;
+    }
+}
+
+/* =========================
+   RESPONSIVE – SMALL MOBILE (480px and below)
+   ========================= */
+@media (max-width: 480px) {
+    #hero {
+        padding: 1.5rem 0 3.5rem;
+    }
+
+    #hero .container {
+        padding: 0 1rem;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .hero-text {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    #work {
+        padding: 2.5rem 0 2rem;
+    }
+
+    #work .container {
+        padding: 0 1rem;
+    }
+
+    .work-title {
+        font-size: 1.8rem;
+    }
+
+    .work-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .project-grid {
+        gap: 2.5rem;
+    }
+
+    .project-title {
+        font-size: 1.3rem;
+    }
+
+    .project-meta {
+        font-size: 1rem;
+    }
+}
+
+/* =========================
+   RESPONSIVE – EXTRA SMALL MOBILE (400px and below)
+   ========================= */
+@media (max-width: 400px) {
+    #hero .container {
+        padding: 0 0.875rem;
+    }
+
+    #work .container {
+        padding: 0 0.875rem;
+    }
+
+    .hero-title {
+        font-size: 1.6rem;
+    }
+
+    .work-title {
+        font-size: 1.6rem;
     }
 }
