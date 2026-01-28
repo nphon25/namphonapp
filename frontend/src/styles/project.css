@@ -42,10 +42,46 @@ body {
   background-color: var(--bg);
   color: var(--text-dark);
   -webkit-font-smoothing: antialiased;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 main {
-  padding-top: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Remove padding/margin for pages with hero */
+main:has(.hero-image) {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Remove any container padding */
+.container:has(.hero-image) {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+section:has(.hero-image) {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+div:has(.hero-image) {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Remove spacing from containers after hero */
+.hero-image ~ * {
+  margin-top: 0 !important;
+}
+
+.hero-image ~ div,
+.hero-image ~ section {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
 }
 
 /* ===================================
@@ -62,7 +98,7 @@ h1, h2, h3, h4 {
 
 h1 {
   font-size: clamp(2rem, 4vw, 2.8rem);
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
 }
 
 h2 {
@@ -145,75 +181,73 @@ blockquote {
   margin-bottom: var(--spacing-xl);
 }
 
-/* =========================
-   HERO IMAGE SECTION
-   ========================= */
+/* ===================================
+   HERO SECTION - FULL WIDTH AUTO HEIGHT
+   Same behavior on all devices - no constraints
+=================================== */
+#hero.hero-image,
 .hero-image {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+  position: relative;
+  width: 100% !important;
+  overflow: hidden;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block;
+  line-height: 0;
+  margin-bottom: 0 !important;
 }
 
-.hero-image img,
+.hero-image img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: cover;
+  display: block !important;
+  transition: transform 2s ease;
+  margin: 0 !important;
+  padding: 0 !important;
+  vertical-align: bottom;
+  line-height: 0;
+  margin-bottom: 0 !important;
+}
+
+.hero-image img:hover {
+  transform: scale(1.02);
+}
+
 .hero-image video {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: contain;
+  width: 100% !important;
+  height: auto !important;
+  object-fit: cover;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  vertical-align: bottom;
+  line-height: 0;
+  margin-bottom: 0 !important;
 }
 
-/* Desktop: Constrain height if needed */
-@media (min-width: 769px) {
-    .hero-image img,
-    .hero-image video {
-        max-height: 70vh;
-        object-fit: contain;
-    }
+/* Ensure first section after hero touches hero with no gap */
+.hero-image + * {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }
 
-/* Mobile: Full width edge-to-edge, NO white space */
-@media (max-width: 768px) {
-    /* Remove padding from main element for project pages */
-    main:has(.hero-image) {
-        padding-top: 0 !important;
-        margin-top: 0 !important;
-    }
-    
-    .hero-image {
-        width: 100vw;
-        margin-left: calc(-50vw + 50%);
-        margin-right: calc(-50vw + 50%);
-        margin-top: 0;
-        margin-bottom: 0;
-        padding: 0;
-    }
-    
-    .hero-image img,
-    .hero-image video {
-        width: 100%;
-        height: auto;
-        max-height: none;
-        object-fit: contain;
-        display: block;
-        margin: 0;
-        padding: 0;
-    }
+.hero-image + .case-section {
+  margin-top: 0 !important;
+  padding-top: var(--spacing-sm) !important;
 }
 
-/* Remove default main padding on project pages */
-@media (max-width: 768px) {
-    main {
-        padding: 0;
-        margin: 0;
-    }
-    
-    /* First section (hero) should have no top margin/padding */
-    main > section:first-child {
-        margin-top: 0 !important;
-        padding-top: 0 !important;
-    }
+.hero-image + section {
+  margin-top: 0 !important;
+  padding-top: var(--spacing-sm) !important;
 }
+
+/* Remove gap between hero and scrollspy */
+.hero-image + .scrollspy-nav {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
 /* ===================================
    INTRO & OVERVIEW
 =================================== */
@@ -221,7 +255,7 @@ blockquote {
   font-size: 1.25rem;
   line-height: 1.9;
   color: var(--text-dark);
-  margin-bottom: var(--spacing-2xl);
+  margin-bottom: var(--spacing-lg);
   max-width: none;
 }
 
@@ -235,7 +269,7 @@ blockquote {
 .overview-row {
   display: grid;
   grid-template-columns: 220px 1fr;
-  gap: var(--spacing-xl);
+  gap: var(--spacing-md);
   padding: var(--spacing-md) 0;
   border-bottom: 1px solid var(--line-color);
   align-items: flex-start;
@@ -277,6 +311,7 @@ blockquote {
   z-index: 900;
   background: rgba(253, 251, 248, 0.96);
   backdrop-filter: blur(8px);
+  margin-top: 0 !important;
   margin-bottom: var(--spacing-lg);
   border-bottom: 1px solid var(--line-color);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
@@ -286,6 +321,16 @@ blockquote {
   padding: 0.5rem var(--spacing-md);
   display: flex;
   align-items: center;
+  margin-top: 0 !important;
+}
+
+/* When scrollspy follows hero, eliminate all gaps */
+.hero-image ~ .scrollspy-nav {
+  margin-top: 0 !important;
+}
+
+.scrollspy-nav:first-of-type {
+  margin-top: 0 !important;
 }
 
 .scrollspy-nav ul {
@@ -1009,60 +1054,100 @@ blockquote {
   }
 }
 
-/* ===================================
-   RESPONSIVE SECTIONS - UPDATED WITH REDUCED HERO SPACING
-   Replace your existing responsive sections with these
-=================================== */
+
 
 /* ===================================
-   RESPONSIVE: TABLET
+   RESPONSIVE: TABLET (≤ 992px)
 =================================== */
 @media (max-width: 992px) {
   :root {
-    --spacing-section: 2.5rem;
+    --spacing-section: 3rem;
     --spacing-2xl: 2.5rem;
     --spacing-xl: 2rem;
   }
 
-  html {
-    scroll-padding-top: 80px;
+  html { scroll-padding-top: 80px; }
+
+  body,
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
-  .scrollspy-section {
-    scroll-margin-top: 80px;
+  /* --------------------------------
+     HERO — COLLAPSE TO CONTENT
+  -------------------------------- */
+  #hero,
+  .hero,
+  .hero-wrapper,
+  .hero-image {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
   }
 
-  .scrollspy-section h2 {
+  .hero-image img,
+  .hero-image video {
+    width: 100% !important;
+    height: auto !important;
+    display: block;
+  }
+
+  .hero-image + section {
+    padding-top: var(--spacing-sm) !important;
+  }
+
+  /* --------------------------------
+     SECTIONS / SCROLL TARGETS
+  -------------------------------- */
+  .scrollspy-section,
+  .scrollspy-section h2,
+  .case-section {
     scroll-margin-top: 80px;
   }
 
   .case-section {
     padding: var(--spacing-section) var(--spacing-md);
-    scroll-margin-top: 80px;
   }
 
-  /* UPDATED: Reduced hero height and added margin-bottom */
-  .hero-image {
-    min-height: 280px;
-    margin-bottom: 0;
-  }
-  
-  /* UPDATED: Reduced padding after hero */
-  .case-section:first-of-type {
-    padding-top: var(--spacing-md);
-  }
-
-  .overview-row {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-sm);
-    padding: var(--spacing-md) 0;
+  .scrollspy-nav {
+    margin-top: 0 !important;
   }
 
   .scrollspy-nav ul {
     gap: var(--spacing-lg);
   }
 
-  .process-image-grid {
+  /* --------------------------------
+     PROJECT GRID — MATCH RELATED CARDS
+  -------------------------------- */
+  .project-grid {
+    width: 100%;
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-xl);
+  }
+
+  .project-image-wrap::before {
+    padding-top: 75%; /* EXACT match to related projects */
+  }
+
+  /* --------------------------------
+     OVERVIEW
+  -------------------------------- */
+  .overview-row {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) 0;
+  }
+
+  /* --------------------------------
+     PROCESS GRIDS
+  -------------------------------- */
+  .process-image-grid,
+  .process-bento-grid {
     grid-template-columns: repeat(8, 1fr);
     gap: var(--spacing-sm);
   }
@@ -1072,40 +1157,18 @@ blockquote {
     min-height: 280px;
   }
 
-  .process-grid-item.small,
-  .process-grid-item.medium {
-    grid-column: span 4;
-  }
-
   .process-grid-item.large,
   .process-grid-item.xlarge,
   .process-grid-item.full {
     grid-column: span 8;
   }
 
-  .process-image-subtitle {
-    font-size: 1rem;
-  }
-
-  .project-grid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-xl);
-  }
-
-  .process-bento-grid {
-    grid-template-columns: repeat(8, 1fr);
-    gap: var(--spacing-sm);
-  }
-
+  /* Bento */
   .bento-item,
+  .bento-item.small,
   .bento-item.tall {
     grid-column: span 4;
     min-height: 240px;
-  }
-
-  .bento-item.small {
-    grid-column: span 4;
-    min-height: 220px;
   }
 
   .bento-item.large,
@@ -1114,23 +1177,11 @@ blockquote {
     min-height: 260px;
   }
 
-  .bento-item:not(:has(.bento-content)) { min-height: 240px; }
-  .bento-item.small:not(:has(.bento-content)) { min-height: 220px; }
-  .bento-item.large:not(:has(.bento-content)),
-  .bento-item.wide:not(:has(.bento-content)) { min-height: 260px; }
-
-  .bento-image-group {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-xs);
-  }
-
-  .carousel-track {
-    gap: var(--spacing-md);
-  }
-
-  .carousel-subtitle {
-    text-align: center;
-  }
+  /* --------------------------------
+     CAROUSEL
+  -------------------------------- */
+  .carousel-track { gap: var(--spacing-md); }
+  .carousel-subtitle { text-align: center; }
 
   .carousel-btn {
     width: 40px;
@@ -1138,99 +1189,84 @@ blockquote {
     font-size: 1.5rem;
   }
 
-  .carousel-dot {
-    width: 5px;
-    height: 5px;
-  }
-
-  .carousel-dot.active {
-    width: 18px;
-    height: 5px;
-  }
+  .carousel-dot { width: 5px; height: 5px; }
+  .carousel-dot.active { width: 18px; }
 }
 
 /* ===================================
-   RESPONSIVE: MOBILE
+   RESPONSIVE: MOBILE (≤ 768px)
 =================================== */
 @media (max-width: 768px) {
-  :root {
-    --spacing-section: 2rem; /* UPDATED: 2.5rem → 2rem */
-    --spacing-2xl: 2rem;
-    --spacing-xl: 1.75rem;
-    --spacing-lg: 1.5rem;
-  }
+  html { scroll-padding-top: 60px; }
 
-  html {
-    scroll-padding-top: 60px;
-  }
-
-  .scrollspy-section {
-    scroll-margin-top: 60px;
-  }
-
-  .scrollspy-section h2 {
-    scroll-margin-top: 60px;
-  }
-
-  .case-section {
-    scroll-margin-top: 60px;
-  }
-
-  /* UPDATED: Reduced hero height and added margin-bottom */
+  /* --------------------------------
+     HERO — FINAL MOBILE FIX
+  -------------------------------- */
+  #hero,
+  .hero,
+  .hero-wrapper,
   .hero-image {
-    min-height: 240px; /* UPDATED: 300px → 240px */
-    max-height: 70vh;
-    margin-bottom: 0; /* ADDED */
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
   }
 
   .hero-image img,
   .hero-image video {
-    max-height: 70vh;
+    display: block;
+    width: 100%;
+    height: auto !important;
   }
 
-  .scrollspy-nav {
-    display: none;
+  .hero-image + section {
+    padding-top: var(--spacing-xs) !important;
   }
 
-  /* UPDATED: Reduced padding after hero */
-  .case-section:first-of-type {
-    padding-top: var(--spacing-sm); /* UPDATED: var(--spacing-lg) → var(--spacing-sm) */
+  /* --------------------------------
+     NAV
+  -------------------------------- */
+  .scrollspy-nav { display: none; }
+
+  .scrollspy-section,
+  .scrollspy-section h2,
+  .case-section {
+    scroll-margin-top: 60px;
   }
 
-  .ui-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .process-image-grid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-sm);
-  }
-
-  .process-grid-item,
-  .process-grid-item.small,
-  .process-grid-item.medium,
-  .process-grid-item.large,
-  .process-grid-item.xlarge,
-  .process-grid-item.full {
-    grid-column: span 1;
-    min-height: 250px;
-  }
-
-  .process-image-section {
-    margin-top: var(--spacing-lg);
-  }
-
+  /* --------------------------------
+     PROJECT GRID — SAME WIDTH AS RELATED
+  -------------------------------- */
   .project-grid {
+    width: 100%;
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
     grid-template-columns: 1fr;
-    gap: 3.5rem;
+    gap: var(--spacing-2xl);
   }
 
-  .project-title {
-    font-size: 1.6rem;
+  .project-image-wrap {
+    border-radius: 4px; /* match related cards */
   }
 
   .project-image-wrap::before {
-    padding-top: 70%;
+    padding-top: 75%;
+  }
+
+  .project-title {
+    font-size: 1.45rem;
+  }
+
+  /* --------------------------------
+     OTHER GRIDS
+  -------------------------------- */
+  .ui-grid,
+  .process-image-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-grid-item {
+    min-height: 260px;
   }
 
   .process-bento-grid {
@@ -1239,208 +1275,60 @@ blockquote {
     padding: 0 var(--spacing-md);
   }
 
-  .bento-item,
-  .bento-item.small,
-  .bento-item.large,
-  .bento-item.wide,
-  .bento-item.tall {
+  .bento-item {
     grid-column: span 4;
     min-height: 220px;
   }
 
-  .bento-item:not(:has(.bento-content)),
-  .bento-item.small:not(:has(.bento-content)),
-  .bento-item.large:not(:has(.bento-content)),
-  .bento-item.wide:not(:has(.bento-content)),
-  .bento-item.tall:not(:has(.bento-content)) {
-    min-height: 220px;
-  }
-
   .bento-content {
     padding: var(--spacing-sm);
   }
 
-  .bento-image-group {
-    grid-template-columns: 1fr;
-  }
-
-  .carousel-container {
-    margin: var(--spacing-lg) 0;
-  }
-
-  .carousel-track {
-    gap: var(--spacing-md);
-    padding: 0 var(--spacing-md);
-  }
-
-  .carousel-slide {
-    padding: var(--spacing-sm) 0;
-  }
-
-  .carousel-subtitle {
-    padding: 0 var(--spacing-md);
-    font-size: 0.65rem;
-    text-align: center;
-  }
-
-  .carousel-btn {
-    width: 38px;
-    height: 38px;
-    font-size: 1.4rem;
-  }
-
-  .carousel-btn-prev { left: 0.25rem; }
-  .carousel-btn-next { right: 0.25rem; }
-
-  .carousel-dots {
-    gap: 0.4rem;
-    margin-top: var(--spacing-sm);
-  }
-
-  .carousel-dot {
-    width: 5px;
-    height: 5px;
-  }
-
-  .carousel-dot.active {
-    width: 16px;
-    height: 5px;
-  }
-
-  .footer-top {
-    flex-direction: column;
-    gap: var(--spacing-sm);
-    text-align: center;
-  }
-
+  /* --------------------------------
+     FOOTER
+  -------------------------------- */
+  .footer-top,
   .footer-bottom-container {
     flex-direction: column;
+    text-align: center;
     gap: var(--spacing-sm);
-  }
-
-  .video-container.small,
-  .video-container.medium,
-  .video-container.large {
-    max-width: 100%;
   }
 }
 
 /* ===================================
-   RESPONSIVE: SMALL MOBILE
+   RESPONSIVE: SMALL MOBILE (≤ 600px)
 =================================== */
 @media (max-width: 600px) {
   :root {
-    --spacing-section: 1.5rem; /* UPDATED: 2rem → 1.5rem */
+    --spacing-section: 2rem;
     --spacing-xl: 1.5rem;
   }
 
-  .case-section {
-    padding: var(--spacing-section) var(--spacing-md);
-  }
+  h1 { font-size: 1.9rem; }
+  h2 { font-size: 1.5rem; }
 
-  h1 {
-    font-size: 1.9rem;
-  }
+  .intro { font-size: 1.05rem; }
 
-  h2 {
-    font-size: 1.5rem;
-  }
+  .project-title { font-size: 1.4rem; }
 
-  .intro {
-    font-size: 1.05rem;
-  }
-
-  /* UPDATED: Reduced hero height */
-  .hero-image {
-    min-height: 200px; /* UPDATED: 250px → 200px */
-    margin-bottom: 0; /* ADDED */
-  }
-
-  .process-grid-item {
-    min-height: 220px;
-    padding: var(--spacing-xs);
-  }
-
-  .project-image-wrap::before {
-    padding-top: 75%;
-  }
-
-  .project-grid {
-    gap: 3rem;
-  }
-
-  .project-title {
-    font-size: 1.4rem;
-  }
-
-  .project-meta {
-    font-size: 1.05rem;
-  }
-
-  .process-bento-grid {
-    gap: var(--spacing-sm);
-  }
-
-  .bento-item,
-  .bento-item.small,
-  .bento-item.large,
-  .bento-item.wide,
-  .bento-item.tall {
-    min-height: 200px;
-  }
-
-  .bento-item:not(:has(.bento-content)),
-  .bento-item.small:not(:has(.bento-content)),
-  .bento-item.large:not(:has(.bento-content)),
-  .bento-item.wide:not(:has(.bento-content)),
-  .bento-item.tall:not(:has(.bento-content)) {
-    min-height: 200px;
-  }
-
-  .bento-content {
-    padding: var(--spacing-sm);
-  }
-
-  .carousel-track {
-    gap: var(--spacing-sm);
-  }
+  .process-grid-item { min-height: 230px; }
+  .bento-item { min-height: 200px; }
 
   .carousel-btn {
     width: 34px;
     height: 34px;
-    font-size: 1.3rem;
   }
 }
 
 /* ===================================
-   RESPONSIVE: EXTRA SMALL MOBILE
+   RESPONSIVE: EXTRA SMALL (≤ 400px)
 =================================== */
 @media (max-width: 400px) {
-  /* UPDATED: Reduced hero height */
-  .hero-image {
-    min-height: 180px; /* UPDATED: 220px → 180px */
-    margin-bottom: 0; /* ADDED */
+  .hero-image + section {
+    padding-top: 0 !important;
   }
 
-  .bento-item,
-  .bento-item.small,
-  .bento-item.large,
-  .bento-item.wide,
-  .bento-item.tall {
-    min-height: 180px;
-  }
-
-  .bento-item:not(:has(.bento-content)),
-  .bento-item.small:not(:has(.bento-content)),
-  .bento-item.large:not(:has(.bento-content)),
-  .bento-item.wide:not(:has(.bento-content)),
-  .bento-item.tall:not(:has(.bento-content)) {
-    min-height: 180px;
-  }
-
-  .carousel-track {
-    gap: var(--spacing-sm);
-  }
+  .bento-item { min-height: 180px; }
 
   .carousel-btn {
     width: 32px;
