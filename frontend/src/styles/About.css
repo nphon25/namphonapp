@@ -3,7 +3,7 @@
    ========================= */
 #about-me {
     background: var(--background);
-    padding: 5rem 0 5rem;
+    padding: clamp(3rem, 8vh, 5rem) 0;
     width: 100%;
 }
 
@@ -11,49 +11,52 @@
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1.25rem;
 }
 
 .about-layout {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 2rem;
+    gap: clamp(2rem, 5vw, 3.5rem);
     width: 100%;
 }
 
-/* Text side */
+/* =========================
+   TEXT SIDE
+   ========================= */
 .about-info {
-    flex: 1.2;
+    flex: 1.35;
     min-width: 0;
-    max-width: 640px;
+    max-width: 700px;
 }
 
-/* Video side (on the right) */
+/* =========================
+   VIDEO SIDE
+   ========================= */
 .about-photo {
-    flex: 0 0 auto;
-    width: 360px;
-    max-width: 360px;
+    flex: 1;
+    max-width: 440px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    background: transparent;
-    box-shadow: none;
-    padding: 0;
-    margin: 0;
 }
 
-/* VIDEO: clean display, no background */
 .about-photo video {
     width: 100%;
     height: auto;
-    aspect-ratio: 2/ 4;
+    max-height: clamp(560px, 70vh, 680px);
+    aspect-ratio: 9 / 16;
     object-fit: contain;
     display: block;
-    border-radius: 0px;
     background: transparent;
-    box-shadow: none;
     border: none;
+    box-shadow: none;
+    transition: opacity 0.3s ease;
+}
+
+.about-photo video:hover {
+    opacity: 0.95;
 }
 
 /* =========================
@@ -61,35 +64,36 @@
    ========================= */
 .about-role {
     font-family: "Roboto", sans-serif;
-    font-size: 0.9rem;
+    font-size: clamp(0.85rem, 1.5vw, 0.9rem);
     letter-spacing: 0.09em;
     text-transform: uppercase;
     color: var(--light-text);
     margin-bottom: 0.75rem;
+    font-weight: 500;
 }
 
 .about-name {
     font-family: "Roboto", sans-serif;
     font-weight: 700;
-    font-size: clamp(2.2rem, 3.5vw, 2.8rem);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
     line-height: 1.2;
-    margin: 0 0 1.25rem;
+    margin-bottom: 1.25rem;
     color: var(--dark-text);
 }
 
 .pronunciation {
-    font-family: "Roboto", sans-serif;
-    font-size: 0.95rem;
+    font-size: clamp(0.85rem, 1.5vw, 0.95rem);
     color: var(--light-text);
     margin-left: 0.4rem;
+    font-weight: 400;
 }
 
 .about-bio {
     font-family: "Roboto", sans-serif;
-    font-size: 1.05rem;
+    font-size: clamp(0.95rem, 1.8vw, 1.05rem);
     line-height: 1.8;
     color: var(--light-text);
-    margin: 0 0 1rem;
+    margin-bottom: 1rem;
 }
 
 .about-bio:last-of-type {
@@ -97,15 +101,15 @@
 }
 
 /* =========================
-   STATS ROWS
+   STATS
    ========================= */
 .about-stats {
-    margin-top: 2.5rem;
+    margin-top: clamp(1.75rem, 3vh, 2.25rem);
     display: grid;
     grid-template-columns: 140px minmax(0, 1fr);
-    column-gap: 2rem;
+    column-gap: clamp(1.5rem, 3vw, 2rem);
     row-gap: 1.25rem;
-    max-width: 100%;
+    align-items: baseline;
 }
 
 .about-stat-row {
@@ -113,84 +117,78 @@
 }
 
 .about-stat-label {
-    font-family: "Roboto", sans-serif;
-    font-size: 0.95rem;
+    font-size: clamp(0.9rem, 1.5vw, 0.95rem);
     color: var(--light-text);
     font-weight: 500;
-    line-height: 1.5;
 }
 
 .about-stat-value {
-    font-family: "Roboto", sans-serif;
-    font-size: 1rem;
+    font-size: clamp(0.95rem, 1.6vw, 1rem);
     color: var(--dark-text);
     font-weight: 500;
-    line-height: 1.6;
 }
 
 /* =========================
    HOBBIES SECTION
    ========================= */
 #hobbies {
-    padding: 4rem 2rem 5rem;
-    background-color: var(--background);
+    padding: clamp(3rem, 6vh, 4rem) 1.25rem clamp(4rem, 8vh, 5rem);
+    background: var(--background);
 }
 
 #hobbies .container {
-    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 #hobbies .section-title {
-    font-size: 1.8rem;
+    font-size: clamp(1.5rem, 3vw, 1.8rem);
     margin-bottom: 0.5rem;
+    color: var(--dark-text);
+    font-weight: 700;
 }
 
 #hobbies .section-subtitle {
-    font-size: 1rem;
+    font-size: clamp(0.95rem, 1.6vw, 1rem);
     color: var(--light-text);
-    margin-bottom: 2rem;
-}
-
-.hobby-item {
-    width: 100%;
+    margin-bottom: clamp(1.5rem, 3vh, 2rem);
 }
 
 .hobby-gallery {
-    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    gap: 0.75rem;
+    gap: clamp(0.5rem, 1.5vh, 0.75rem);
 }
 
 .main-hobby-image {
-    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
 }
 
 .main-hobby-image img {
-    display: block;
     width: 100%;
-    height: auto;
     max-height: min(480px, 65vh);
     object-fit: contain;
     border-radius: 12px;
-    border: none;
+    display: block;
+    transition: transform 0.3s ease;
 }
 
+.main-hobby-image:hover img {
+    transform: scale(1.02);
+}
+
+/* Thumbnails */
 .hobby-thumbnails {
-    width: 100%;
     display: flex;
-    flex-wrap: nowrap;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-    align-items: center;
+    gap: clamp(0.4rem, 1vw, 0.5rem);
     overflow-x: auto;
-    padding: 0.25rem 0;
+    padding-bottom: 0.5rem;
     scrollbar-width: thin;
+    scrollbar-color: var(--light-text) transparent;
 }
 
+/* Webkit scrollbar styling */
 .hobby-thumbnails::-webkit-scrollbar {
     height: 6px;
 }
@@ -200,234 +198,117 @@
 }
 
 .hobby-thumbnails::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.12);
-    border-radius: 999px;
+    background: var(--light-text);
+    border-radius: 3px;
+}
+
+.hobby-thumbnails::-webkit-scrollbar-thumb:hover {
+    background: var(--dark-text);
 }
 
 .hobby-thumbnails img {
-    flex: 0 0 70px;
-    height: 70px;
-    border-radius: 8px;
+    width: clamp(60px, 10vw, 70px);
+    height: clamp(60px, 10vw, 70px);
     object-fit: cover;
+    border-radius: 8px;
+    opacity: 0.6;
     cursor: pointer;
-    opacity: 0.65;
-    transition:
-        transform 0.2s ease,
-        opacity 0.2s ease,
-        box-shadow 0.2s ease;
-    border: none;
+    transition: opacity 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    flex-shrink: 0;
 }
 
 .hobby-thumbnails img:hover {
-    opacity: 0.9;
+    opacity: 0.85;
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.hobby-thumbnails img:focus {
+    outline: 2px solid var(--primary-color, #000);
+    outline-offset: 2px;
+    opacity: 0.9;
 }
 
 .hobby-thumbnails img.active {
     opacity: 1;
-    box-shadow: 0 0 0 2px rgba(59, 110, 145, 0.3);
-    transform: translateY(-1px);
+    transform: scale(1.05);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
 /* =========================
-   RESPONSIVE – LARGE TABLETS (900px - 1100px)
-   ========================= */
-@media (max-width: 1100px) {
-    #about-me .container {
-        padding: 0 1.75rem;
-    }
-
-    .about-layout {
-        gap: 3rem;
-    }
-
-    .about-photo {
-        width: 320px;
-        max-width: 320px;
-    }
-
-    .about-stats {
-        grid-template-columns: 130px minmax(0, 1fr);
-        column-gap: 1.75rem;
-        row-gap: 1rem;
-    }
-
-    #hobbies {
-        padding: 3.5rem 1.75rem 4.5rem;
-    }
-}
-
-/* =========================
-   RESPONSIVE – TABLET (768px - 900px)
+   TABLET & BELOW (≤ 900px)
    ========================= */
 @media (max-width: 900px) {
     #about-me {
-        padding: 4rem 0 4.5rem;
-    }
-
-    #about-me .container {
-        padding: 0 1.5rem;
+        padding: clamp(3rem, 6vh, 4rem) 0;
     }
 
     .about-layout {
         flex-direction: column-reverse;
         align-items: center;
-        gap: 3rem;
+        gap: clamp(1.5rem, 3vh, 2rem);
     }
 
     .about-info {
         max-width: 100%;
+        text-align: left;
     }
 
     .about-photo {
+        max-width: min(480px, 90vw);
         width: 100%;
-        max-width: 380px;
-        justify-content: center;
-        background: transparent;
-        box-shadow: none;
     }
 
     .about-photo video {
-        max-width: 380px;
-        background: transparent;
-        box-shadow: none;
+        max-height: clamp(600px, 75vh, 720px);
     }
 
     .about-stats {
         grid-template-columns: 1fr;
-        max-width: 100%;
-        row-gap: 1.75rem;
-        margin-top: 2rem;
+        row-gap: 1.5rem;
+        margin-top: clamp(1.5rem, 3vh, 2rem);
     }
 
     .about-stat-row {
-        display: block;
-    }
-
-    .about-stat-label {
-        display: block;
-        margin-bottom: 0.5rem;
-    }
-
-    .about-stat-value {
-        display: block;
-    }
-
-    #hobbies {
-        padding: 3.5rem 1.5rem 4rem;
-    }
-
-    .main-hobby-image img {
-        max-height: min(400px, 60vh);
-    }
-
-    .hobby-thumbnails img {
-        flex-basis: 64px;
-        height: 64px;
+        display: grid;
+        grid-template-columns: 140px minmax(0, 1fr);
+        gap: 1rem;
     }
 }
 
 /* =========================
-   RESPONSIVE – MOBILE (600px and below)
+   MOBILE (≤ 600px)
    ========================= */
 @media (max-width: 600px) {
     #about-me {
-        padding: 3rem 0 3.5rem;
+        padding: clamp(2.5rem, 5vh, 3rem) 0;
     }
 
-    #about-me .container {
-        padding: 0 1.25rem;
-    }
-
-    .about-layout {
-        gap: 2.5rem;
-    }
-
-    .about-photo {
-        max-width: 320px;
-    }
-
-    .about-photo video {
-        max-width: 320px;
-    }
-
-    .about-name {
-        font-size: 2rem;
-    }
-
-    .about-bio {
-        font-size: 1rem;
-    }
-
-    .about-stats {
-        margin-top: 1.75rem;
-        row-gap: 1.5rem;
-    }
-
-    .about-stat-label {
-        font-size: 0.9rem;
-    }
-
-    .about-stat-value {
-        font-size: 0.98rem;
-    }
-
+    #about-me .container,
     #hobbies {
-        padding: 3rem 1.25rem 3.5rem;
-    }
-
-    #hobbies .section-title {
-        font-size: 1.6rem;
-    }
-
-    #hobbies .section-subtitle {
-        font-size: 0.95rem;
-    }
-
-    .main-hobby-image img {
-        max-height: min(360px, 55vh);
-    }
-
-    .hobby-thumbnails {
-        gap: 0.4rem;
-    }
-
-    .hobby-thumbnails img {
-        flex-basis: 60px;
-        height: 60px;
-    }
-}
-
-/* =========================
-   RESPONSIVE – SMALL MOBILE (480px and below)
-   ========================= */
-@media (max-width: 480px) {
-    #about-me {
-        padding: 2.5rem 0 3rem;
-    }
-
-    #about-me .container {
-        padding: 0 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 
     .about-layout {
-        gap: 2rem;
+        gap: 1.5rem;
     }
 
     .about-photo {
-        max-width: 280px;
+        max-width: min(420px, 95vw);
     }
 
     .about-photo video {
-        max-width: 280px;
+        max-height: clamp(560px, 70vh, 660px);
     }
 
     .about-name {
-        font-size: 1.8rem;
+        font-size: clamp(1.6rem, 8vw, 2rem);
+        margin-bottom: 1rem;
     }
 
     .about-bio {
-        font-size: 0.95rem;
+        font-size: clamp(0.92rem, 3.5vw, 1rem);
         line-height: 1.7;
     }
 
@@ -436,52 +317,123 @@
         row-gap: 1.25rem;
     }
 
-    #hobbies {
-        padding: 2.5rem 1rem 3rem;
-    }
-
-    #hobbies .section-title {
-        font-size: 1.4rem;
-    }
-
-    #hobbies .section-subtitle {
-        font-size: 0.9rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .main-hobby-image img {
-        max-height: min(320px, 50vh);
-        border-radius: 8px;
-    }
-
-    .hobby-thumbnails {
-        gap: 0.35rem;
-    }
-
     .hobby-thumbnails img {
-        flex-basis: 56px;
-        height: 56px;
-        border-radius: 6px;
+        width: 60px;
+        height: 60px;
     }
 }
 
 /* =========================
-   RESPONSIVE – EXTRA SMALL MOBILE (400px and below)
+   SMALL MOBILE (≤ 400px)
    ========================= */
 @media (max-width: 400px) {
-    #about-me .container {
-        padding: 0 0.875rem;
+    .about-photo {
+        max-width: min(360px, 98vw);
+    }
+
+    .about-photo video {
+        max-height: clamp(500px, 65vh, 600px);
     }
 
     .about-name {
-        font-size: 1.6rem;
+        font-size: clamp(1.5rem, 9vw, 1.75rem);
     }
 
     .about-bio {
         font-size: 0.92rem;
+        line-height: 1.65;
     }
 
+    .about-stat-row {
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
+    }
+
+    .about-stat-label {
+        font-size: 0.85rem;
+    }
+
+    .about-stat-value {
+        font-size: 0.9rem;
+    }
+
+    .hobby-thumbnails img {
+        width: 55px;
+        height: 55px;
+    }
+}
+
+/* =========================
+   ACCESSIBILITY & FOCUS
+   ========================= */
+.about-photo video:focus {
+    outline: 2px solid var(--primary-color, #000);
+    outline-offset: 4px;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .about-photo video,
+    .hobby-thumbnails img,
+    .main-hobby-image img {
+        transition: none;
+    }
+    
+    .hobby-thumbnails img:hover,
+    .hobby-thumbnails img.active {
+        transform: none;
+    }
+    
+    .main-hobby-image:hover img {
+        transform: none;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .hobby-thumbnails img {
+        border: 1px solid currentColor;
+    }
+    
+    .hobby-thumbnails img.active {
+        border-width: 2px;
+    }
+}
+
+/* =========================
+   LOADING STATES
+   ========================= */
+.about-photo video[poster] {
+    background: var(--light-background, #f5f5f5);
+}
+
+.main-hobby-image img[loading="lazy"] {
+    background: var(--light-background, #f5f5f5);
+}
+
+/* =========================
+   PRINT STYLES
+   ========================= */
+@media print {
+    #about-me {
+        padding: 2rem 0;
+    }
+    
+    .about-layout {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .about-photo {
+        max-width: 100%;
+        page-break-inside: avoid;
+    }
+    
     #hobbies {
-        padding: 2.25rem 0.875rem 2.75rem;
+        page-break-before: always;
+    }
+    
+    .hobby-thumbnails {
+        display: none;
     }
 }
