@@ -11,7 +11,7 @@ const About = () => {
 
                         {/* TEXT SIDE */}
                         <div className="about-info">
-                            <p className="about-role">Graphic Designer | UX/UI & Experiential Design </p>
+                            <p className="about-role"> </p>
 
                             <h1 className="about-name">
                                 Nam Phon
