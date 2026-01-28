@@ -23,6 +23,10 @@
   --spacing-xl: 2.5rem;
   --spacing-2xl: 3.2rem;
   --spacing-section: 3.5rem;
+  
+  /* Unified grid gaps */
+  --grid-gap: 1rem;
+  --grid-gap-sm: 0.75rem;
 }
 
 /* ===================================
@@ -57,33 +61,6 @@ main:has(.hero-image) {
   margin: 0 !important;
 }
 
-/* Remove any container padding */
-.container:has(.hero-image) {
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-section:has(.hero-image) {
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-div:has(.hero-image) {
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-/* Remove spacing from containers after hero */
-.hero-image ~ * {
-  margin-top: 0 !important;
-}
-
-.hero-image ~ div,
-.hero-image ~ section {
-  padding-top: 0 !important;
-  margin-top: 0 !important;
-}
-
 /* ===================================
    TYPOGRAPHY
 =================================== */
@@ -98,7 +75,7 @@ h1, h2, h3, h4 {
 
 h1 {
   font-size: clamp(2rem, 4vw, 2.8rem);
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
 }
 
 h2 {
@@ -163,7 +140,7 @@ blockquote {
 }
 
 /* ===================================
-   SCROLLSPY SECTION TARGETING - CRITICAL
+   SCROLLSPY SECTION TARGETING
 =================================== */
 .scrollspy-section {
   scroll-margin-top: 96px;
@@ -183,7 +160,6 @@ blockquote {
 
 /* ===================================
    HERO SECTION - FULL WIDTH AUTO HEIGHT
-   Same behavior on all devices - no constraints
 =================================== */
 #hero.hero-image,
 .hero-image {
@@ -226,26 +202,86 @@ blockquote {
   margin-bottom: 0 !important;
 }
 
-/* Ensure first section after hero touches hero with no gap */
+/* ===================================
+   HERO GAP REMOVAL - HANDLES SCROLLSPY
+=================================== */
+
+/* Remove any container padding around hero */
+.container:has(.hero-image) {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+section:has(.hero-image) {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+div:has(.hero-image) {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Remove spacing from containers after hero */
+.hero-image ~ * {
+  margin-top: 0 !important;
+}
+
+.hero-image ~ div,
+.hero-image ~ section {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Ensure first element after hero touches hero with no gap */
 .hero-image + * {
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
 
+/* When case-section comes DIRECTLY after hero (no scrollspy) */
 .hero-image + .case-section {
   margin-top: 0 !important;
-  padding-top: var(--spacing-sm) !important;
+  padding-top: 0 !important;
+  padding-left: var(--spacing-md) !important;
+  padding-right: var(--spacing-md) !important;
+  padding-bottom: var(--spacing-section) !important;
+}
+
+/* When scrollspy is BETWEEN hero and case-section */
+.scrollspy-nav + .case-section {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  padding-left: var(--spacing-md) !important;
+  padding-right: var(--spacing-md) !important;
+  padding-bottom: var(--spacing-section) !important;
+}
+
+/* Remove margin from first child inside case-section after hero */
+.hero-image + .case-section > *:first-child,
+.scrollspy-nav + .case-section > *:first-child {
+  margin-top: 0 !important;
 }
 
 .hero-image + section {
   margin-top: 0 !important;
-  padding-top: var(--spacing-sm) !important;
+  padding-top: 0 !important;
 }
 
 /* Remove gap between hero and scrollspy */
 .hero-image + .scrollspy-nav {
   margin-top: 0 !important;
   padding-top: 0 !important;
+}
+
+/* Specific container handling after hero */
+.hero-image + .container {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.hero-image + div {
+  margin-top: 0 !important;
 }
 
 /* ===================================
@@ -255,7 +291,7 @@ blockquote {
   font-size: 1.25rem;
   line-height: 1.9;
   color: var(--text-dark);
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
   max-width: none;
 }
 
@@ -398,16 +434,17 @@ blockquote {
 .process-media {
   width: 100%;
   max-width: 100%;
-  margin: var(--spacing-md) auto 0;
+  margin: var(--spacing-lg) auto 0;
 }
 
 .process-media img {
   width: 100%;
+  height: auto;
   border-radius: 0;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   display: block;
   transition: transform 0.4s ease;
-  background: #f3f3f3;
+  background: #fafafa;
   object-fit: contain;
 }
 
@@ -420,6 +457,7 @@ blockquote {
 =================================== */
 .process-media video {
   width: 100%;
+  height: auto;
   border-radius: 0;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   display: block;
@@ -448,38 +486,39 @@ blockquote {
 }
 
 /* ===================================
-   PROCESS IMAGE GRID
+   PROCESS IMAGE GRID - COHESIVE SPACING
 =================================== */
 .process-image-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: var(--spacing-md);
+  gap: var(--grid-gap);
   width: 100%;
+  margin-top: var(--spacing-lg);
 }
 
 .process-grid-item {
   position: relative;
   width: 100%;
-  min-height: 300px;
+  min-height: 320px;
   overflow: hidden;
   background: #fafafa;
   border: 1px solid var(--line-color);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--spacing-sm);
+  padding: var(--spacing-md);
   grid-column: span 4;
 }
 
 .process-grid-item.small {
   grid-column: span 3;
-  min-height: 250px;
+  min-height: 280px;
 }
 
 .process-grid-item.medium {
   grid-column: span 4;
-  min-height: 300px;
+  min-height: 320px;
 }
 
 .process-grid-item.large {
@@ -511,13 +550,13 @@ blockquote {
 }
 
 /* ===================================
-   RELATED PROJECTS GRID - MATCHES HOME PAGE
+   RELATED PROJECTS GRID - COHESIVE SPACING
 =================================== */
 .project-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem;
-  margin-top: 3rem;
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-2xl);
 }
 
 .project-item {
@@ -530,7 +569,8 @@ blockquote {
   position: relative;
   overflow: hidden;
   background: #f5f5f5;
-  border-radius: 4px;
+  border-radius: 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
 }
 
 .project-image-wrap::before {
@@ -550,7 +590,7 @@ blockquote {
 }
 
 .project-info {
-  margin-top: 1.5rem;
+  margin-top: var(--spacing-md);
 }
 
 .project-title {
@@ -569,7 +609,7 @@ blockquote {
   margin: 0;
 }
 
-/* Hover Effects - Match Home Page */
+/* Hover Effects */
 @media (hover: hover) and (pointer: fine) {
   .project-item:hover .project-image-wrap img,
   .project-item:hover .project-image-wrap video {
@@ -582,12 +622,12 @@ blockquote {
 }
 
 /* ===================================
-   BENTO GRID LAYOUT
+   BENTO GRID LAYOUT - COHESIVE SPACING
 =================================== */
 .process-bento-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: var(--spacing-sm);
+  gap: var(--grid-gap);
   margin-top: var(--spacing-xl);
   max-width: var(--max-width);
   margin-left: auto;
@@ -605,35 +645,35 @@ blockquote {
   display: flex;
   flex-direction: column;
   grid-column: span 6;
-  min-height: 260px;
+  min-height: 300px;
 }
 
 .bento-item.small {
   grid-column: span 4;
-  min-height: 240px;
+  min-height: 280px;
 }
 
 .bento-item.large {
   grid-column: span 8;
-  min-height: 300px;
+  min-height: 350px;
 }
 
 .bento-item.wide {
   grid-column: span 12;
-  min-height: 280px;
+  min-height: 320px;
 }
 
 .bento-item.tall {
   grid-column: span 6;
-  min-height: 360px;
+  min-height: 400px;
 }
 
 /* Image-only bento items (no content) */
-.bento-item:not(:has(.bento-content)) { min-height: 260px; }
-.bento-item.small:not(:has(.bento-content)) { min-height: 240px; }
-.bento-item.large:not(:has(.bento-content)) { min-height: 300px; }
-.bento-item.tall:not(:has(.bento-content)) { min-height: 360px; }
-.bento-item.wide:not(:has(.bento-content)) { min-height: 280px; }
+.bento-item:not(:has(.bento-content)) { min-height: 300px; }
+.bento-item.small:not(:has(.bento-content)) { min-height: 280px; }
+.bento-item.large:not(:has(.bento-content)) { min-height: 350px; }
+.bento-item.tall:not(:has(.bento-content)) { min-height: 400px; }
+.bento-item.wide:not(:has(.bento-content)) { min-height: 320px; }
 
 /* ===================================
    BENTO ITEM HOVER - IMAGES ONLY
@@ -659,9 +699,6 @@ blockquote {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.bento-item:has(img):not(:has(video)) .bento-media {
   background: #fafafa;
 }
 
@@ -675,7 +712,7 @@ blockquote {
 .bento-media img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
   transition: transform 0.5s ease;
 }
@@ -748,7 +785,7 @@ blockquote {
 =================================== */
 .video-container {
   width: 100%;
-  margin: var(--spacing-md) auto 0;
+  margin: var(--spacing-lg) auto 0;
   display: flex;
   justify-content: center;
 }
@@ -768,7 +805,7 @@ blockquote {
 }
 
 /* ===================================
-   IMAGES
+   IMAGES - COHESIVE SPACING
 =================================== */
 .case-image {
   width: 100%;
@@ -778,10 +815,12 @@ blockquote {
 
 .case-image img {
   width: 100%;
+  height: auto;
   border-radius: 0;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   transition: var(--transition);
   display: block;
+  object-fit: contain;
 }
 
 .case-image img:hover {
@@ -791,17 +830,21 @@ blockquote {
 .ui-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--spacing-md);
+  gap: var(--grid-gap);
+  margin-top: var(--spacing-lg);
 }
 
 .ui-grid img {
   width: 100%;
+  height: auto;
   border-radius: 0;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  object-fit: cover;
+  aspect-ratio: 1;
 }
 
 /* ===================================
-   CAROUSEL - INSTAGRAM FIX
+   CAROUSEL - COHESIVE SPACING
 =================================== */
 .carousel-container {
   width: 100%;
@@ -833,7 +876,7 @@ blockquote {
 
 .carousel-track {
   display: flex;
-  gap: var(--spacing-md);
+  gap: var(--grid-gap);
   padding: 0 var(--spacing-md);
   will-change: transform;
 }
@@ -1054,19 +1097,20 @@ blockquote {
   }
 }
 
-
-
 /* ===================================
-   RESPONSIVE: TABLET (≤ 992px)
+   RESPONSIVE: TABLET
 =================================== */
 @media (max-width: 992px) {
   :root {
     --spacing-section: 3rem;
     --spacing-2xl: 2.5rem;
     --spacing-xl: 2rem;
+    --grid-gap: 0.875rem;
   }
 
-  html { scroll-padding-top: 80px; }
+  html {
+    scroll-padding-top: 80px;
+  }
 
   body,
   main {
@@ -1074,32 +1118,30 @@ blockquote {
     padding: 0 !important;
   }
 
-  /* --------------------------------
-     HERO — COLLAPSE TO CONTENT
-  -------------------------------- */
-  #hero,
-  .hero,
-  .hero-wrapper,
-  .hero-image {
-    height: auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
-  }
-
+  /* Hero */
+  .hero-image,
   .hero-image img,
   .hero-image video {
+    margin: 0 !important;
+    padding: 0 !important;
     width: 100% !important;
-    height: auto !important;
-    display: block;
+    display: block !important;
   }
 
+  .hero-image + .case-section,
   .hero-image + section {
-    padding-top: var(--spacing-sm) !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
   }
 
-  /* --------------------------------
-     SECTIONS / SCROLL TARGETS
-  -------------------------------- */
+  .hero-image + .case-section,
+  .scrollspy-nav + .case-section {
+    padding-left: var(--spacing-md) !important;
+    padding-right: var(--spacing-md) !important;
+    padding-bottom: var(--spacing-section) !important;
+  }
+
+  /* Sections */
   .scrollspy-section,
   .scrollspy-section h2,
   .case-section {
@@ -1118,43 +1160,37 @@ blockquote {
     gap: var(--spacing-lg);
   }
 
-  /* --------------------------------
-     PROJECT GRID — MATCH RELATED CARDS
-  -------------------------------- */
-  .project-grid {
-    width: 100%;
-    max-width: var(--max-width);
-    margin-left: auto;
-    margin-right: auto;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--spacing-xl);
+  .hero-image ~ * {
+    margin-top: 0 !important;
   }
 
-  .project-image-wrap::before {
-    padding-top: 75%; /* EXACT match to related projects */
-  }
-
-  /* --------------------------------
-     OVERVIEW
-  -------------------------------- */
+  /* Overview */
   .overview-row {
     grid-template-columns: 1fr;
     gap: var(--spacing-sm);
     padding: var(--spacing-md) 0;
   }
 
-  /* --------------------------------
-     PROCESS GRIDS
-  -------------------------------- */
-  .process-image-grid,
-  .process-bento-grid {
+  /* Project Grid */
+  .project-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+
+  /* Process Image Grid */
+  .process-image-grid {
     grid-template-columns: repeat(8, 1fr);
-    gap: var(--spacing-sm);
+    gap: var(--grid-gap);
   }
 
   .process-grid-item {
     grid-column: span 4;
     min-height: 280px;
+  }
+
+  .process-grid-item.small,
+  .process-grid-item.medium {
+    grid-column: span 4;
   }
 
   .process-grid-item.large,
@@ -1163,25 +1199,49 @@ blockquote {
     grid-column: span 8;
   }
 
-  /* Bento */
+  /* Bento Grid */
+  .process-bento-grid {
+    grid-template-columns: repeat(8, 1fr);
+    gap: var(--grid-gap);
+  }
+
   .bento-item,
-  .bento-item.small,
-  .bento-item.tall {
+  .bento-item.tall,
+  .bento-item.small {
     grid-column: span 4;
-    min-height: 240px;
+    min-height: 260px;
   }
 
   .bento-item.large,
   .bento-item.wide {
     grid-column: span 8;
-    min-height: 260px;
+    min-height: 300px;
   }
 
-  /* --------------------------------
-     CAROUSEL
-  -------------------------------- */
-  .carousel-track { gap: var(--spacing-md); }
-  .carousel-subtitle { text-align: center; }
+  .bento-item:not(:has(.bento-content)) { min-height: 260px; }
+  .bento-item.small:not(:has(.bento-content)) { min-height: 260px; }
+  .bento-item.large:not(:has(.bento-content)),
+  .bento-item.wide:not(:has(.bento-content)) { min-height: 300px; }
+
+  .bento-image-group {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xs);
+  }
+
+  /* UI Grid */
+  .ui-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--grid-gap);
+  }
+
+  /* Carousel */
+  .carousel-track {
+    gap: var(--grid-gap);
+  }
+
+  .carousel-subtitle {
+    text-align: center;
+  }
 
   .carousel-btn {
     width: 40px;
@@ -1189,150 +1249,405 @@ blockquote {
     font-size: 1.5rem;
   }
 
-  .carousel-dot { width: 5px; height: 5px; }
-  .carousel-dot.active { width: 18px; }
+  .carousel-dot {
+    width: 5px;
+    height: 5px;
+  }
+
+  .carousel-dot.active {
+    width: 18px;
+    height: 5px;
+  }
 }
 
 /* ===================================
-   RESPONSIVE: MOBILE (≤ 768px)
+   RESPONSIVE: MOBILE
 =================================== */
 @media (max-width: 768px) {
-  html { scroll-padding-top: 60px; }
+  :root {
+    --spacing-section: 2.5rem;
+    --spacing-2xl: 2rem;
+    --spacing-xl: 1.75rem;
+    --spacing-lg: 1.5rem;
+    --grid-gap: 0.75rem;
+    --grid-gap-sm: 0.5rem;
+  }
 
-  /* --------------------------------
-     HERO — FINAL MOBILE FIX
-  -------------------------------- */
-  #hero,
-  .hero,
-  .hero-wrapper,
+  html {
+    scroll-padding-top: 60px;
+  }
+
+  body,
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Hero - aggressive spacing removal */
   .hero-image {
-    height: auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
   }
 
   .hero-image img,
   .hero-image video {
-    display: block;
-    width: 100%;
-    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    display: block !important;
   }
 
+  .hero-image + .case-section,
   .hero-image + section {
-    padding-top: var(--spacing-xs) !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
   }
 
-  /* --------------------------------
-     NAV
-  -------------------------------- */
-  .scrollspy-nav { display: none; }
+  .hero-image + .case-section,
+  .scrollspy-nav + .case-section {
+    padding-left: var(--spacing-md) !important;
+    padding-right: var(--spacing-md) !important;
+    padding-bottom: var(--spacing-section) !important;
+  }
 
+  .hero-image ~ * {
+    margin-top: 0 !important;
+  }
+
+  /* Sections */
   .scrollspy-section,
   .scrollspy-section h2,
   .case-section {
     scroll-margin-top: 60px;
   }
 
-  /* --------------------------------
-     PROJECT GRID — SAME WIDTH AS RELATED
-  -------------------------------- */
-  .project-grid {
-    width: 100%;
-    max-width: var(--max-width);
-    margin-left: auto;
-    margin-right: auto;
+  .scrollspy-nav {
+    display: none;
+  }
+
+  /* Grids - All single column */
+  .ui-grid,
+  .project-grid,
+  .process-image-grid {
     grid-template-columns: 1fr;
+    gap: var(--grid-gap);
+  }
+
+  .process-grid-item,
+  .process-grid-item.small,
+  .process-grid-item.medium,
+  .process-grid-item.large,
+  .process-grid-item.xlarge,
+  .process-grid-item.full {
+    grid-column: span 1;
+    min-height: 250px;
+    padding: var(--spacing-sm);
+  }
+
+  .project-grid {
     gap: var(--spacing-2xl);
   }
 
-  .project-image-wrap {
-    border-radius: 4px; /* match related cards */
+  .project-title {
+    font-size: 1.6rem;
   }
 
   .project-image-wrap::before {
-    padding-top: 75%;
+    padding-top: 70%;
   }
 
-  .project-title {
-    font-size: 1.45rem;
-  }
-
-  /* --------------------------------
-     OTHER GRIDS
-  -------------------------------- */
-  .ui-grid,
-  .process-image-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .process-grid-item {
-    min-height: 260px;
-  }
-
+  /* Bento Grid */
   .process-bento-grid {
     grid-template-columns: repeat(4, 1fr);
-    gap: var(--spacing-sm);
+    gap: var(--grid-gap-sm);
     padding: 0 var(--spacing-md);
   }
 
-  .bento-item {
+  .bento-item,
+  .bento-item.small,
+  .bento-item.large,
+  .bento-item.wide,
+  .bento-item.tall {
     grid-column: span 4;
-    min-height: 220px;
+    min-height: 240px;
+  }
+
+  .bento-item:not(:has(.bento-content)),
+  .bento-item.small:not(:has(.bento-content)),
+  .bento-item.large:not(:has(.bento-content)),
+  .bento-item.wide:not(:has(.bento-content)),
+  .bento-item.tall:not(:has(.bento-content)) {
+    min-height: 240px;
   }
 
   .bento-content {
     padding: var(--spacing-sm);
   }
 
-  /* --------------------------------
-     FOOTER
-  -------------------------------- */
-  .footer-top,
+  .bento-image-group {
+    grid-template-columns: 1fr;
+  }
+
+  /* Carousel */
+  .carousel-container {
+    margin: var(--spacing-xl) 0;
+  }
+
+  .carousel-track {
+    gap: var(--grid-gap);
+    padding: 0 var(--spacing-md);
+  }
+
+  .carousel-slide {
+    padding: var(--spacing-sm) 0;
+  }
+
+  .carousel-subtitle {
+    padding: 0 var(--spacing-md);
+    font-size: 0.65rem;
+    text-align: center;
+  }
+
+  .carousel-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 1.4rem;
+  }
+
+  .carousel-btn-prev {
+    left: 0.25rem;
+  }
+
+  .carousel-btn-next {
+    right: 0.25rem;
+  }
+
+  .carousel-dots {
+    gap: 0.4rem;
+    margin-top: var(--spacing-sm);
+  }
+
+  .carousel-dot {
+    width: 5px;
+    height: 5px;
+  }
+
+  .carousel-dot.active {
+    width: 16px;
+    height: 5px;
+  }
+
+  /* Footer */
+  .footer-top {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    text-align: center;
+  }
+
   .footer-bottom-container {
     flex-direction: column;
-    text-align: center;
     gap: var(--spacing-sm);
+  }
+
+  .video-container.small,
+  .video-container.medium,
+  .video-container.large {
+    max-width: 100%;
   }
 }
 
 /* ===================================
-   RESPONSIVE: SMALL MOBILE (≤ 600px)
+   RESPONSIVE: SMALL MOBILE
 =================================== */
 @media (max-width: 600px) {
   :root {
     --spacing-section: 2rem;
     --spacing-xl: 1.5rem;
+    --grid-gap: 0.625rem;
   }
 
-  h1 { font-size: 1.9rem; }
-  h2 { font-size: 1.5rem; }
+  body,
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 
-  .intro { font-size: 1.05rem; }
+  .hero-image {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
 
-  .project-title { font-size: 1.4rem; }
+  .hero-image img,
+  .hero-image video {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    display: block !important;
+  }
 
-  .process-grid-item { min-height: 230px; }
-  .bento-item { min-height: 200px; }
+  .hero-image + .case-section,
+  .hero-image + section {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .hero-image + .case-section,
+  .scrollspy-nav + .case-section {
+    padding-left: var(--spacing-md) !important;
+    padding-right: var(--spacing-md) !important;
+    padding-bottom: var(--spacing-section) !important;
+  }
+
+  .case-section {
+    padding: var(--spacing-section) var(--spacing-md);
+  }
+
+  h1 {
+    font-size: 1.9rem;
+    margin-bottom: var(--spacing-md);
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .intro {
+    font-size: 1.05rem;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .process-grid-item {
+    min-height: 220px;
+    padding: var(--spacing-xs);
+  }
+
+  .project-grid {
+    gap: var(--spacing-2xl);
+  }
+
+  .project-title {
+    font-size: 1.4rem;
+  }
+
+  .project-meta {
+    font-size: 1.05rem;
+  }
+
+  .project-image-wrap::before {
+    padding-top: 75%;
+  }
+
+  .bento-item,
+  .bento-item.small,
+  .bento-item.large,
+  .bento-item.wide,
+  .bento-item.tall {
+    min-height: 220px;
+  }
+
+  .bento-item:not(:has(.bento-content)),
+  .bento-item.small:not(:has(.bento-content)),
+  .bento-item.large:not(:has(.bento-content)),
+  .bento-item.wide:not(:has(.bento-content)),
+  .bento-item.tall:not(:has(.bento-content)) {
+    min-height: 220px;
+  }
 
   .carousel-btn {
     width: 34px;
     height: 34px;
+    font-size: 1.3rem;
   }
 }
 
 /* ===================================
-   RESPONSIVE: EXTRA SMALL (≤ 400px)
+   RESPONSIVE: EXTRA SMALL MOBILE
 =================================== */
 @media (max-width: 400px) {
+  body,
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .hero-image {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  .hero-image img,
+  .hero-image video {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    display: block !important;
+  }
+
+  .hero-image + .case-section,
   .hero-image + section {
+    margin-top: 0 !important;
     padding-top: 0 !important;
   }
 
-  .bento-item { min-height: 180px; }
+  .hero-image + .case-section,
+  .scrollspy-nav + .case-section {
+    padding-left: var(--spacing-md) !important;
+    padding-right: var(--spacing-md) !important;
+    padding-bottom: var(--spacing-section) !important;
+  }
+
+  .bento-item,
+  .bento-item.small,
+  .bento-item.large,
+  .bento-item.wide,
+  .bento-item.tall {
+    min-height: 200px;
+  }
+
+  .bento-item:not(:has(.bento-content)),
+  .bento-item.small:not(:has(.bento-content)),
+  .bento-item.large:not(:has(.bento-content)),
+  .bento-item.wide:not(:has(.bento-content)),
+  .bento-item.tall:not(:has(.bento-content)) {
+    min-height: 200px;
+  }
 
   .carousel-btn {
     width: 32px;
     height: 32px;
     font-size: 1.2rem;
   }
+}
+
+/* ===================================
+   MATERIALIZE OVERRIDES
+=================================== */
+nav,
+.nav-wrapper {
+  background-color: var(--bg) !important;
+  box-shadow: none !important;
+}
+
+nav a,
+.nav-wrapper a {
+  color: var(--text-dark) !important;
+}
+
+/* Remove container padding around hero */
+.container {
+  margin-top: 0 !important;
+}
+
+.container:first-of-type {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Ensure no spacing between hero siblings */
+.hero-image + .container {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }
