@@ -80,12 +80,10 @@ const Work = () => {
                                     muted 
                                     playsInline
                                     preload="auto"
-                                    onError={(e) => console.error('TP video failed to load:', '/assets/TP/TP_ani.mp4', e)}
+                                    onError={(e) => console.error('TP video failed to load:', e)}
                                 >
-                                <source src="https://res.cloudinary.com/dvo3q9yny/video/upload/v1769455666/TP_ani_mycvjy.mp4" type="video/mp4" />                                </video>
-gi
-                                {/* <img src="/assets/TP/TP_ani.gif" alt="TP Brand Identity" loading="lazy" /> */}
-
+                                    <source src="https://res.cloudinary.com/dvo3q9yny/video/upload/v1769455666/TP_ani_mycvjy.mp4" type="video/mp4" />
+                                </video>
                             </div>
                             <div className="project-info">
                                 <h3 className="project-title">TP</h3>
@@ -98,7 +96,7 @@ gi
                             <div className="project-image-wrap">
                                 <img
                                     src="/assets/sardine-splash/sardine-splash.png"
-                                    alt="Packaging"
+                                    alt="Sardine Splash Packaging"
                                     loading="lazy"
                                 />
                             </div>
