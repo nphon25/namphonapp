@@ -45,7 +45,6 @@ const Work = () => {
                 <div className="container">
                     <h2 className="work-title">My Work</h2>
                     <p className="work-subtitle">
-                        Selected projects showcasing my approach to design
                     </p>
 
                     <div className="project-grid">
