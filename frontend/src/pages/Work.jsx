@@ -28,7 +28,7 @@ const Work = () => {
                             Hi, I'm <span className="hero-name">Nam</span>
                         </h1>
                         <p className="hero-subtitle">
-                            Graphic Designer | UX/UI & Experiential Design
+                            Graphic Designer & UX/UI 
                         </p>
                         <p className="hero-text">
                             I create thoughtful design that connects people, ideas, and experiences.{' '}
@@ -44,66 +44,71 @@ const Work = () => {
             <section id="work">
                 <div className="container">
                     <h2 className="work-title">My Work</h2>
-                    <p className="work-subtitle">
-                    </p>
+                    <p className="work-subtitle"></p>
 
                     <div className="project-grid">
-                        {/* Project 1 - ALMA */}
-                        <a href="/project/alma" className="project-item">
-                            <div className="project-image-wrap">
-                                <img src="/assets/ALMA/VID/ALMA.gif" alt="ALMA" loading="lazy" />
-                            </div>
-                            <div className="project-info">
-                                <h3 className="project-title">ALMA</h3>
-                                <p className="project-meta">UX/UI</p>
-                            </div>
-                        </a>
+                        {/* Left Column */}
+                        <div className="project-col project-col--left">
 
-                        {/* Project 2 - PCOS Awareness Campaign */}
-                        <a href="/project/pcos" className="project-item">
-                            <div className="project-image-wrap">
-                                <img src="/assets/PCOS/pcos-mockup01.png" alt="PCOS Awareness Campaign" loading="lazy" />
-                            </div>
-                            <div className="project-info">
-                                <h3 className="project-title">PCOS Awareness Campaign</h3>
-                                <p className="project-meta">Campaign Design</p>
-                            </div>
-                        </a>
+                            <a href="/project/alma" className="project-item">
+                                <div className="project-image-wrap">
+                                    <img src="/assets/ALMA/VID/ALMA.gif" alt="ALMA" loading="lazy" />
+                                </div>
+                                <div className="project-info">
+                                    <h3 className="project-title">ALMA</h3>
+                                    <p className="project-meta">UX/UI</p>
+                                </div>
+                            </a>
 
-                        {/* Project 3 - TP */}
-                        <a href="/project/tp" className="project-item">
-                            <div className="project-image-wrap">
-                                <video 
-                                    autoPlay 
-                                    loop 
-                                    muted 
-                                    playsInline
-                                    preload="auto"
-                                    onError={(e) => console.error('TP video failed to load:', e)}
-                                >
-                                    <source src="https://res.cloudinary.com/dvo3q9yny/video/upload/v1769455666/TP_ani_mycvjy.mp4" type="video/mp4" />
-                                </video>
-                            </div>
-                            <div className="project-info">
-                                <h3 className="project-title">TP</h3>
-                                <p className="project-meta">Brand Identity</p>
-                            </div>
-                        </a>
+                            <a href="/project/tp" className="project-item">
+                                <div className="project-image-wrap">
+                                    <video
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        preload="auto"
+                                        onError={(e) => console.error('TP video failed to load:', e)}
+                                    >
+                                        <source src="https://res.cloudinary.com/dvo3q9yny/video/upload/v1769455666/TP_ani_mycvjy.mp4" type="video/mp4" />
+                                    </video>
+                                </div>
+                                <div className="project-info">
+                                    <h3 className="project-title">TP</h3>
+                                    <p className="project-meta">Brand Identity</p>
+                                </div>
+                            </a>
 
-                        {/* Project 4 - Sardine Splash */}
-                        <a href="/project/sardine" className="project-item">
-                            <div className="project-image-wrap">
-                                <img
-                                    src="/assets/sardine-splash/sardine-splash.png"
-                                    alt="Sardine Splash Packaging"
-                                    loading="lazy"
-                                />
-                            </div>
-                            <div className="project-info">
-                                <h3 className="project-title">Sardine Splash</h3>
-                                <p className="project-meta">Packaging Design</p>
-                            </div>
-                        </a>
+                        </div>
+
+                        {/* Right Column */}
+                        <div className="project-col project-col--right">
+
+                            <a href="/project/pcos" className="project-item">
+                                <div className="project-image-wrap">
+                                    <img src="/assets/PCOS/pcos-mockup01.png" alt="PCOS Awareness Campaign" loading="lazy" />
+                                </div>
+                                <div className="project-info">
+                                    <h3 className="project-title">PCOS Awareness Campaign</h3>
+                                    <p className="project-meta">Campaign Design</p>
+                                </div>
+                            </a>
+
+                            <a href="/project/sardine" className="project-item">
+                                <div className="project-image-wrap">
+                                    <img
+                                        src="/assets/sardine-splash/sardine-splash.png"
+                                        alt="Sardine Splash Packaging"
+                                        loading="lazy"
+                                    />
+                                </div>
+                                <div className="project-info">
+                                    <h3 className="project-title">Sardine Splash</h3>
+                                    <p className="project-meta">Packaging Design</p>
+                                </div>
+                            </a>
+
+                        </div>
                     </div>
                 </div>
             </section>

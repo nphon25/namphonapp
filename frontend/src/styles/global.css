@@ -54,11 +54,21 @@ main {
     flex: 1 0 auto;
 }
 
-/* Bootstrap container override */
+/* =========================
+   CONTAINER SYSTEM
+   Full-width by default.
+   Use .container--narrow to
+   constrain to --max-width.
+   ========================= */
 .container {
-    max-width: var(--max-width) !important;
+    width: 100%;
+    max-width: 100%;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 clamp(1.25rem, 5vw, 5rem);
+}
+
+.container--narrow {
+    max-width: var(--max-width);
 }
 
 /* =========================
@@ -169,26 +179,13 @@ p {
 }
 
 @keyframes bounce {
-
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
-        transform: translateY(0);
-    }
-
-    40% {
-        transform: translateY(6px);
-    }
-
-    60% {
-        transform: translateY(3px);
-    }
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40%                      { transform: translateY(6px); }
+    60%                      { transform: translateY(3px); }
 }
 
 /* =========================
-   BACK TO TOP — BASE (hidden by default, but NOT in footer)
+   BACK TO TOP
    ========================= */
 .back-to-top:not(.page-footer .back-to-top) {
     opacity: 0;
@@ -216,9 +213,7 @@ p {
     color: #fff;
 }
 
-/* =========================
-   MOBILE FLOATING VERSION
-   ========================= */
+/* Mobile floating version */
 @media (max-width: 600px) {
     .footer-bottom-container .back-to-top {
         position: fixed;
@@ -278,13 +273,15 @@ blockquote {
 }
 
 .case-section {
-    padding: 5rem 1.5rem;
+    padding: 5rem clamp(1.25rem, 5vw, 5rem);
     animation: fadeInUp 0.8s ease both;
     scroll-margin-top: 96px;
 }
 
 .case-section.narrow {
     max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .case-section h2 {
@@ -295,27 +292,18 @@ blockquote {
    ANIMATION
    ========================= */
 @keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    0%   { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
 /* =========================
    BOOTSTRAP OVERRIDES
    ========================= */
-/* Override Bootstrap navbar styles */
 .navbar {
     background: transparent !important;
     box-shadow: none !important;
 }
 
-/* Override Bootstrap link styles */
 .nav-link {
     color: var(--text-light) !important;
     transition: color 0.2s ease;
@@ -325,43 +313,38 @@ blockquote {
     color: var(--accent) !important;
 }
 
-/* Override Bootstrap container padding on mobile */
-@media (max-width: 576px) {
-    .container {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-}
-
 /* =========================
    RESPONSIVE
    ========================= */
 @media (max-width: 992px) {
     .case-section {
-        padding: 4rem 1.5rem;
+        padding: 4rem clamp(1.25rem, 4vw, 3rem);
     }
 }
 
 @media (max-width: 768px) {
-    h1 {
-        font-size: 1.9rem;
-    }
-
-    h2 {
-        font-size: 1.5rem;
-    }
-
-    p {
-        font-size: 0.95rem;
-    }
+    h1 { font-size: 1.9rem; }
+    h2 { font-size: 1.5rem; }
+    p  { font-size: 0.95rem; }
 
     .case-section {
-        padding: 3.5rem 1.25rem;
+        padding: 3.5rem clamp(1.25rem, 4vw, 2rem);
     }
 }
 
 @media (max-width: 600px) {
     body {
         font-size: 0.9rem;
+    }
+}
+
+/* =========================
+   ACCESSIBILITY
+   ========================= */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }

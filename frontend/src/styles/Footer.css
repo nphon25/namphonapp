@@ -23,7 +23,10 @@
 }
 
 .footer-inner {
-    max-width: var(--max-width);
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 5vw, 5rem);
 }
 
 /* =========================
