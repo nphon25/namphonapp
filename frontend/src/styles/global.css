@@ -1,324 +1,229 @@
 /* =========================
-   FOOTER - Matches global.css Container System
+   COLOR VARIABLES
    ========================= */
-.page-footer {
-    background: var(--background);
-    padding: clamp(4rem, 8vh, 6rem) 0 clamp(2rem, 4vh, 3rem);
-    border-top: 2px solid var(--border-color);
-    margin-top: auto;
-    font-family: "Roboto", sans-serif;
-    color: var(--dark-text);
-    line-height: 1.6;
-    width: 100%;
+:root {
+    --primary-dark: #19124a;
+    --primary-light: #c8e9f2;
+    --primary-hover: #3b6e91;
+    --primary-red: #d9534f;
+    --dark-text: #000000;
+    --light-text: #444444;
+    --background: #ffffff;
+    --light-gray: #f8f9fa;
+    --border-color: rgba(0, 0, 0, 0.08);
+    --line-color: rgba(0, 0, 0, 0.08);
+    --max-width: 1120px;
+    --radius: 12px;
+    --transition: all 0.4s ease;
+
+    /* Bootstrap compatibility */
+    --bg: var(--background);
+    --text-dark: var(--dark-text);
+    --text-light: var(--light-text);
+    --accent: var(--primary-hover);
 }
 
 /* =========================
-   CONTAINER - MATCHES GLOBAL.CSS
-   Uses same width system as nav and pages
+   BASE RESET & TYPOGRAPHY
    ========================= */
-.footer-inner {
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    color: var(--dark-text);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: var(--background);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+    height: 100%;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+/* =========================
+   CONTAINER SYSTEM
+   Full-width by default.
+   Use .container--narrow to
+   constrain to --max-width.
+   ========================= */
+.container {
     width: 100%;
-    max-width: var(--max-width);
+    max-width: 100%;
     margin: 0 auto;
     padding: 0 clamp(1.25rem, 5vw, 5rem);
 }
 
-/* Override Bootstrap link styles */
-.page-footer a {
+.container--narrow {
+    max-width: var(--max-width);
+}
+
+/* =========================
+   HEADINGS
+   ========================= */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
     color: var(--dark-text);
-    background-color: transparent !important;
-    text-decoration: none;
+    margin-top: 0;
+    line-height: 1.2;
+    letter-spacing: 0;
 }
 
-.page-footer a:hover {
-    color: var(--primary-hover);
+h1 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin-bottom: 1.5rem;
 }
 
-/* =========================
-   TOP ROW
-   ========================= */
-.footer-top {
-    margin-bottom: clamp(2rem, 4vh, 3rem);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.footer-heading {
-    font-weight: 600;
-    font-size: clamp(1.125rem, 2vw, 1.375rem);
-    letter-spacing: 0.03em;
-    margin: 0;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-/* Animated smile */
-.smile {
-    color: var(--primary-hover);
-    font-size: clamp(1.25rem, 2.2vw, 1.5rem);
-    display: inline-block;
-    transform-origin: 70% 70%;
-    animation: wave 2.5s ease-in-out infinite;
-}
-
-@keyframes wave {
-    0%, 100% { transform: rotate(0deg); }
-    10%, 30% { transform: rotate(14deg); }
-    20% { transform: rotate(-8deg); }
-    40% { transform: rotate(0deg); }
-}
-
-/* =========================
-   SOCIAL ICONS
-   ========================= */
-.footer-social {
-    display: flex;
-    align-items: center;
-    gap: clamp(0.75rem, 1.5vw, 1rem);
-}
-
-/* Base styles for ALL social icons (links and buttons) */
-.social-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: clamp(44px, 5vw, 48px);
-    height: clamp(44px, 5vw, 48px);
-    border-radius: 50%;
-    background: transparent;
-    border: 2px solid rgba(0, 0, 0, 0.15);
-    color: var(--light-text);
-    text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+h2 {
+    font-size: clamp(1.8rem, 3vw, 2.3rem);
+    margin-bottom: 2rem;
     position: relative;
-    cursor: pointer;
-    /* Reset button styles */
-    padding: 0;
-    margin: 0;
-    font-family: inherit;
-    line-height: 1;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
 }
 
-/* Hover state - border and icon color change with bounce */
-.social-icon:hover {
-    background: transparent;
-    border-color: var(--primary-hover);
-    color: var(--primary-hover);
-    transform: translateY(-4px);
+h2::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 4px;
+    background: var(--primary-hover);
+    border-radius: 2px;
+    margin-top: 0.6rem;
 }
 
-/* Active/Focus states */
-.social-icon:active {
-    transform: translateY(-1px);
+h3 {
+    font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+    margin-bottom: 1rem;
 }
 
-.social-icon:focus {
-    outline: none;
+p {
+    color: var(--text-light);
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
 }
 
-.social-icon:focus-visible {
-    outline: 2px solid var(--primary-hover);
-    outline-offset: 3px;
-    border-radius: 50%;
-}
-
-/* SVG/Icon styling */
-.social-icon svg,
-.social-icon i {
-    font-size: clamp(1rem, 1.8vw, 1.125rem);
-    color: inherit;
+/* =========================
+   LINKS
+   ========================= */
+.inline-link,
+.scroll-link {
+    text-decoration: underline;
+    font-weight: 500;
     transition: color 0.3s ease;
 }
 
-/* =========================
-   EMAIL COPY BUTTON TOOLTIP
-   ========================= */
-.copied-tooltip {
-    position: absolute;
-    top: -50px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--primary-hover);
-    color: #fff;
-    padding: 0.625rem 1rem;
-    border-radius: 8px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    white-space: nowrap;
-    animation: fadeInOut 2s ease;
-    pointer-events: none;
-    z-index: 1000;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+.inline-link {
+    color: var(--primary-hover);
 }
 
-.copied-tooltip::after {
-    content: '';
-    position: absolute;
-    bottom: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    border-top: 7px solid var(--primary-hover);
+.inline-link:hover,
+.scroll-link:hover {
+    color: var(--primary-dark);
 }
 
-@keyframes fadeInOut {
-    0% {
-        opacity: 0;
-        transform: translate(-50%, 8px);
-    }
-    10%, 90% {
-        opacity: 1;
-        transform: translate(-50%, 0);
-    }
-    100% {
-        opacity: 0;
-        transform: translate(-50%, -8px);
-    }
+.scroll-link {
+    cursor: pointer;
+    color: var(--primary-hover);
 }
 
 /* =========================
-   DIVIDER
+   SCROLL BUTTON
    ========================= */
-.footer-divider {
-    border: 0;
-    height: 2px;
-    background: var(--border-color);
-    margin: clamp(2rem, 4vh, 3rem) 0;
-    opacity: 1;
+.scroll-btn-container {
+    margin-top: 1.25rem;
 }
 
-/* =========================
-   BOTTOM ROW
-   ========================= */
-.footer-bottom-container {
-    margin-top: clamp(2rem, 4vh, 3rem);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.copyright {
-    font-size: clamp(0.9375rem, 1.5vw, 1.0625rem);
-    color: var(--light-text);
-    font-family: "Roboto", sans-serif;
-    margin: 0;
-}
-
-/* =========================
-   BACK TO TOP BUTTON
-   ========================= */
-.page-footer .back-to-top {
-    display: inline-flex !important;
-    align-items: center;
+.scroll-btn {
+    display: inline-flex;
     justify-content: center;
-    width: clamp(44px, 5vw, 48px);
-    height: clamp(44px, 5vw, 48px);
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--dark-text);
     border-radius: 50%;
-    background: transparent;
-    border: 2px solid rgba(0, 0, 0, 0.15);
-    color: var(--light-text) !important;
-    text-decoration: none;
+    color: var(--dark-text);
     transition: all 0.3s ease;
+    animation: bounce 2s infinite;
+    background: var(--background);
+    text-decoration: none;
+}
+
+.scroll-btn:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+    color: var(--background);
+    transform: translateY(3px);
+}
+
+.scroll-btn i {
+    font-size: 1.5rem;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40%                      { transform: translateY(6px); }
+    60%                      { transform: translateY(3px); }
+}
+
+/* =========================
+   BACK TO TOP
+   ========================= */
+.back-to-top:not(.page-footer .back-to-top) {
     opacity: 0;
     pointer-events: none;
+    transition: opacity 0.35s ease, transform 0.25s ease;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--primary-hover);
+    color: #fff;
+    font-size: 0.9rem;
 }
 
-.page-footer .back-to-top.visible {
-    opacity: 1 !important;
-    pointer-events: auto !important;
+.back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
 }
 
-.page-footer .back-to-top:hover {
-    background: transparent;
-    border-color: var(--primary-hover);
-    color: var(--primary-hover) !important;
-    transform: translateY(-4px);
+.back-to-top:hover {
+    background: var(--primary-dark);
+    transform: translateY(-3px);
+    color: #fff;
 }
 
-.page-footer .back-to-top svg {
-    font-size: clamp(1rem, 1.8vw, 1.125rem);
-    transition: color 0.3s ease;
-}
-
-/* =========================
-   RESPONSIVE
-   ========================= */
-@media (max-width: 768px) {
-    .footer-top {
-        flex-direction: column;
-        gap: 1.75rem;
-        text-align: center;
-    }
-
-    .footer-social {
-        justify-content: center;
-    }
-
-    .footer-heading {
-        text-align: center;
-        justify-content: center;
-    }
-
-    .footer-bottom-container {
-        flex-direction: column;
-        gap: 1.75rem;
-        text-align: center;
-    }
-}
-
+/* Mobile floating version */
 @media (max-width: 600px) {
-    .page-footer {
-        padding: 3rem 0 5rem;
-    }
-
-    .social-icon {
-        width: 48px;
-        height: 48px;
-    }
-
-    .copied-tooltip {
-        font-size: 0.8rem;
-        padding: 0.5rem 0.8rem;
-        top: -45px;
-    }
-
-    /* Mobile: Fixed position back to top */
     .footer-bottom-container .back-to-top {
         position: fixed;
         bottom: 88px;
         right: 20px;
-        width: 52px;
-        height: 52px;
         z-index: 9999;
-        background: var(--background);
-        border: 2px solid rgba(0, 0, 0, 0.15);
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-    }
-
-    .footer-bottom-container .back-to-top svg {
-        color: var(--light-text) !important;
-        font-size: 1.125rem;
-    }
-
-    .footer-bottom-container .back-to-top:hover {
-        background: var(--background);
-        border-color: var(--primary-hover);
-    }
-
-    .footer-bottom-container .back-to-top:hover svg {
-        color: var(--primary-hover) !important;
-    }
-
-    .footer-bottom-container .back-to-top.visible {
-        opacity: 1;
+        width: 42px;
+        height: 42px;
+        font-size: 1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
     body.menu-open .back-to-top {
@@ -326,31 +231,120 @@
     }
 }
 
-@media (max-width: 480px) {
-    .page-footer {
-        padding: 2.5rem 0 4.5rem;
-    }
+/* =========================
+   IMAGES & MEDIA
+   ========================= */
+.case-image {
+    width: 100%;
+    max-width: 100%;
+    margin: 5rem 0;
+}
 
-    .footer-social {
-        gap: 0.875rem;
-    }
+.case-image img {
+    width: 100%;
+    border-radius: var(--radius);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transition: var(--transition);
+    display: block;
+}
 
-    .social-icon {
-        width: 46px;
-        height: 46px;
-    }
+.case-image img:hover {
+    transform: scale(1.015);
+}
 
-    .footer-heading {
-        font-size: 1.0625rem;
-    }
+/* =========================
+   BLOCKQUOTE
+   ========================= */
+blockquote {
+    border-left: 4px solid var(--primary-hover);
+    padding-left: 1.25rem;
+    font-style: italic;
+    color: var(--text-light);
+    margin-top: 2.5rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
 
-    .copyright {
-        font-size: 0.875rem;
-    }
+/* =========================
+   SECTION BLOCKS
+   ========================= */
+.section-block {
+    margin-bottom: 2.5rem;
+}
 
-    .footer-bottom-container .back-to-top {
-        width: 50px;
-        height: 50px;
-        bottom: 80px;
+.case-section {
+    padding: 5rem clamp(1.25rem, 5vw, 5rem);
+    animation: fadeInUp 0.8s ease both;
+    scroll-margin-top: 96px;
+}
+
+.case-section.narrow {
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.case-section h2 {
+    scroll-margin-top: 96px;
+}
+
+/* =========================
+   ANIMATION
+   ========================= */
+@keyframes fadeInUp {
+    0%   { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================
+   BOOTSTRAP OVERRIDES
+   ========================= */
+.navbar {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.nav-link {
+    color: var(--text-light) !important;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent) !important;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 992px) {
+    .case-section {
+        padding: 4rem clamp(1.25rem, 4vw, 3rem);
+    }
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 1.9rem; }
+    h2 { font-size: 1.5rem; }
+    p  { font-size: 0.95rem; }
+
+    .case-section {
+        padding: 3.5rem clamp(1.25rem, 4vw, 2rem);
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 0.9rem;
+    }
+}
+
+/* =========================
+   ACCESSIBILITY
+   ========================= */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
