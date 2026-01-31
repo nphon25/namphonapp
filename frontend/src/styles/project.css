@@ -261,7 +261,7 @@ div:has(.hero-image) {
 /* When case-section comes DIRECTLY after hero (no scrollspy) */
 .hero-image + .case-section {
   margin-top: 0 !important;
-  padding-top: 0.5rem !important;
+  padding-top: var(--spacing-section) !important;
   padding-left: var(--spacing-lg) !important;
   padding-right: var(--spacing-lg) !important;
   padding-bottom: var(--spacing-section) !important;
@@ -270,7 +270,7 @@ div:has(.hero-image) {
 /* When scrollspy is BETWEEN hero and case-section */
 .scrollspy-nav + .case-section {
   margin-top: 0 !important;
-  padding-top: 0.5rem !important;
+  padding-top: var(--spacing-section) !important;
   padding-left: var(--spacing-lg) !important;
   padding-right: var(--spacing-lg) !important;
   padding-bottom: var(--spacing-section) !important;
@@ -1034,10 +1034,9 @@ div:has(.hero-image) {
 }
 
 .footer-inner {
-  width: 100%;
-  max-width: 100%;
+  max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 clamp(1.25rem, 5vw, 5rem);
+  padding: 0 var(--spacing-lg);
 }
 
 .footer-top {
@@ -1227,7 +1226,7 @@ div:has(.hero-image) {
   .hero-image + .case-section,
   .hero-image + section {
     margin-top: 0 !important;
-    padding-top: 0.5rem !important;
+    padding-top: var(--spacing-section) !important;
   }
 
   .hero-image + .case-section,
@@ -1396,6 +1395,11 @@ div:has(.hero-image) {
     width: 20px;
     height: 6px;
   }
+
+  /* Footer */
+  .footer-inner {
+    padding: 0 var(--spacing-md);
+  }
 }
 
 /* ===================================
@@ -1480,7 +1484,7 @@ div:has(.hero-image) {
   .hero-image + .case-section,
   .hero-image + section {
     margin-top: 0 !important;
-    padding-top: 0.5rem !important;
+    padding-top: var(--spacing-section) !important;
   }
 
   .hero-image + .case-section,
@@ -1775,7 +1779,7 @@ div:has(.hero-image) {
   .hero-image + .case-section,
   .hero-image + section {
     margin-top: 0 !important;
-    padding-top: 0.5rem !important;
+    padding-top: var(--spacing-section) !important;
   }
 
   .hero-image + .case-section,
@@ -1975,7 +1979,7 @@ div:has(.hero-image) {
   .hero-image + .case-section,
   .hero-image + section {
     margin-top: 0 !important;
-    padding-top: 0.5rem !important;
+    padding-top: var(--spacing-section) !important;
   }
 
   .hero-image + .case-section,
