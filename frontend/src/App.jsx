@@ -8,7 +8,7 @@ import Work from "./pages/Work";
 import Archive from "./pages/Archive";
 import About from "./pages/About";
 import ProjectPage from "./pages/ProjectPage";
-import { Analytics } from "@vercel/analytics/next"
+
 function App() {
   return (
     <Router>
