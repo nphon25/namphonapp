@@ -47,24 +47,7 @@ const Work = () => {
                             <div className="project-info">
                                 <h3 className="project-title">ALMA</h3>
                                 <span className="project-meta">
-                                    UX and UI Design
-                                </span>
-                            </div>
-                        </a>
-
-                        <a href="/project/tp" className="project-item">
-                            <div className="project-image-wrap">
-                                <video autoPlay loop muted playsInline>
-                                    <source
-                                        src="https://res.cloudinary.com/dvo3q9yny/video/upload/v1769455666/TP_ani_mycvjy.mp4"
-                                        type="video/mp4"
-                                    />
-                                </video>
-                            </div>
-                            <div className="project-info">
-                                <h3 className="project-title">TP</h3>
-                                <span className="project-meta">
-                                    Brand Identity
+                                    UX UI
                                 </span>
                             </div>
                         </a>
@@ -78,13 +61,14 @@ const Work = () => {
                             </div>
                             <div className="project-info">
                                 <h3 className="project-title">
-                                    PCOS Awareness Campaign
+                                    PCOS Awareness 
                                 </h3>
                                 <span className="project-meta">
-                                    Campaign and Visual Design
+                                    Design Campaign
                                 </span>
                             </div>
                         </a>
+
 
                         <a href="/project/sardine" className="project-item">
                             <div className="project-image-wrap">
@@ -99,6 +83,23 @@ const Work = () => {
                                 </h3>
                                 <span className="project-meta">
                                     Packaging Design
+                                </span>
+                            </div>
+                        </a>
+
+                         <a href="/project/tp" className="project-item">
+                            <div className="project-image-wrap">
+                                <video autoPlay loop muted playsInline>
+                                    <source
+                                        src="https://res.cloudinary.com/dvo3q9yny/video/upload/v1769455666/TP_ani_mycvjy.mp4"
+                                        type="video/mp4"/>
+                                </video>
+
+                            </div>
+                            <div className="project-info">
+                                <h3 className="project-title">TP</h3>
+                                <span className="project-meta">
+                                    Brand Identity
                                 </span>
                             </div>
                         </a>
