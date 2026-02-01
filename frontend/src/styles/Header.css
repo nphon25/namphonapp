@@ -6,7 +6,7 @@
     top: 0;
     z-index: 1000;
     background: var(--bg);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .site-header .navbar {
@@ -22,6 +22,10 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding-left: clamp(1.25rem, 5vw, 5rem);
+    padding-right: clamp(1.25rem, 5vw, 5rem);
 }
 
 /* =========================
@@ -100,6 +104,7 @@
     cursor: pointer;
     padding: 0;
     position: relative;
+    z-index: 2002;
 }
 
 .nav-toggle-bar {
@@ -153,15 +158,15 @@
 .nav-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(253, 251, 248, 0.96);
-    backdrop-filter: blur(2px);
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(8px);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.25s ease;
+    transition: opacity 0.3s ease;
     z-index: 2000;
 }
 
@@ -189,7 +194,7 @@
 .nav-overlay-close {
     position: absolute;
     top: 1.25rem;
-    right: 1.5rem;
+    right: clamp(1.25rem, 5vw, 5rem);
     width: 36px;
     height: 28px;
     background: none;
@@ -223,14 +228,36 @@
     background: var(--accent);
 }
 
-/* Disable scroll when mobile menu open */
+/* =========================
+   DISABLE SCROLL WHEN MENU OPEN
+   ========================= */
 body.menu-open {
     overflow: hidden;
 }
+
+/* =========================
+   RESPONSIVE
+   ========================= */
 @media (max-width: 768px) {
-    header,
-    nav,
+    .site-header,
+    .site-header nav,
     .nav-wrapper {
         margin-bottom: 0 !important;
+    }
+    
+    .nav-inner {
+        padding-left: clamp(1rem, 4vw, 2rem);
+        padding-right: clamp(1rem, 4vw, 2rem);
+    }
+}
+
+@media (max-width: 576px) {
+    .nav-inner {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .nav-overlay-close {
+        right: 1rem;
     }
 }

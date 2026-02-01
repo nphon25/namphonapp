@@ -2,7 +2,7 @@ import "../styles/global.css";
 import "../styles/Footer.css";
 
 import React, { useEffect, useState } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp, faEnvelope, faFileAlt } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
@@ -51,7 +51,8 @@ const Footer = () => {
 
     return (
         <footer className="page-footer">
-            <Container className="footer-inner">
+            {/* Remove container class, use footer-content instead */}
+            <div className="footer-content">
                 <Row className="footer-top align-items-center">
                     <Col xs={12} md={6} className="footer-contact mb-3 mb-md-0">
                         <h6 className="footer-heading mb-0">
@@ -59,19 +60,35 @@ const Footer = () => {
                         </h6>
                     </Col>
                     <Col xs={12} md={6} className="footer-social d-flex justify-content-md-end justify-content-center gap-3">
-                        <a href="https://www.linkedin.com/in/namphon/" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="LinkedIn">
+                        <a 
+                            href="https://www.linkedin.com/in/namphon/" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="social-icon" 
+                            aria-label="LinkedIn"
+                        >
                             <FontAwesomeIcon icon={faLinkedinIn} />
                         </a>
-                        <button onClick={copyEmailToClipboard} className="social-icon email-copy-btn" aria-label="Copy email" type="button">
+                        <button 
+                            onClick={copyEmailToClipboard} 
+                            className="social-icon email-copy-btn" 
+                            aria-label="Copy email" 
+                            type="button"
+                        >
                             <FontAwesomeIcon icon={faEnvelope} />
                             {emailCopied && <span className="copied-tooltip">Copied!</span>}
                         </button>
-                         {/* Project 4 - Placeholder 
-                        <a href="/path/to/your_resume.pdf" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Resume">
+                        {/* Uncomment when resume is ready
+                        <a 
+                            href="/path/to/your_resume.pdf" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="social-icon" 
+                            aria-label="Resume"
+                        >
                             <FontAwesomeIcon icon={faFileAlt} />
                         </a>
                         */}
-                        
                     </Col>
                 </Row>
                 <hr className="footer-divider" />
@@ -82,12 +99,17 @@ const Footer = () => {
                         </p>
                     </Col>
                     <Col xs={12} md={6} className="d-flex justify-content-center justify-content-md-end">
-                        <a href="#top" className={`back-to-top ${isVisible ? 'visible' : ''}`} aria-label="Back to top" onClick={scrollToTop}>
+                        <a 
+                            href="#top" 
+                            className={`back-to-top ${isVisible ? 'visible' : ''}`} 
+                            aria-label="Back to top" 
+                            onClick={scrollToTop}
+                        >
                             <FontAwesomeIcon icon={faArrowUp} />
                         </a>
                     </Col>
                 </Row>
-            </Container>
+            </div>
         </footer>
     );
 };

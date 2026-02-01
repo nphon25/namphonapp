@@ -1,7 +1,7 @@
 import "../styles/Header.css";
 import "../styles/global.css";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Navbar, Nav, Container } from "react-bootstrap";
 
@@ -11,7 +11,22 @@ const Header = () => {
   const location = useLocation();
 
   const handleToggle = () => setExpanded((v) => !v);
+  
   const handleClose = () => setExpanded(false);
+
+  // Toggle body class when menu opens/closes
+  useEffect(() => {
+    if (expanded) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.classList.remove('menu-open');
+    };
+  }, [expanded]);
 
   const handleWorkClick = (e) => {
     e.preventDefault();
@@ -38,7 +53,7 @@ const Header = () => {
   return (
     <header className="site-header">
       <Navbar expand="md" expanded={expanded} className="py-0">
-        <Container className="nav-inner">
+        <Container>
           {/* Logo - Links to Home Page */}
           <Navbar.Brand as={Link} to="/" className="nav-logo" onClick={handleClose}>
             <img src="/assets/SVG/Asset 1.svg" alt="Nam Phon Logo" />

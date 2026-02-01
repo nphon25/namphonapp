@@ -55,16 +55,16 @@ main {
 }
 
 /* =========================
-   CONTAINER SYSTEM
-   Full-width by default.
-   Use .container--narrow to
-   constrain to --max-width.
+   CONTAINER SYSTEM - COHESIVE WIDTH
+   Full-width by default for portfolio content.
+   Use .container--narrow to constrain to --max-width.
    ========================= */
 .container {
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
-    padding: 0 clamp(1.25rem, 5vw, 5rem);
+    padding-left: clamp(1.25rem, 5vw, 5rem);
+    padding-right: clamp(1.25rem, 5vw, 5rem);
 }
 
 .container--narrow {
@@ -273,7 +273,7 @@ blockquote {
 }
 
 .case-section {
-    padding: 5rem clamp(1.25rem, 5vw, 5rem);
+    padding: 5rem 0;
     animation: fadeInUp 0.8s ease both;
     scroll-margin-top: 96px;
 }
@@ -282,6 +282,8 @@ blockquote {
     max-width: var(--max-width);
     margin-left: auto;
     margin-right: auto;
+    padding-left: clamp(1.25rem, 5vw, 5rem);
+    padding-right: clamp(1.25rem, 5vw, 5rem);
 }
 
 .case-section h2 {
@@ -318,7 +320,7 @@ blockquote {
    ========================= */
 @media (max-width: 992px) {
     .case-section {
-        padding: 4rem clamp(1.25rem, 4vw, 3rem);
+        padding: 4rem 0;
     }
 }
 
@@ -328,7 +330,7 @@ blockquote {
     p  { font-size: 0.95rem; }
 
     .case-section {
-        padding: 3.5rem clamp(1.25rem, 4vw, 2rem);
+        padding: 3.5rem 0;
     }
 }
 

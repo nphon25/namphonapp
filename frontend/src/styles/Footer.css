@@ -9,24 +9,30 @@
     font-family: "Roboto", sans-serif;
     color: var(--dark-text);
     line-height: 1.6;
+    width: 100%;
+    position: relative;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
 }
 
-/* Override Bootstrap link styles in footer */
-.page-footer a {
-    color: var(--dark-text);
-    background-color: transparent !important;
-    text-decoration: none;
-}
-
-.page-footer a:hover {
-    color: var(--primary-hover);
-}
-
-.footer-inner {
+/* Footer content container - replaces .container */
+.footer-content {
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
-    padding: 0 clamp(1.25rem, 5vw, 5rem);
+    padding-left: clamp(1.25rem, 5vw, 5rem);
+    padding-right: clamp(1.25rem, 5vw, 5rem);
+    box-sizing: border-box;
+}
+
+/* Remove any container styles that might conflict */
+.page-footer .container,
+.page-footer .container-fluid {
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin: 0 !important;
 }
 
 /* =========================
@@ -34,6 +40,7 @@
    ========================= */
 .footer-top {
     margin-bottom: 1.5rem;
+    width: 100%;
 }
 
 .footer-heading {
@@ -78,6 +85,7 @@
 .footer-social {
     display: flex;
     align-items: center;
+    width: 100%;
 }
 
 /* Base styles for ALL social icons (links and buttons) */
@@ -195,6 +203,7 @@
     background: var(--border-color);
     margin: 1.5rem 0;
     opacity: 1;
+    width: 100%;
 }
 
 /* =========================
@@ -202,6 +211,7 @@
    ========================= */
 .footer-bottom-container {
     margin-top: 1.5rem;
+    width: 100%;
 }
 
 .copyright {
@@ -259,6 +269,7 @@
     .footer-heading {
         text-align: center;
         justify-content: center;
+        width: 100%;
     }
 
     .footer-top {
@@ -271,12 +282,18 @@
 
     .footer-contact {
         text-align: center;
+        width: 100%;
     }
 }
 
 @media (max-width: 600px) {
     .page-footer {
         padding: 2.5rem 0 5rem;
+    }
+
+    .footer-content {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
     }
 
     .social-icon {
@@ -327,7 +344,7 @@
 }
 
 @media (max-width: 576px) {
-    .page-footer .container {
+    .footer-content {
         padding-left: 1rem;
         padding-right: 1rem;
     }
@@ -360,4 +377,23 @@
         height: 46px;
         bottom: 80px;
     }
+}
+
+/* Ensure full width */
+.page-footer,
+.page-footer > *,
+.page-footer > * > * {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Override any Bootstrap container styles within footer */
+.page-footer .container,
+.page-footer .container-fluid,
+.page-footer .row {
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 }
