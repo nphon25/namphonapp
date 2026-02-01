@@ -12,38 +12,25 @@ const Work = () => {
 
     return (
         <>
-            {/* HERO */}
-            <section id="hero" className="hero-seamless">
-                <div className="container">
-                    <div className="hero-content">
-                        <div className="hero-intro">
-                            <h1 className="hero-title">
-                                Hi, I'm <span className="hero-name">Nam</span>
-                            </h1>
 
-                            <div className="hero-tagline">
-                                <p className="hero-subtitle">
-                                    Graphic Designer and UX/UI Designer
-                                </p>
+<section id="hero" className="hero-seamless">
+    <div className="container">
+        <div className="hero-content">
+            <div className="hero-intro">
 
-                                <p className="hero-text">
-                                    I design with intention, shaping stories into visual
-                                    experiences that connect people, ideas, and culture. 
+                {/* Hero  */}
+                <h1 className="hero-title">
+                 Hi, I’m <span className="hero-name">Nam</span>
+                </h1>
 
-                                    <a
-                                        href="#work"
-                                        className="hero-cta"
-                                        onClick={handleScrollToWork}
-                                    >
-                                    </a>
-                                </p>
+                <p className="hero-text">
+                 A thoughtful designer who designs with intention, shaping stories into visual experiences that connect people, ideas, culture, and experiences.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
 
-                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             {/* WORK */}
             <section id="work" className="work-seamless">
