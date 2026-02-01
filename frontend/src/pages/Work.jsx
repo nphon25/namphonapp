@@ -28,7 +28,8 @@ const Work = () => {
 
                                 <p className="hero-text">
                                     I design with intention, shaping stories into visual
-                                    experiences that connect people, ideas, and culture.
+                                    experiences that connect people, ideas, and culture. 
+
                                     <a
                                         href="#work"
                                         className="hero-cta"
@@ -37,9 +38,7 @@ const Work = () => {
                                     </a>
                                 </p>
 
-                                <p className="hero-note">
-                                    Working across digital, physical, and visual systems
-                                </p>
+                
                             </div>
                         </div>
                     </div>
