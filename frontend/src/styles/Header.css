@@ -2,11 +2,11 @@
    HEADER / NAV - Bootstrap Compatible
    ========================= */
 .site-header {
-    position: relative;
+    position: sticky;
     top: 0;
     z-index: 1000;
     background: var(--bg);
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .site-header .navbar {
@@ -21,11 +21,6 @@
     align-items: center;
     justify-content: space-between;
     height: 64px;
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    padding-left: clamp(1.25rem, 5vw, 5rem);
-    padding-right: clamp(1.25rem, 5vw, 5rem);
 }
 
 /* =========================
@@ -35,7 +30,9 @@
     display: inline-flex;
     align-items: center;
     text-decoration: none !important;
-    z-index: 2001; /* Keep above overlay */
+    padding: 0 !important;
+    margin: 0 !important;
+    z-index: 2001;
 }
 
 .nav-logo img {
@@ -53,6 +50,8 @@
    ========================= */
 .nav-links {
     gap: 2.5rem;
+    align-items: center;
+    margin: 0 !important;
 }
 
 .nav-links .nav-link,
@@ -68,6 +67,7 @@
     padding: 0.25rem 0 !important;
     line-height: 1;
     transition: color 0.2s ease;
+    background: transparent !important;
 }
 
 .nav-links .nav-link::after,
@@ -94,8 +94,19 @@
     width: 100%;
 }
 
+/* Active state - shows which page user is on */
+.nav-links .nav-link.active,
+.nav-overlay-links .nav-link.active {
+    color: var(--accent) !important;
+}
+
+.nav-links .nav-link.active::after,
+.nav-overlay-links .nav-link.active::after {
+    width: 100%;
+}
+
 /* =========================
-   HAMBURGER → X (ONLY ONE BUTTON)
+   HAMBURGER → X
    ========================= */
 .nav-toggle {
     width: 36px;
@@ -105,14 +116,9 @@
     cursor: pointer;
     padding: 0;
     position: relative;
-    z-index: 2002;
-    display: none; /* Hidden by default */
-}
-
-@media (max-width: 767.98px) {
-    .nav-toggle {
-        display: block; /* Show only on mobile */
-    }
+    z-index: 2001;
+    flex-shrink: 0;
+    margin-left: auto;
 }
 
 .nav-toggle-bar {
@@ -146,7 +152,6 @@
     background: var(--accent);
 }
 
-/* Transform hamburger to X when menu is open */
 .nav-toggle.is-open .nav-toggle-bar:nth-child(1) {
     top: 12.5px;
     transform: rotate(45deg);
@@ -161,35 +166,32 @@
     transform: rotate(-45deg);
 }
 
-/* When menu is open, make X button white to contrast with overlay */
-.nav-overlay.is-open ~ .nav-toggle .nav-toggle-bar {
-    background: var(--text-dark);
-}
-
-.nav-overlay.is-open ~ .nav-toggle:hover .nav-toggle-bar {
-    background: var(--accent);
-}
-
 /* =========================
-   MOBILE OVERLAY (NO SEPARATE CLOSE BUTTON)
+   MOBILE OVERLAY
    ========================= */
 .nav-overlay {
     position: fixed;
-    inset: 0;
-    background: rgba(255, 255, 255, 0.98);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(253, 251, 248, 0.98);
     backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
     z-index: 2000;
 }
 
 .nav-overlay.is-open {
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
 }
 
@@ -209,78 +211,168 @@
     display: inline-block;
 }
 
-/* REMOVED: .nav-overlay-close styles */
-
-/* =========================
-   DISABLE SCROLL WHEN MENU OPEN
-   ========================= */
+/* Disable scroll when mobile menu open */
 body.menu-open {
     overflow: hidden;
-}
-
-/* Hide back-to-top button when menu is open */
-body.menu-open .back-to-top {
-    display: none !important;
+    position: fixed;
+    width: 100%;
+    height: 100%;
 }
 
 /* =========================
-   RESPONSIVE
+   RESPONSIVE BREAKPOINTS
    ========================= */
-@media (max-width: 767.98px) {
-    /* Hide desktop links on mobile */
+
+/* Tablet and below */
+@media (max-width: 991px) {
     .nav-links {
-        display: none !important;
+        gap: 1.8rem;
     }
     
-    /* Ensure container has proper spacing */
-    .site-header .container {
-        padding-left: clamp(1rem, 4vw, 2rem);
-        padding-right: clamp(1rem, 4vw, 2rem);
+    .nav-links .nav-link {
+        font-size: 0.85rem;
     }
 }
 
-@media (max-width: 576px) {
+/* Mobile */
+@media (max-width: 767px) {
+    .site-header {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .site-header .navbar {
+        height: 60px;
+    }
+
     .site-header .container {
+        height: 60px;
         padding-left: 1rem;
         padding-right: 1rem;
     }
-    
+
+    .nav-logo img {
+        height: 42px;
+    }
+
     .nav-overlay-links .nav-link {
         font-size: 1.2rem;
+        margin-bottom: 2rem;
+    }
+
+    /* Remove any bottom margin/padding from header on mobile */
+    header,
+    nav,
+    .nav-wrapper {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 575px) {
+    .site-header .navbar {
+        height: 56px;
+    }
+
+    .site-header .container {
+        height: 56px;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+
+    .nav-logo img {
+        height: 38px;
+    }
+
+    .nav-toggle {
+        width: 32px;
+        height: 24px;
+    }
+
+    .nav-toggle-bar {
+        left: 4px;
+        width: 24px;
+        height: 2.5px;
+    }
+
+    .nav-toggle-bar:nth-child(1) {
+        top: 4px;
+    }
+
+    .nav-toggle-bar:nth-child(2) {
+        top: 10.5px;
+    }
+
+    .nav-toggle-bar:nth-child(3) {
+        top: 17px;
+    }
+
+    .nav-toggle.is-open .nav-toggle-bar:nth-child(1) {
+        top: 10.5px;
+    }
+
+    .nav-toggle.is-open .nav-toggle-bar:nth-child(3) {
+        top: 10.5px;
+    }
+
+    .nav-overlay-links .nav-link {
+        font-size: 1.1rem;
         margin-bottom: 1.8rem;
+        letter-spacing: 0.12em;
     }
 }
 
-/* =========================
-   ACCESSIBILITY
-   ========================= */
-.nav-toggle:focus,
-.nav-links .nav-link:focus,
-.nav-overlay-links .nav-link:focus {
-    outline: 2px solid var(--accent);
-    outline-offset: 3px;
+/* Extra small devices */
+@media (max-width: 375px) {
+    .nav-logo img {
+        height: 36px;
+    }
+
+    .nav-overlay-links .nav-link {
+        font-size: 1rem;
+        margin-bottom: 1.6rem;
+    }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .nav-toggle-bar,
+/* Landscape orientation on mobile */
+@media (max-width: 767px) and (orientation: landscape) {
+    .nav-overlay-links .nav-link {
+        font-size: 1rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .site-header .navbar {
+        height: 52px;
+    }
+
+    .site-header .container {
+        height: 52px;
+    }
+}
+
+/* Prevent layout shift */
+@media (min-width: 768px) {
+    .nav-toggle {
+        display: none !important;
+    }
+
     .nav-overlay {
-        transition: none;
+        display: none !important;
     }
 }
 
-/* =========================
-   BOOTSTRAP OVERRIDES
-   ========================= */
-/* Ensure Bootstrap classes don't interfere */
-.navbar-toggler {
-    display: none !important;
-}
+/* Fix for iOS Safari */
+@supports (-webkit-touch-callout: none) {
+    .nav-overlay {
+        position: fixed;
+        height: 100vh;
+        height: -webkit-fill-available;
+    }
 
-.navbar-expand-md .navbar-nav {
-    flex-direction: row;
-}
-
-/* Fix container max-width for header */
-.site-header .container {
-    max-width: 100% !important;
+    body.menu-open {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        height: -webkit-fill-available;
+    }
 }

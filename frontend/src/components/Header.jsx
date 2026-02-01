@@ -28,6 +28,23 @@ const Header = () => {
     };
   }, [expanded]);
 
+  // Close menu on route change
+  useEffect(() => {
+    handleClose();
+  }, [location.pathname]);
+
+  // Close menu on window resize to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768 && expanded) {
+        handleClose();
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [expanded]);
+
   const handleWorkClick = (e) => {
     e.preventDefault();
     handleClose();
@@ -50,6 +67,11 @@ const Header = () => {
     }
   };
 
+  // Helper function to check if link is active
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
+
   return (
     <header className="site-header">
       <Navbar expand="md" expanded={expanded} className="py-0">
@@ -61,14 +83,34 @@ const Header = () => {
 
           {/* Desktop Links */}
           <Nav className="ms-auto nav-links d-none d-md-flex">
-            <Nav.Link href="#work" onClick={handleWorkClick}>Work</Nav.Link>
-            <Nav.Link as={Link} to="/archive" onClick={handleClose}>Archive</Nav.Link>
-            <Nav.Link as={Link} to="/about" onClick={handleClose}>About</Nav.Link>
+            <Nav.Link 
+              href="#work" 
+              onClick={handleWorkClick}
+              className={isActive('/') ? 'active' : ''}
+            >
+              Work
+            </Nav.Link>
+            <Nav.Link 
+              as={Link} 
+              to="/archive" 
+              onClick={handleClose}
+              className={isActive('/archive') ? 'active' : ''}
+            >
+              Archive
+            </Nav.Link>
+            <Nav.Link 
+              as={Link} 
+              to="/about" 
+              onClick={handleClose}
+              className={isActive('/about') ? 'active' : ''}
+            >
+              About
+            </Nav.Link>
           </Nav>
 
-          {/* Custom Hamburger Toggle - ONLY ONE BUTTON */}
+          {/* Custom Hamburger Toggle */}
           <button
-            className={`nav-toggle ${expanded ? "is-open" : ""}`}
+            className={`nav-toggle d-md-none ${expanded ? "is-open" : ""}`}
             aria-label={expanded ? "Close menu" : "Open menu"}
             aria-expanded={expanded}
             aria-controls="primary-menu"
@@ -80,7 +122,7 @@ const Header = () => {
             <span className="nav-toggle-bar"></span>
           </button>
 
-          {/* Mobile Overlay Menu - NO SEPARATE CLOSE BUTTON */}
+          {/* Mobile Overlay Menu */}
           <div
             className={`nav-overlay d-md-none ${expanded ? "is-open" : ""}`}
             role="navigation"
@@ -88,9 +130,29 @@ const Header = () => {
             id="primary-menu"
           >
             <Nav className="nav-overlay-links flex-column">
-              <Nav.Link href="#work" onClick={handleWorkClick}>Work</Nav.Link>
-              <Nav.Link as={Link} to="/archive" onClick={handleClose}>Archive</Nav.Link>
-              <Nav.Link as={Link} to="/about" onClick={handleClose}>About</Nav.Link>
+              <Nav.Link 
+                href="#work" 
+                onClick={handleWorkClick}
+                className={isActive('/') ? 'active' : ''}
+              >
+                Work
+              </Nav.Link>
+              <Nav.Link 
+                as={Link} 
+                to="/archive" 
+                onClick={handleClose}
+                className={isActive('/archive') ? 'active' : ''}
+              >
+                Archive
+              </Nav.Link>
+              <Nav.Link 
+                as={Link} 
+                to="/about" 
+                onClick={handleClose}
+                className={isActive('/about') ? 'active' : ''}
+              >
+                About
+              </Nav.Link>
             </Nav>
           </div>
         </Container>
