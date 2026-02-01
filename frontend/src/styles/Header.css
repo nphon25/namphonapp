@@ -16,11 +16,11 @@
     padding: 0 !important;
 }
 
-.nav-inner {
-    height: 64px;
+.site-header .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 64px;
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
@@ -35,6 +35,7 @@
     display: inline-flex;
     align-items: center;
     text-decoration: none !important;
+    z-index: 2001; /* Keep above overlay */
 }
 
 .nav-logo img {
@@ -94,7 +95,7 @@
 }
 
 /* =========================
-   HAMBURGER → X
+   HAMBURGER → X (ONLY ONE BUTTON)
    ========================= */
 .nav-toggle {
     width: 36px;
@@ -105,6 +106,13 @@
     padding: 0;
     position: relative;
     z-index: 2002;
+    display: none; /* Hidden by default */
+}
+
+@media (max-width: 767.98px) {
+    .nav-toggle {
+        display: block; /* Show only on mobile */
+    }
 }
 
 .nav-toggle-bar {
@@ -138,6 +146,7 @@
     background: var(--accent);
 }
 
+/* Transform hamburger to X when menu is open */
 .nav-toggle.is-open .nav-toggle-bar:nth-child(1) {
     top: 12.5px;
     transform: rotate(45deg);
@@ -152,8 +161,17 @@
     transform: rotate(-45deg);
 }
 
+/* When menu is open, make X button white to contrast with overlay */
+.nav-overlay.is-open ~ .nav-toggle .nav-toggle-bar {
+    background: var(--text-dark);
+}
+
+.nav-overlay.is-open ~ .nav-toggle:hover .nav-toggle-bar {
+    background: var(--accent);
+}
+
 /* =========================
-   MOBILE OVERLAY
+   MOBILE OVERLAY (NO SEPARATE CLOSE BUTTON)
    ========================= */
 .nav-overlay {
     position: fixed;
@@ -191,42 +209,7 @@
     display: inline-block;
 }
 
-.nav-overlay-close {
-    position: absolute;
-    top: 1.25rem;
-    right: clamp(1.25rem, 5vw, 5rem);
-    width: 36px;
-    height: 28px;
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    z-index: 2001;
-}
-
-.nav-overlay-close span {
-    position: absolute;
-    top: 50%;
-    left: 6px;
-    width: 24px;
-    height: 3px;
-    background: var(--text-dark);
-    border-radius: 2px;
-    transform-origin: center;
-    transition: background 0.2s ease;
-}
-
-.nav-overlay-close span:first-child {
-    transform: translateY(-50%) rotate(45deg);
-}
-
-.nav-overlay-close span:last-child {
-    transform: translateY(-50%) rotate(-45deg);
-}
-
-.nav-overlay-close:hover span {
-    background: var(--accent);
-}
+/* REMOVED: .nav-overlay-close styles */
 
 /* =========================
    DISABLE SCROLL WHEN MENU OPEN
@@ -235,29 +218,69 @@ body.menu-open {
     overflow: hidden;
 }
 
+/* Hide back-to-top button when menu is open */
+body.menu-open .back-to-top {
+    display: none !important;
+}
+
 /* =========================
    RESPONSIVE
    ========================= */
-@media (max-width: 768px) {
-    .site-header,
-    .site-header nav,
-    .nav-wrapper {
-        margin-bottom: 0 !important;
+@media (max-width: 767.98px) {
+    /* Hide desktop links on mobile */
+    .nav-links {
+        display: none !important;
     }
     
-    .nav-inner {
+    /* Ensure container has proper spacing */
+    .site-header .container {
         padding-left: clamp(1rem, 4vw, 2rem);
         padding-right: clamp(1rem, 4vw, 2rem);
     }
 }
 
 @media (max-width: 576px) {
-    .nav-inner {
+    .site-header .container {
         padding-left: 1rem;
         padding-right: 1rem;
     }
     
-    .nav-overlay-close {
-        right: 1rem;
+    .nav-overlay-links .nav-link {
+        font-size: 1.2rem;
+        margin-bottom: 1.8rem;
     }
+}
+
+/* =========================
+   ACCESSIBILITY
+   ========================= */
+.nav-toggle:focus,
+.nav-links .nav-link:focus,
+.nav-overlay-links .nav-link:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nav-toggle-bar,
+    .nav-overlay {
+        transition: none;
+    }
+}
+
+/* =========================
+   BOOTSTRAP OVERRIDES
+   ========================= */
+/* Ensure Bootstrap classes don't interfere */
+.navbar-toggler {
+    display: none !important;
+}
+
+.navbar-expand-md .navbar-nav {
+    flex-direction: row;
+}
+
+/* Fix container max-width for header */
+.site-header .container {
+    max-width: 100% !important;
 }

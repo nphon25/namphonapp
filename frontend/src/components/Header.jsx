@@ -59,10 +59,17 @@ const Header = () => {
             <img src="/assets/SVG/Asset 1.svg" alt="Nam Phon Logo" />
           </Navbar.Brand>
 
-          {/* Custom Hamburger Toggle */}
+          {/* Desktop Links */}
+          <Nav className="ms-auto nav-links d-none d-md-flex">
+            <Nav.Link href="#work" onClick={handleWorkClick}>Work</Nav.Link>
+            <Nav.Link as={Link} to="/archive" onClick={handleClose}>Archive</Nav.Link>
+            <Nav.Link as={Link} to="/about" onClick={handleClose}>About</Nav.Link>
+          </Nav>
+
+          {/* Custom Hamburger Toggle - ONLY ONE BUTTON */}
           <button
-            className={`nav-toggle d-md-none ${expanded ? "is-open" : ""}`}
-            aria-label="Menu"
+            className={`nav-toggle ${expanded ? "is-open" : ""}`}
+            aria-label={expanded ? "Close menu" : "Open menu"}
             aria-expanded={expanded}
             aria-controls="primary-menu"
             onClick={handleToggle}
@@ -73,30 +80,13 @@ const Header = () => {
             <span className="nav-toggle-bar"></span>
           </button>
 
-          {/* Desktop Links */}
-          <Nav className="ms-auto nav-links d-none d-md-flex">
-            <Nav.Link href="#work" onClick={handleWorkClick}>Work</Nav.Link>
-            <Nav.Link as={Link} to="/archive" onClick={handleClose}>Archive</Nav.Link>
-            <Nav.Link as={Link} to="/about" onClick={handleClose}>About</Nav.Link>
-          </Nav>
-
-          {/* Mobile Overlay Menu */}
+          {/* Mobile Overlay Menu - NO SEPARATE CLOSE BUTTON */}
           <div
             className={`nav-overlay d-md-none ${expanded ? "is-open" : ""}`}
             role="navigation"
             aria-label="Primary"
             id="primary-menu"
           >
-            <button
-              className="nav-overlay-close"
-              aria-label="Close menu"
-              onClick={handleClose}
-              type="button"
-            >
-              <span></span>
-              <span></span>
-            </button>
-
             <Nav className="nav-overlay-links flex-column">
               <Nav.Link href="#work" onClick={handleWorkClick}>Work</Nav.Link>
               <Nav.Link as={Link} to="/archive" onClick={handleClose}>Archive</Nav.Link>

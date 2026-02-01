@@ -12,33 +12,34 @@ const Work = () => {
 
     return (
         <>
-            {/* HERO */}
-            <section id="hero">
+            {/* SEAMLESS HERO */}
+            <section id="hero" className="hero-seamless">
                 <div className="container">
                     <div className="hero-content">
-                        <h1 className="hero-title">
-                            Hi, I'm <span className="hero-name">Nam</span>
-                        </h1>
-
-                        <p className="hero-subtitle">
-                            Graphic Designer | UX/UI & Experiential Design
-                        </p>
-
-                        <p className="hero-text">
-                            I create thoughtful design that connects people, ideas, and experiences.{" "}
-                            <a href="#work" className="hero-cta" onClick={handleScrollToWork}>
-                                Explore my work.
-                            </a>
-                        </p>
+                        <div className="hero-intro">
+                            <h1 className="hero-title">
+                                Hi, I'm <span className="hero-name">Nam</span>
+                            </h1>
+                            
+                            <div className="hero-tagline">
+                                <p className="hero-subtitle">
+                                    Graphic Designer | UX/UI & Experiential Design
+                                </p>
+                                
+                                <p className="hero-text">
+                                    I create thoughtful design that connects people, ideas, and experiences.{" "}
+                                    <a href="#work" className="hero-cta" onClick={handleScrollToWork}>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* WORK */}
-            <section id="work">
+            {/* WORK - Seamless transition */}
+            <section id="work" className="work-seamless">
                 <div className="container">
-                    <h2 className="work-title">My Work</h2>
-
                     <div className="project-grid">
                         <a href="/project/alma" className="project-item">
                             <div className="project-image-wrap">
