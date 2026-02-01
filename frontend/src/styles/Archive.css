@@ -64,7 +64,7 @@
 }
 
 /* =============================
-   ARCHIVE CARD
+   ARCHIVE CARD - MODERN DESIGN
    ============================= */
 .archive-card {
     position: relative;
@@ -77,12 +77,15 @@
     display: flex;
     flex-direction: column;
     border-radius: var(--radius);
+    will-change: transform;
 }
 
 .archive-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
-    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 
+        0 8px 30px rgba(0, 0, 0, 0.08),
+        0 2px 4px rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 0, 0, 0.08);
 }
 
 .archive-card:focus-visible {
@@ -124,11 +127,11 @@
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.5s ease;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .archive-card:hover .archive-card-media img {
-    transform: scale(1.03);
+    transform: scale(1.05);
 }
 
 /* Videos don't scale on hover */
@@ -140,21 +143,24 @@
     position: absolute;
     top: 12px;
     right: 12px;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
-    color: white;
-    padding: 6px 12px;
-    font-size: 0.875rem;
-    font-weight: 500;
+    color: rgba(0, 0, 0, 0.9);
+    padding: 6px 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 6px;
-    z-index: 2;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
+    gap: 4px;
+    z-index: 10;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Card Info */
+/* =============================
+   MODERN CARD INFO - UPDATED DESIGN
+   ============================= */
 .archive-card-info {
     position: absolute;
     bottom: 0;
@@ -164,15 +170,17 @@
     background: linear-gradient(
         to top, 
         rgba(0, 0, 0, 0.95) 0%, 
-        rgba(0, 0, 0, 0.85) 40%,
-        rgba(0, 0, 0, 0.6) 70%, 
-        rgba(0, 0, 0, 0.2) 90%,
+        rgba(0, 0, 0, 0.85) 20%,
+        rgba(0, 0, 0, 0.7) 40%,
+        rgba(0, 0, 0, 0.4) 60%,
+        rgba(0, 0, 0, 0.15) 80%,
         transparent 100%
     );
     color: white;
+    transform: translateY(100%);
     opacity: 0;
-    transform: translateY(10px);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 5;
 }
 
 .archive-card:hover .archive-card-info {
@@ -180,22 +188,68 @@
     transform: translateY(0);
 }
 
+/* Title styling */
 .archive-card-info h3 {
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    font-weight: 600;
-    margin: 0 0 4px 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0 0 8px 0;
     line-height: 1.3;
     color: #ffffff;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    letter-spacing: -0.01em;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+    transform: translateY(10px);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.1s,
+                opacity 0.4s ease 0.1s;
 }
 
+.archive-card:hover .archive-card-info h3 {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Category styling */
 .archive-card-info p {
-    font-size: clamp(0.8rem, 1.5vw, 0.875rem);
-    opacity: 0.95;
+    font-size: 0.875rem;
+    font-weight: 500;
     margin: 0;
     line-height: 1.4;
     color: rgba(255, 255, 255, 0.95);
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+    letter-spacing: 0.02em;
+    transform: translateY(10px);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.15s,
+                opacity 0.4s ease 0.15s;
+}
+
+.archive-card:hover .archive-card-info p {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Year overlay on image */
+.archive-card-year {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(255, 255, 255, 0.95);
+    color: rgba(0, 0, 0, 0.9);
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 20px;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.archive-card:hover .archive-card-year {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 /* =============================
@@ -493,6 +547,14 @@ body.lightbox-open .page-footer {
         min-height: 260px;
     }
 
+    .archive-card-info h3 {
+        font-size: 1.125rem;
+    }
+
+    .archive-card-info p {
+        font-size: 0.8125rem;
+    }
+
     .lightbox {
         padding: 24px;
     }
@@ -591,14 +653,16 @@ body.lightbox-open .page-footer {
         min-height: 220px;
     }
 
+    /* Mobile - Show info always but with cleaner design */
     .archive-card-info {
         opacity: 1;
         transform: translateY(0);
         background: linear-gradient(
             to top, 
             rgba(0, 0, 0, 0.95) 0%, 
-            rgba(0, 0, 0, 0.75) 50%, 
-            rgba(0, 0, 0, 0.3) 80%,
+            rgba(0, 0, 0, 0.85) 30%, 
+            rgba(0, 0, 0, 0.6) 60%,
+            rgba(0, 0, 0, 0.3) 85%,
             transparent 100%
         );
         padding: 16px;
@@ -607,11 +671,31 @@ body.lightbox-open .page-footer {
     .archive-card-info h3 {
         font-size: 1rem;
         text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+        transform: translateY(0);
+        opacity: 1;
     }
 
     .archive-card-info p {
         font-size: 0.8rem;
         text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .media-badge {
+        font-size: 0.7rem;
+        padding: 5px 8px;
+        top: 8px;
+        right: 8px;
+    }
+
+    .archive-card-year {
+        top: 8px;
+        left: 8px;
+        font-size: 0.7rem;
+        padding: 3px 8px;
+        transform: translateY(0);
+        opacity: 1;
     }
 
     .lightbox {
@@ -708,6 +792,18 @@ body.lightbox-open .page-footer {
         padding-left: clamp(1rem, 4vw, 2rem);
         padding-right: clamp(1rem, 4vw, 2rem);
     }
+
+    .archive-card-info {
+        padding: 12px;
+    }
+
+    .archive-card-info h3 {
+        font-size: 0.9375rem;
+    }
+
+    .archive-card-info p {
+        font-size: 0.75rem;
+    }
 }
 
 /* =============================
@@ -738,6 +834,33 @@ body.lightbox-open .page-footer {
     .archive-card.medium .archive-card-media,
     .archive-card.large .archive-card-media {
         min-height: 200px;
+    }
+
+    .archive-card-info {
+        padding: 10px;
+    }
+
+    .archive-card-info h3 {
+        font-size: 0.875rem;
+        margin-bottom: 4px;
+    }
+
+    .archive-card-info p {
+        font-size: 0.7rem;
+    }
+
+    .media-badge {
+        font-size: 0.65rem;
+        padding: 4px 6px;
+        top: 6px;
+        right: 6px;
+    }
+
+    .archive-card-year {
+        top: 6px;
+        left: 6px;
+        font-size: 0.65rem;
+        padding: 2px 6px;
     }
 
     .lightbox {
@@ -838,6 +961,14 @@ body.lightbox-open .page-footer {
         min-height: 180px;
     }
 
+    .archive-card-info h3 {
+        font-size: 0.8125rem;
+    }
+
+    .archive-card-info p {
+        font-size: 0.65rem;
+    }
+
     .lightbox {
         padding: 8px;
     }
@@ -914,6 +1045,10 @@ body.lightbox-open .page-footer {
         padding-left: clamp(0.75rem, 3vw, 1rem);
         padding-right: clamp(0.75rem, 3vw, 1rem);
     }
+
+    .archive-card-info {
+        padding: 8px;
+    }
 }
 
 /* =============================
@@ -924,6 +1059,15 @@ body.lightbox-open .page-footer {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+    }
+    
+    .archive-card-info,
+    .archive-card-info h3,
+    .archive-card-info p,
+    .archive-card-year {
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
     }
 }
 
@@ -966,6 +1110,23 @@ body.lightbox-open .page-footer {
     .progress-dots button.active {
         width: 36px;
         height: 12px;
+    }
+
+    /* On touch devices, show card info immediately */
+    .archive-card-info {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .archive-card-info h3,
+    .archive-card-info p {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .archive-card-year {
+        transform: translateY(0);
+        opacity: 1;
     }
 }
 

@@ -1,8 +1,8 @@
 /* =========================
-   FOOTER - Bootstrap Compatible
+   FOOTER - Clean & Proportionate
    ========================= */
 .page-footer {
-    background: var(--background) !important;
+    background: var(--background);
     padding: 3rem 0 2rem;
     border-top: 1px solid var(--border-color);
     margin-top: auto;
@@ -10,13 +10,10 @@
     color: var(--dark-text);
     line-height: 1.6;
     width: 100%;
-    position: relative;
-    left: 0;
-    right: 0;
     box-sizing: border-box;
 }
 
-/* Footer content container - replaces .container */
+/* Main content container */
 .footer-content {
     width: 100%;
     max-width: 100%;
@@ -26,84 +23,82 @@
     box-sizing: border-box;
 }
 
-/* Remove any container styles that might conflict */
-.page-footer .container,
-.page-footer .container-fluid {
-    max-width: 100% !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    margin: 0 !important;
-}
-
 /* =========================
-   TOP ROW
+   TOP ROW - Perfect Alignment with Proportional Sizing
    ========================= */
 .footer-top {
     margin-bottom: 1.5rem;
     width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* Contact section - left aligned */
+.footer-contact {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    height: 44px; /* Match social icon container height */
 }
 
 .footer-heading {
     font-family: "Roboto", sans-serif;
     font-weight: 500;
-    font-size: 1.1rem;
+    font-size: 1.15rem; /* Increased from 1.1rem for better proportion */
     letter-spacing: 0.05em;
     color: var(--dark-text);
     margin: 0;
     display: inline-flex;
     align-items: center;
-    gap: 0.3rem;
+    gap: 0.35rem; /* Slightly increased gap */
+    line-height: 1;
+    padding: 0.5rem 0; /* Add vertical padding for better vertical centering */
 }
 
-/* Animated Smiley Face - Continuous Wave Animation */
+/* Animated Smiley Face - Proportionate to text */
 .smile {
     color: var(--primary-hover);
-    font-size: 1.2rem;
+    font-size: 1.3rem; /* Increased from 1.2rem */
     display: inline-block;
     transform-origin: 70% 70%;
     animation: wave 2.5s ease-in-out infinite;
+    line-height: 1;
+    margin-left: 0.1rem;
 }
 
 @keyframes wave {
-    0%, 100% { 
-        transform: rotate(0deg); 
-    }
-    10%, 30% { 
-        transform: rotate(14deg); 
-    }
-    20% { 
-        transform: rotate(-8deg); 
-    }
-    40% { 
-        transform: rotate(0deg); 
-    }
+    0%, 100% { transform: rotate(0deg); }
+    10%, 30% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    40% { transform: rotate(0deg); }
 }
 
-/* =========================
-   SOCIAL ICONS - Universal Styling
-   ========================= */
+/* Social section - right aligned */
 .footer-social {
     display: flex;
     align-items: center;
-    width: 100%;
+    justify-content: flex-end;
+    gap: 1.25rem; /* Slightly increased gap */
+    height: 44px; /* Increased from 40px for better proportion */
 }
 
-/* Base styles for ALL social icons (links and buttons) */
+/* =========================
+   SOCIAL ICONS - Proportionate Size
+   ========================= */
 .social-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 44px; /* Increased from 40px */
+    height: 44px; /* Increased from 40px */
     border-radius: 50%;
     background: transparent;
-    border: 2px solid var(--light-text);
+    border: 2.2px solid var(--light-text); /* Slightly thicker border */
     color: var(--light-text);
     text-decoration: none;
-    transition: var(--transition);
+    transition: all 0.3s ease;
     position: relative;
     cursor: pointer;
-    /* Reset button styles */
     padding: 0;
     margin: 0;
     font-family: inherit;
@@ -113,7 +108,6 @@
     appearance: none;
 }
 
-/* Hover state - NO BACKGROUND FILL, only border and icon color change */
 .social-icon:hover {
     background: transparent;
     border-color: var(--primary-hover);
@@ -121,7 +115,6 @@
     transform: translateY(-2px);
 }
 
-/* Active/Focus state - ALL icons */
 .social-icon:active {
     transform: translateY(0);
 }
@@ -136,28 +129,24 @@
     border-radius: 50%;
 }
 
-/* SVG/Icon styling - consistent for all */
-.social-icon svg,
-.social-icon i {
-    font-size: 1rem;
+.social-icon svg {
+    font-size: 1.1rem; /* Increased from 1rem */
     color: inherit;
-    transition: color 0.3s ease;
 }
 
 /* =========================
-   EMAIL COPY BUTTON SPECIFIC
+   EMAIL COPY TOOLTIP
    ========================= */
-/* Copied Tooltip */
 .copied-tooltip {
     position: absolute;
-    top: -45px;
+    top: -48px; /* Adjusted for larger icon size */
     left: 50%;
     transform: translateX(-50%);
     background: var(--primary-hover);
     color: white;
-    padding: 0.5rem 0.9rem;
+    padding: 0.55rem 1rem; /* Slightly increased padding */
     border-radius: 8px;
-    font-size: 0.875rem;
+    font-size: 0.9rem; /* Slightly larger */
     font-weight: 600;
     white-space: nowrap;
     animation: fadeInOut 2s ease;
@@ -207,139 +196,199 @@
 }
 
 /* =========================
-   BOTTOM ROW
+   BOTTOM ROW - Proportionate Alignment
    ========================= */
 .footer-bottom-container {
     margin-top: 1.5rem;
     width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* Copyright - left aligned */
+.footer-credit {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    height: 44px; /* Match back-to-top button container height */
 }
 
 .copyright {
-    font-size: 0.9rem;
+    font-size: 0.95rem; /* Slightly larger */
     color: var(--light-text);
     font-family: "Roboto", sans-serif;
     margin: 0;
+    line-height: 1;
+    padding: 0.5rem 0; /* Match vertical padding */
+}
+
+/* Back to Top - right aligned */
+.back-to-top-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 44px; /* Match copyright section height */
 }
 
 /* =========================
-   BACK TO TOP BUTTON
+   BACK TO TOP BUTTON - Proportionate Size
    ========================= */
 .page-footer .back-to-top {
-    display: inline-flex !important;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 44px; /* Increased from 40px */
+    height: 44px; /* Increased from 40px */
     border-radius: 50%;
     background: transparent;
-    border: 2px solid var(--light-text);
-    color: var(--light-text) !important;
+    border: 2.2px solid var(--light-text); /* Slightly thicker border */
+    color: var(--light-text);
     text-decoration: none;
-    transition: var(--transition);
+    transition: all 0.3s ease;
     opacity: 0;
     pointer-events: none;
+    padding: 0;
+    cursor: pointer;
 }
 
 .page-footer .back-to-top.visible {
-    opacity: 1 !important;
-    pointer-events: auto !important;
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .page-footer .back-to-top:hover {
     background: transparent;
     border-color: var(--primary-hover);
-    color: var(--primary-hover) !important;
+    color: var(--primary-hover);
     transform: translateY(-2px);
 }
 
 .page-footer .back-to-top svg {
-    font-size: 1rem;
-    transition: color 0.3s ease;
+    font-size: 1.1rem; /* Increased from 1rem */
 }
 
 /* =========================
-   RESPONSIVE
+   VISUAL SCALE COMPARISON
    ========================= */
-@media (max-width: 767px) {
+/* 
+   Text height calculation:
+   - Font size: 1.15rem ≈ 18.4px
+   - Line height: 1 ≈ 18.4px
+   - Plus padding: 0.5rem top + 0.5rem bottom ≈ 16px
+   - Total visual height: ~34.4px
+   
+   Icon container height: 44px
+   This gives a good proportional balance
+*/
+
+/* =========================
+   RESPONSIVE - Mobile First
+   ========================= */
+@media (max-width: 767.98px) {
+    .page-footer {
+        padding: 2.5rem 0 4rem;
+    }
+    
+    /* Stack rows vertically on mobile */
+    .footer-top {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .footer-contact,
     .footer-social {
         justify-content: center;
-        margin-top: 1rem;
+        height: auto;
+        width: 100%;
     }
-
+    
     .footer-heading {
-        text-align: center;
         justify-content: center;
-        width: 100%;
+        font-size: 1.2rem; /* Slightly larger on mobile */
     }
-
-    .footer-top {
-        text-align: center;
+    
+    .smile {
+        font-size: 1.4rem; /* Slightly larger on mobile */
     }
-
-    .footer-bottom-container {
-        text-align: center;
+    
+    .footer-social {
+        gap: 1.25rem;
     }
-
-    .footer-contact {
-        text-align: center;
-        width: 100%;
-    }
-}
-
-@media (max-width: 600px) {
-    .page-footer {
-        padding: 2.5rem 0 5rem;
-    }
-
-    .footer-content {
-        padding-left: 1.25rem;
-        padding-right: 1.25rem;
-    }
-
+    
     .social-icon {
-        width: 44px;
-        height: 44px;
+        width: 48px; /* Slightly larger on mobile */
+        height: 48px;
     }
-
-    .copied-tooltip {
-        font-size: 0.8rem;
-        padding: 0.4rem 0.7rem;
-        top: -42px;
+    
+    .social-icon svg {
+        font-size: 1.15rem;
     }
-
-    /* Mobile: Fixed position with consistent border style */
+    
+    /* Bottom row - stack vertically */
+    .footer-bottom-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .footer-credit,
+    .back-to-top-wrapper {
+        justify-content: center;
+        height: auto;
+        width: 100%;
+    }
+    
+    .copyright {
+        font-size: 0.9rem;
+    }
+    
+    /* Mobile: Fixed back-to-top button */
     .footer-bottom-container .back-to-top {
         position: fixed;
         bottom: 88px;
         right: 20px;
-        width: 48px;
-        height: 48px;
+        width: 50px; /* Slightly larger on mobile */
+        height: 50px;
         z-index: 9999;
         background: var(--background);
-        border: 2px solid var(--light-text);
+        border: 2.2px solid var(--light-text);
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
-
+    
     .footer-bottom-container .back-to-top svg {
-        color: var(--light-text) !important;
-        font-size: 1.1rem;
+        font-size: 1.15rem;
     }
-
-    .footer-bottom-container .back-to-top:hover {
-        background: var(--background);
-        border-color: var(--primary-hover);
-    }
-
-    .footer-bottom-container .back-to-top:hover svg {
-        color: var(--primary-hover) !important;
-    }
-
-    .footer-bottom-container .back-to-top.visible {
-        opacity: 1;
-    }
-
+    
+    /* Hide back-to-top when mobile menu is open */
     body.menu-open .back-to-top {
         display: none !important;
+    }
+    
+    .copied-tooltip {
+        top: -52px; /* Adjusted for larger mobile icon size */
+        padding: 0.6rem 1.1rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-content {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+    
+    .footer-heading {
+        font-size: 1.15rem;
+    }
+    
+    .smile {
+        font-size: 1.35rem;
+    }
+    
+    .social-icon {
+        width: 46px;
+        height: 46px;
     }
 }
 
@@ -348,49 +397,90 @@
         padding-left: 1rem;
         padding-right: 1rem;
     }
+    
+    .footer-heading {
+        font-size: 1.1rem;
+    }
+    
+    .smile {
+        font-size: 1.3rem;
+    }
 }
 
 @media (max-width: 480px) {
     .page-footer {
-        padding: 2rem 0 4.5rem;
+        padding: 2rem 0 3.5rem;
     }
-
+    
     .footer-social {
-        gap: 0.75rem;
+        gap: 1rem;
     }
-
+    
     .social-icon {
-        width: 42px;
-        height: 42px;
+        width: 44px;
+        height: 44px;
     }
-
+    
+    .social-icon svg {
+        font-size: 1.1rem;
+    }
+    
     .footer-heading {
-        font-size: 1rem;
+        font-size: 1.05rem;
     }
-
+    
+    .smile {
+        font-size: 1.25rem;
+    }
+    
     .copyright {
         font-size: 0.85rem;
     }
-
+    
     .footer-bottom-container .back-to-top {
-        width: 46px;
-        height: 46px;
+        width: 48px;
+        height: 48px;
         bottom: 80px;
+    }
+    
+    .copied-tooltip {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.9rem;
+        top: -48px;
     }
 }
 
-/* Ensure full width */
-.page-footer,
-.page-footer > *,
-.page-footer > * > * {
-    width: 100% !important;
-    max-width: 100% !important;
+/* =========================
+   ACCESSIBILITY
+   ========================= */
+@media (prefers-reduced-motion: reduce) {
+    .smile,
+    .social-icon,
+    .back-to-top,
+    .copied-tooltip {
+        animation: none !important;
+        transition: none !important;
+    }
 }
 
-/* Override any Bootstrap container styles within footer */
-.page-footer .container,
-.page-footer .container-fluid,
+/* =========================
+   BOOTSTRAP COMPATIBILITY
+   ========================= */
+/* Ensure Bootstrap grid works properly */
 .page-footer .row {
+    margin-left: 0;
+    margin-right: 0;
+    align-items: center;
+}
+
+.page-footer .row > [class*="col-"] {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Remove any container constraints */
+.page-footer .container,
+.page-footer .container-fluid {
     max-width: 100% !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
