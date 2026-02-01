@@ -1,129 +1,64 @@
+import React, { useState, useEffect } from "react";
 
-import { useState, useEffect, useRef } from 'react';
-import '../styles/project.css';
-
-const ScrollSpyNav = ({ 
-  items = [], 
-  offset = 96,
-  rootMarginTop = '-96px',
-  rootMarginBottom = '-50%'
-}) => {
-  const [activeId, setActiveId] = useState('');
-  const observerRef = useRef(null);
-  const sectionsRef = useRef(new Map());
+const ScrollSpy = ({ sections }) => {
+  const [activeSection, setActiveSection] = useState("");
+  const [isSticky, setIsSticky] = useState(false);
 
   useEffect(() => {
-    // Clean up previous observer
-    if (observerRef.current) {
-      observerRef.current.disconnect();
-    }
+    const handleScroll = () => {
+      // Check if scrollspy should be sticky (has scrolled past initial position)
+      const scrollspyElement = document.querySelector('.scrollspy-nav');
+      if (scrollspyElement) {
+        const rect = scrollspyElement.getBoundingClientRect();
+        setIsSticky(rect.top <= 0);
+      }
 
-    // Clear sections map
-    sectionsRef.current.clear();
+      // Find the active section
+      const scrollPosition = window.scrollY + 90; // Offset for scrollspy height
 
-    // Get all sections
-    const sections = items.map(item => document.getElementById(item.id)).filter(Boolean);
-    
-    if (sections.length === 0) return;
-
-    // Create intersection observer with proper margins
-    const observerOptions = {
-      root: null,
-      rootMargin: `${rootMarginTop} 0px ${rootMarginBottom} 0px`,
-      threshold: 0
-    };
-
-    // Track which sections are currently intersecting
-    const intersectingEntries = new Map();
-
-    const observerCallback = (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          intersectingEntries.set(entry.target.id, entry);
-        } else {
-          intersectingEntries.delete(entry.target.id);
-        }
-      });
-
-      // If we have intersecting sections, find the topmost one
-      if (intersectingEntries.size > 0) {
-        // Get all intersecting entries as array
-        const intersecting = Array.from(intersectingEntries.values());
-        
-        // Sort by their position on page (topmost first)
-        intersecting.sort((a, b) => {
-          return a.boundingClientRect.top - b.boundingClientRect.top;
-        });
-
-        // The topmost intersecting section should be active
-        const topSection = intersecting[0];
-        if (topSection && topSection.target.id !== activeId) {
-          setActiveId(topSection.target.id);
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i].id);
+        if (section) {
+          const sectionTop = section.offsetTop;
+          if (scrollPosition >= sectionTop) {
+            setActiveSection(sections[i].id);
+            break;
+          }
         }
       }
     };
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-    observerRef.current = observer;
+    // Set initial active section
+    handleScroll();
 
-    // Observe all sections
-    sections.forEach(section => {
-      if (section) {
-        observer.observe(section);
-        sectionsRef.current.set(section.id, section);
-      }
-    });
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [sections]);
 
-    // Set initial active section based on scroll position
-    const initialActive = sections.find(section => {
-      const rect = section.getBoundingClientRect();
-      return rect.top <= offset + 50 && rect.bottom > offset;
-    });
-
-    if (initialActive) {
-      setActiveId(initialActive.id);
-    } else if (sections.length > 0) {
-      // Default to first section if nothing else matches
-      setActiveId(sections[0].id);
-    }
-
-    // Cleanup
-    return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-      }
-      intersectingEntries.clear();
-    };
-  }, [items, offset, rootMarginTop, rootMarginBottom]);
-
-  const handleClick = (e, id) => {
-    e.preventDefault();
+  const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      const offsetPosition = element.offsetTop - offset;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-      // Immediately set as active
-      setActiveId(id);
+      const yOffset = -76; // Scrollspy height only
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
     }
   };
 
-  if (items.length === 0) return null;
-
   return (
-    <nav className="scrollspy-nav">
+    <nav className={`scrollspy-nav ${isSticky ? 'is-sticky' : ''}`}>
       <div className="scrollspy-nav-inner">
         <ul>
-          {items.map((item) => (
-            <li key={item.id}>
+          {sections.map((section) => (
+            <li key={section.id}>
               <a
-                href={`#${item.id}`}
-                className={`scrollspy-link ${activeId === item.id ? 'active' : ''}`}
-                onClick={(e) => handleClick(e, item.id)}
+                href={`#${section.id}`}
+                className={`scrollspy-link ${activeSection === section.id ? "active" : ""}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(section.id);
+                }}
               >
-                {item.label}
+                {section.label}
               </a>
             </li>
           ))}
@@ -133,4 +68,4 @@ const ScrollSpyNav = ({
   );
 };
 
-export default ScrollSpyNav;
+export default ScrollSpy;

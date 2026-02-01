@@ -2,7 +2,7 @@
    HEADER / NAV - Bootstrap Compatible
    ========================= */
 .site-header {
-    position: sticky;
+    position: relative; /* Not sticky - scrolls with page */
     top: 0;
     z-index: 1000;
     background: var(--bg);
