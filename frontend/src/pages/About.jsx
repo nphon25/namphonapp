@@ -1,17 +1,16 @@
 import React from 'react';
-import "../styles/About.css"
+import "../styles/About.css";
 
 const About = () => {
     return (
         <main>
-            {/* ABOUT ME SECTION */}
+            {/* ABOUT ME */}
             <section id="about-me" className="section">
                 <div className="container">
                     <div className="about-layout">
 
-                        {/* TEXT SIDE */}
+                        {/* TEXT */}
                         <div className="about-info">
-                            <p className="about-role"> </p>
 
                             <h1 className="about-name">
                                 Nam Phon
@@ -19,16 +18,27 @@ const About = () => {
                             </h1>
 
                             <p className="about-bio">
-                            Hi, I’m a graphic designer based in Charlotte, NC. Dawn to how design forms connections and brings us together, linking people to ideas, communities, and culture. I enjoy creating designs that leave a lasting impression.                            </p>
-
-
-                           <p className="about-bio">
-                           My process is flexible and human centered, adapting to the scale of each project, whether digital, physical, or somewhere in between. In essence, storytelling is at the core of my design philosophy, which can be translated no matter the medium. I believe the storytelling aspect is what makes a design more tangible.
-                        </p>
+                                Hi, I’m a graphic designer based in Charlotte, NC. I’m drawn to
+                                how design creates connection and brings people together by
+                                linking ideas, communities, and culture. I enjoy creating work
+                                that feels intentional and leaves a lasting impression.
+                            </p>
 
                             <p className="about-bio">
-                            Currently, I'm seeking opportunities in UX/UI or experiential design with teams that value curiosity, collaboration, and innovation. In my spare time, I enjoy photographing my cats, catching up on One Piece or recharging through small creative hobbies.</p>
+                                My process is flexible and human centered, shaped by the needs
+                                of each project. I work across digital and physical spaces,
+                                adjusting my approach based on context, scale, and audience.
+                                Storytelling guides how I think and design, helping ideas feel
+                                clearer and more meaningful.
+                            </p>
 
+                            <p className="about-bio">
+                                I’m currently seeking opportunities in UX/UI or experiential
+                                design with teams that value curiosity, collaboration, and
+                                thoughtful problem solving. Outside of design, I enjoy
+                                photographing my cats, catching up on One Piece, and spending
+                                time on small creative projects.
+                            </p>
 
                             {/* STATS */}
                             <div className="about-stats">
@@ -36,49 +46,54 @@ const About = () => {
                                 <div className="about-stat-row">
                                     <span className="about-stat-label">Focus</span>
                                     <span className="about-stat-value">
-                                        Brand Identity, UX/UI, Visual Systems, Spatial & Experiential Graphic Design
+                                        Brand Identity, UX/UI, Visual Systems,
+                                        Spatial and Experiential Design
                                     </span>
                                 </div>
 
-                                {/* Design Skills */}
                                 <div className="about-stat-row">
                                     <span className="about-stat-label">Design Skills</span>
                                     <span className="about-stat-value">
-                                        Brand Strategy, Logo Design, Editorial & Layout Design, Motion Design, Content Creation
+                                        Brand Strategy, Visual Storytelling,
+                                        Editorial and Layout Design,
+                                        Motion Design, Content Creation
                                     </span>
                                 </div>
 
-                                {/* Technical Skills */}
                                 <div className="about-stat-row">
                                     <span className="about-stat-label">Technical Skills</span>
                                     <span className="about-stat-value">
-                                        Illustrator, Photoshop, InDesign, After Effects, Premiere Pro, Dreamweaver,
-                                        Figma, HTML/CSS (basic), Blender
+                                        Illustrator, Photoshop, InDesign,
+                                        After Effects, Premiere Pro,
+                                        Figma, HTML and CSS basic, Blender
                                     </span>
                                 </div>
 
                             </div>
-                        </div> {/* /.about-info */}
+                        </div>
 
-
-                        {/* VIDEO SIDE */}
+                        {/* VIDEO */}
                         <div className="about-photo">
                             <video
                                 autoPlay
                                 muted
                                 loop
                                 playsInline
-                                aria-label="Introduction video of Nam Phon">
-                                <source src="https://res.cloudinary.com/dvo3q9yny/video/upload/v1769459470/logo_lv2y3g.mp4" type="video/mp4" />
+                                aria-label="Introduction video of Nam Phon"
+                            >
+                                <source
+                                    src="https://res.cloudinary.com/dvo3q9yny/video/upload/v1769459470/logo_lv2y3g.mp4"
+                                    type="video/mp4"
+                                />
                                 Your browser does not support the video tag.
                             </video>
                         </div>
 
-                    </div> {/* /.about-layout */}
-                </div> {/* /.container */}
+                    </div>
+                </div>
             </section>
         </main>
-    );git 
+    );
 };
 
 export default About;

@@ -105,6 +105,17 @@
     width: 100%;
 }
 
+/* Prevent Bootstrap's automatic active class styling */
+.nav-links a.nav-link:not(.active),
+.nav-overlay-links a.nav-link:not(.active) {
+    color: var(--text-light) !important;
+}
+
+.nav-links a.nav-link:not(.active)::after,
+.nav-overlay-links a.nav-link:not(.active)::after {
+    width: 0 !important;
+}
+
 /* =========================
    HAMBURGER → X
    ========================= */

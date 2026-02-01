@@ -72,6 +72,11 @@ const Header = () => {
     return location.pathname === path;
   };
 
+  // Check if we're on home page for Work link
+  const isWorkActive = () => {
+    return location.pathname === '/';
+  };
+
   return (
     <header className="site-header">
       <Navbar expand="md" expanded={expanded} className="py-0">
@@ -86,7 +91,8 @@ const Header = () => {
             <Nav.Link 
               href="#work" 
               onClick={handleWorkClick}
-              className={isActive('/') ? 'active' : ''}
+              className={isWorkActive() ? 'active' : ''}
+              active={false}
             >
               Work
             </Nav.Link>
@@ -95,6 +101,7 @@ const Header = () => {
               to="/archive" 
               onClick={handleClose}
               className={isActive('/archive') ? 'active' : ''}
+              active={false}
             >
               Archive
             </Nav.Link>
@@ -103,6 +110,7 @@ const Header = () => {
               to="/about" 
               onClick={handleClose}
               className={isActive('/about') ? 'active' : ''}
+              active={false}
             >
               About
             </Nav.Link>
@@ -133,7 +141,8 @@ const Header = () => {
               <Nav.Link 
                 href="#work" 
                 onClick={handleWorkClick}
-                className={isActive('/') ? 'active' : ''}
+                className={isWorkActive() ? 'active' : ''}
+                active={false}
               >
                 Work
               </Nav.Link>
@@ -142,6 +151,7 @@ const Header = () => {
                 to="/archive" 
                 onClick={handleClose}
                 className={isActive('/archive') ? 'active' : ''}
+                active={false}
               >
                 Archive
               </Nav.Link>
@@ -150,6 +160,7 @@ const Header = () => {
                 to="/about" 
                 onClick={handleClose}
                 className={isActive('/about') ? 'active' : ''}
+                active={false}
               >
                 About
               </Nav.Link>
