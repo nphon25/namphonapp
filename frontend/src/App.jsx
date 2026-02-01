@@ -9,6 +9,10 @@ import Archive from "./pages/Archive";
 import About from "./pages/About";
 import ProjectPage from "./pages/ProjectPage";
 
+// Import styles
+import "./styles/global.css";
+import "./styles/Footer.css"; 
+
 function App() {
   return (
     <Router>
